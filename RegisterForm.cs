@@ -13,7 +13,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class RegisterForm : Form
     {
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\USER\Documents\movie.mdf;Integrated Security=True;Connect Timeout=30"
+        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\USER\Documents\movie.mdf;Integrated Security=True;Connect Timeout=30";
         public RegisterForm()
         {
             InitializeComponent();
@@ -23,7 +23,6 @@ namespace MovieTicketBookingManagementSystem
         {
             reg_password.PasswordChar = reg_showPassword.Checked ? '\0' : '*';
             reg_cPassword.PasswordChar = reg_showPassword.Checked ? '\0' : '*';
-
         }
 
         private void close_btn_Click(object sender, EventArgs e)
@@ -58,6 +57,13 @@ namespace MovieTicketBookingManagementSystem
                 }
             }
             
+        }
+
+        private void reg_loginBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Hide();
         }
     }
 }

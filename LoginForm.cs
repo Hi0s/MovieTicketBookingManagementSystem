@@ -16,5 +16,22 @@ namespace MovieTicketBookingManagementSystem
         {
             InitializeComponent();
         }
+
+        private void close_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void login_signupBtn_Click(object sender, EventArgs e)
+        {
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
+        }
+
+        private void login_showPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            login_password.PasswordChar=login_showPassword.Checked ? '\0' : '*';
+        }
     }
 }

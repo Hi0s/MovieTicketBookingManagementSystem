@@ -64,9 +64,11 @@
             // 
             // login_username
             // 
+            this.login_username.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_username.Location = new System.Drawing.Point(36, 167);
+            this.login_username.Multiline = true;
             this.login_username.Name = "login_username";
-            this.login_username.Size = new System.Drawing.Size(217, 22);
+            this.login_username.Size = new System.Drawing.Size(224, 31);
             this.login_username.TabIndex = 1;
             // 
             // label3
@@ -82,9 +84,12 @@
             // 
             // login_password
             // 
+            this.login_password.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_password.Location = new System.Drawing.Point(36, 251);
+            this.login_password.Multiline = true;
             this.login_password.Name = "login_password";
-            this.login_password.Size = new System.Drawing.Size(217, 22);
+            this.login_password.PasswordChar = '*';
+            this.login_password.Size = new System.Drawing.Size(224, 31);
             this.login_password.TabIndex = 1;
             // 
             // login_showPassword
@@ -92,12 +97,13 @@
             this.login_showPassword.AutoSize = true;
             this.login_showPassword.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_showPassword.ForeColor = System.Drawing.Color.White;
-            this.login_showPassword.Location = new System.Drawing.Point(36, 288);
+            this.login_showPassword.Location = new System.Drawing.Point(34, 341);
             this.login_showPassword.Name = "login_showPassword";
             this.login_showPassword.Size = new System.Drawing.Size(116, 19);
             this.login_showPassword.TabIndex = 2;
             this.login_showPassword.Text = "Show Password";
             this.login_showPassword.UseVisualStyleBackColor = true;
+            this.login_showPassword.CheckedChanged += new System.EventHandler(this.login_showPassword_CheckedChanged);
             // 
             // login_btn
             // 
@@ -105,7 +111,7 @@
             this.login_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.login_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.login_btn.Location = new System.Drawing.Point(38, 334);
+            this.login_btn.Location = new System.Drawing.Point(36, 387);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(215, 36);
             this.login_btn.TabIndex = 3;
@@ -117,12 +123,13 @@
             this.close_btn.BackColor = System.Drawing.Color.Red;
             this.close_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.close_btn.ForeColor = System.Drawing.Color.White;
-            this.close_btn.Location = new System.Drawing.Point(256, -1);
+            this.close_btn.Location = new System.Drawing.Point(266, -1);
             this.close_btn.Name = "close_btn";
             this.close_btn.Size = new System.Drawing.Size(35, 35);
             this.close_btn.TabIndex = 4;
             this.close_btn.Text = "X";
             this.close_btn.UseVisualStyleBackColor = false;
+            this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
             // label4
             // 
@@ -147,13 +154,14 @@
             this.login_signupBtn.TabIndex = 3;
             this.login_signupBtn.Text = "Register here";
             this.login_signupBtn.UseVisualStyleBackColor = false;
+            this.login_signupBtn.Click += new System.EventHandler(this.login_signupBtn_Click);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(290, 680);
+            this.ClientSize = new System.Drawing.Size(299, 680);
             this.Controls.Add(this.close_btn);
             this.Controls.Add(this.login_signupBtn);
             this.Controls.Add(this.login_btn);
