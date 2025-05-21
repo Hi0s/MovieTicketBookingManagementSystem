@@ -89,3 +89,4 @@ D:\Study\IT\113-2\C\Project\MovieTicketBookingManagementSystem\bin\Debug\zh-Hant
 D:\Study\IT\113-2\C\Project\MovieTicketBookingManagementSystem\bin\Debug\zh-Hant\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 D:\Study\IT\113-2\C\Project\MovieTicketBookingManagementSystem\bin\Debug\zh-Hant\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 D:\Study\IT\113-2\C\Project\MovieTicketBookingManagementSystem\obj\Debug\MovieTic.D592E809.Up2Date
+D:\Study\IT\113-2\C\Project\MovieTicketBookingManagementSystem\obj\Debug\MovieTicketBookingManagementSystem.AdminDashboard.resources
