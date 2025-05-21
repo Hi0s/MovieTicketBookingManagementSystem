@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+using MovieTicketBookingManagementSystem.Resources;
 
 namespace MovieTicketBookingManagementSystem
 {
     public partial class RegisterForm : Form
     {
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\USER\Documents\movie.mdf;Integrated Security=True;Connect Timeout=30";
+        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Study\113-2\C#\MovieTicketBookingManagementSystem\dbo\movie.mdf;Integrated Security=True;Connect Timeout=30";
+        DateTime birthdate;
         public RegisterForm()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace MovieTicketBookingManagementSystem
 
         private void reg_btn_Click(object sender, EventArgs e)
         {
-            if (reg_username.Text == "" || reg_password.Text=="" || reg_cPassword.Text == "")
+            if (reg_username.Text == "" || reg_password.Text=="" || reg_cPassword.Text == "" || (!reg_female_btn.Checked && !reg_male_btn.Checked) || reg_firstName.Text == ""|| reg_lastName.Text=="" || reg_email.Text=="" ||reg_phoneNumber.Text==""||reg_address.Text=="")
             {
                 MessageBox.Show("Please fill all the fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else if (reg_password.Text != reg_cPassword.Text)
@@ -42,17 +45,60 @@ namespace MovieTicketBookingManagementSystem
             {
                 MessageBox.Show("Password must be at least 8 characters", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (birthdate ==DateTime.Today)
+            {
+                MessageBox.Show("Please choose a valid birthdate", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (EmailAddressValidation.IsValid(reg_email.Text))
+            {
+                MessageBox.Show("An email ", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 using (SqlConnection connect = new SqlConnection(conn))
                 {
                     connect.Open();
-                    string checkUsername = "SELECT COUNT (id) FROM users WHERE username = @usern";
-                    
-                    using (SqlCommand checkUsern= new SqlCommand(checkUsername, connect))
+                    string checkUsername = "SELECT * FROM users WHERE username = @usern";
+                    // Check username already in the database or not
+                    using (SqlCommand checkUsern = new SqlCommand(checkUsername, connect))
                     {
-                        checkUsern.Parameters.AddWithValue("@usern",reg_username.Text);
-                        
+                        //Replace @usern with the reg_username from input
+                        checkUsern.Parameters.AddWithValue("@usern", reg_username.Text.Trim());
+                        SqlDataAdapter adapter = new SqlDataAdapter(checkUsern);
+                        DataTable table = new DataTable();
+
+                        adapter.Fill(table);
+                        if (table.Rows.Count > 0)
+                        {
+                            MessageBox.Show("Username \""+reg_username.Text.Trim() + "\" is already taken", "Error Message", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            string insertData = "INSERT INTO users(username,password,firstname,lastname,gender,birthdate,email,phone,address,date_reg)" +
+                                " VALUES(@usern, @pw,@fname,@lname,@gender,@birthdate,@email,@phone,@address,@date_reg)";
+
+                            DateTime today = DateTime.Today;
+                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                            {
+                                cmd.Parameters.AddWithValue("@usern", reg_username.Text.Trim());
+                                cmd.Parameters.AddWithValue("@pw", reg_password.Text.Trim());
+                                cmd.Parameters.AddWithValue("@fname", reg_firstName.Text.Trim());
+                                cmd.Parameters.AddWithValue("@lname", reg_lastName.Text.Trim());
+                                cmd.Parameters.AddWithValue("@gender", reg_female_btn.Checked?"female":"male");
+                                cmd.Parameters.AddWithValue("@birthdate",birthdate);
+                                cmd.Parameters.AddWithValue("@email", reg_email.Text.Trim());
+                                cmd.Parameters.AddWithValue("@phone", reg_phoneNumber.Text.Trim());
+                                cmd.Parameters.AddWithValue("@address", reg_address.Text.Trim());
+                                cmd.Parameters.AddWithValue("@date_reg", today);
+
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Registered Successful", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                LoginForm loginForm = new LoginForm();
+                                loginForm.Show();
+                                this.Hide();
+                            }
+                        }
                     }
                 }
             }
@@ -64,6 +110,21 @@ namespace MovieTicketBookingManagementSystem
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             this.Hide();
+        }
+
+        private void reg_male_btn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reg_female_btn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reg_dateOfBirth_ValueChanged(object sender, EventArgs e)
+        {
+            birthdate = reg_dateOfBirth.Value;
         }
     }
 }

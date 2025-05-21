@@ -32,7 +32,9 @@ namespace MovieTicketBookingManagementSystem
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            
+            admin_dashboard_btn_Click(new object(), new EventArgs());
+            this.AcceptButton=admin_dashboard_btn;
+
 
         }
 

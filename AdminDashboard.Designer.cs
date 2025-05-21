@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.menu_pnl = new System.Windows.Forms.Panel();
+            this.info_pnl = new System.Windows.Forms.Panel();
             this.admin_username_lbl = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.admin_logout_btn = new System.Windows.Forms.Button();
@@ -37,33 +37,36 @@
             this.admin_manageusers_btn = new System.Windows.Forms.Button();
             this.admin_managemovies_btn = new System.Windows.Forms.Button();
             this.admin_dashboard_btn = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.manage_movies_pnl = new System.Windows.Forms.Panel();
+            this.menu_pnl.SuspendLayout();
+            this.info_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // menu_pnl
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.admin_logout_btn);
-            this.panel1.Controls.Add(this.admin_managetickets_btn);
-            this.panel1.Controls.Add(this.admin_manageusers_btn);
-            this.panel1.Controls.Add(this.admin_managemovies_btn);
-            this.panel1.Controls.Add(this.admin_dashboard_btn);
-            this.panel1.Location = new System.Drawing.Point(-7, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(210, 741);
-            this.panel1.TabIndex = 0;
+            this.menu_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.menu_pnl.Controls.Add(this.info_pnl);
+            this.menu_pnl.Controls.Add(this.admin_logout_btn);
+            this.menu_pnl.Controls.Add(this.admin_managetickets_btn);
+            this.menu_pnl.Controls.Add(this.admin_manageusers_btn);
+            this.menu_pnl.Controls.Add(this.admin_managemovies_btn);
+            this.menu_pnl.Controls.Add(this.admin_dashboard_btn);
+            this.menu_pnl.Location = new System.Drawing.Point(-7, 0);
+            this.menu_pnl.Margin = new System.Windows.Forms.Padding(0);
+            this.menu_pnl.Name = "menu_pnl";
+            this.menu_pnl.Size = new System.Drawing.Size(210, 741);
+            this.menu_pnl.TabIndex = 0;
             // 
-            // panel2
+            // info_pnl
             // 
-            this.panel2.Controls.Add(this.admin_username_lbl);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(3, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 188);
-            this.panel2.TabIndex = 14;
+            this.info_pnl.Controls.Add(this.admin_username_lbl);
+            this.info_pnl.Controls.Add(this.pictureBox1);
+            this.info_pnl.Location = new System.Drawing.Point(3, 0);
+            this.info_pnl.Margin = new System.Windows.Forms.Padding(0);
+            this.info_pnl.Name = "info_pnl";
+            this.info_pnl.Size = new System.Drawing.Size(207, 188);
+            this.info_pnl.TabIndex = 14;
             // 
             // admin_username_lbl
             // 
@@ -157,6 +160,7 @@
             // 
             // admin_dashboard_btn
             // 
+            this.admin_dashboard_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
             this.admin_dashboard_btn.FlatAppearance.BorderSize = 0;
             this.admin_dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.admin_dashboard_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
@@ -170,22 +174,31 @@
             this.admin_dashboard_btn.TabIndex = 1;
             this.admin_dashboard_btn.Text = "Dashboard";
             this.admin_dashboard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.admin_dashboard_btn.UseVisualStyleBackColor = true;
+            this.admin_dashboard_btn.UseVisualStyleBackColor = false;
             this.admin_dashboard_btn.Click += new System.EventHandler(this.admin_dashboard_btn_Click);
             this.admin_dashboard_btn.Leave += new System.EventHandler(this.admin_dashboard_btn_Leave);
+            // 
+            // manage_movies_pnl
+            // 
+            this.manage_movies_pnl.Location = new System.Drawing.Point(203, 0);
+            this.manage_movies_pnl.Margin = new System.Windows.Forms.Padding(0);
+            this.manage_movies_pnl.Name = "manage_movies_pnl";
+            this.manage_movies_pnl.Size = new System.Drawing.Size(580, 741);
+            this.manage_movies_pnl.TabIndex = 1;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 741);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(783, 741);
+            this.Controls.Add(this.manage_movies_pnl);
+            this.Controls.Add(this.menu_pnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.menu_pnl.ResumeLayout(false);
+            this.info_pnl.ResumeLayout(false);
+            this.info_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -193,14 +206,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel menu_pnl;
         private System.Windows.Forms.Button admin_dashboard_btn;
         private System.Windows.Forms.Button admin_managetickets_btn;
         private System.Windows.Forms.Button admin_manageusers_btn;
         private System.Windows.Forms.Button admin_managemovies_btn;
         private System.Windows.Forms.Button admin_logout_btn;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel info_pnl;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label admin_username_lbl;
+        private System.Windows.Forms.Panel manage_movies_pnl;
     }
 }
