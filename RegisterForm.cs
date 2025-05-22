@@ -15,7 +15,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class RegisterForm : Form
     {
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Study\113-2\C#\MovieTicketBookingManagementSystem\dbo\movie.mdf;Integrated Security=True;Connect Timeout=30";
+        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30";
         DateTime birthdate;
         public RegisterForm()
         {
@@ -49,9 +49,13 @@ namespace MovieTicketBookingManagementSystem
             {
                 MessageBox.Show("Please choose a valid birthdate", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (EmailAddressValidation.IsValid(reg_email.Text))
+            else if (!EmailAddressValidation.IsValid(reg_email.Text))
             {
-                MessageBox.Show("An email ", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid email address", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!PhoneNumberValidation.IsValid(reg_phoneNumber.Text))
+            {
+                MessageBox.Show("Invalid Phone Number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
