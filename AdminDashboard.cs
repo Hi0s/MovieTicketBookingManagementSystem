@@ -77,5 +77,10 @@ namespace MovieTicketBookingManagementSystem
         {
             admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
