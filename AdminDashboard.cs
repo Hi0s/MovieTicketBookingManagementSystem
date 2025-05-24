@@ -33,8 +33,7 @@ namespace MovieTicketBookingManagementSystem
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             admin_dashboard_btn_Click(new object(), new EventArgs());
-            this.AcceptButton=admin_dashboard_btn;
-
+            this.ActiveControl = admin_dashboard_btn;
 
         }
 
@@ -46,6 +45,9 @@ namespace MovieTicketBookingManagementSystem
         private void admin_managemovies_btn_Click(object sender, EventArgs e)
         {
             admin_managemovies_btn.BackColor = Color.FromArgb(46, 51, 73);
+            // Open the Manage Movies panel
+            // Hide the other panels if they are visible
+
         }
 
         private void admin_manageusers_btn_Click(object sender, EventArgs e)
@@ -76,6 +78,11 @@ namespace MovieTicketBookingManagementSystem
         private void admin_managetickets_btn_Leave(object sender, EventArgs e)
         {
             admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
+        }
+
+        private void admin_addmovies_btn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

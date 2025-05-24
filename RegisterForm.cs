@@ -10,16 +10,20 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using MovieTicketBookingManagementSystem.Resources;
+using System.Runtime.InteropServices;
 
 namespace MovieTicketBookingManagementSystem
 {
     public partial class RegisterForm : Form
     {
+        
+
         string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30";
         DateTime birthdate;
         public RegisterForm()
         {
             InitializeComponent();
+            
         }
 
         private void reg_showPassword_CheckedChanged(object sender, EventArgs e)
@@ -78,8 +82,8 @@ namespace MovieTicketBookingManagementSystem
                         }
                         else
                         {
-                            string insertData = "INSERT INTO users(username,password,firstname,lastname,gender,birthdate,email,phone,address,date_reg)" +
-                                " VALUES(@usern, @pw,@fname,@lname,@gender,@birthdate,@email,@phone,@address,@date_reg)";
+                            string insertData = "INSERT INTO users(Username,Password,Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,CreatedAt)" +
+                                " VALUES(@usern, @pw,@fname,@lname,@gender,@birthdate,@email,@phone,@address,@createdat)";
 
                             DateTime today = DateTime.Today;
                             using (SqlCommand cmd = new SqlCommand(insertData, connect))
@@ -93,7 +97,7 @@ namespace MovieTicketBookingManagementSystem
                                 cmd.Parameters.AddWithValue("@email", reg_email.Text.Trim());
                                 cmd.Parameters.AddWithValue("@phone", reg_phoneNumber.Text.Trim());
                                 cmd.Parameters.AddWithValue("@address", reg_address.Text.Trim());
-                                cmd.Parameters.AddWithValue("@date_reg", today);
+                                cmd.Parameters.AddWithValue("@createdat", today);
 
                                 cmd.ExecuteNonQuery();
                                 MessageBox.Show("Registered Successful", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
