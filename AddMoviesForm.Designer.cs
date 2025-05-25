@@ -41,14 +41,10 @@
             this.addmovie_rating_txt = new System.Windows.Forms.TextBox();
             this.addmovie_release_lbl = new System.Windows.Forms.Label();
             this.addmovie_release_datepicker = new System.Windows.Forms.DateTimePicker();
-            this.addmovie_times_lbl = new System.Windows.Forms.Label();
             this.addmovie_poster_btn = new System.Windows.Forms.Button();
-            this.addmovie_times_dropdownlist = new System.Windows.Forms.ComboBox();
             this.addmovie_poster_lbl = new System.Windows.Forms.Label();
-            this.addmovie_theater_lbl = new System.Windows.Forms.Label();
-            this.addmovie_theater_dropdownbox = new System.Windows.Forms.ComboBox();
             this.addmovie_btn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addmovie_return_btn = new System.Windows.Forms.Button();
             this.addmovie_posterpath_lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -182,17 +178,6 @@
             this.addmovie_release_datepicker.Size = new System.Drawing.Size(218, 26);
             this.addmovie_release_datepicker.TabIndex = 4;
             // 
-            // addmovie_times_lbl
-            // 
-            this.addmovie_times_lbl.AutoSize = true;
-            this.addmovie_times_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_times_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_times_lbl.Location = new System.Drawing.Point(55, 420);
-            this.addmovie_times_lbl.Name = "addmovie_times_lbl";
-            this.addmovie_times_lbl.Size = new System.Drawing.Size(60, 18);
-            this.addmovie_times_lbl.TabIndex = 2;
-            this.addmovie_times_lbl.Text = "Times:";
-            // 
             // addmovie_poster_btn
             // 
             this.addmovie_poster_btn.BackColor = System.Drawing.Color.Gray;
@@ -210,21 +195,6 @@
             this.addmovie_poster_btn.UseVisualStyleBackColor = false;
             this.addmovie_poster_btn.Click += new System.EventHandler(this.admin_addmovies_btn_Click);
             // 
-            // addmovie_times_dropdownlist
-            // 
-            this.addmovie_times_dropdownlist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.addmovie_times_dropdownlist.Font = new System.Drawing.Font("Arial", 12F);
-            this.addmovie_times_dropdownlist.FormattingEnabled = true;
-            this.addmovie_times_dropdownlist.Items.AddRange(new object[] {
-            "09:00 - 12:00",
-            "13:00 - 16:00",
-            "17:00 - 20:00",
-            "21:00 - 24:00"});
-            this.addmovie_times_dropdownlist.Location = new System.Drawing.Point(181, 417);
-            this.addmovie_times_dropdownlist.Name = "addmovie_times_dropdownlist";
-            this.addmovie_times_dropdownlist.Size = new System.Drawing.Size(218, 26);
-            this.addmovie_times_dropdownlist.TabIndex = 18;
-            // 
             // addmovie_poster_lbl
             // 
             this.addmovie_poster_lbl.AutoSize = true;
@@ -236,31 +206,6 @@
             this.addmovie_poster_lbl.TabIndex = 2;
             this.addmovie_poster_lbl.Text = "Poster:";
             // 
-            // addmovie_theater_lbl
-            // 
-            this.addmovie_theater_lbl.AutoSize = true;
-            this.addmovie_theater_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_theater_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_theater_lbl.Location = new System.Drawing.Point(55, 452);
-            this.addmovie_theater_lbl.Name = "addmovie_theater_lbl";
-            this.addmovie_theater_lbl.Size = new System.Drawing.Size(76, 18);
-            this.addmovie_theater_lbl.TabIndex = 2;
-            this.addmovie_theater_lbl.Text = "Theater:";
-            // 
-            // addmovie_theater_dropdownbox
-            // 
-            this.addmovie_theater_dropdownbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.addmovie_theater_dropdownbox.Font = new System.Drawing.Font("Arial", 12F);
-            this.addmovie_theater_dropdownbox.FormattingEnabled = true;
-            this.addmovie_theater_dropdownbox.Items.AddRange(new object[] {
-            "Theater 1",
-            "Theater 2",
-            "Theater 3"});
-            this.addmovie_theater_dropdownbox.Location = new System.Drawing.Point(181, 449);
-            this.addmovie_theater_dropdownbox.Name = "addmovie_theater_dropdownbox";
-            this.addmovie_theater_dropdownbox.Size = new System.Drawing.Size(218, 26);
-            this.addmovie_theater_dropdownbox.TabIndex = 18;
-            // 
             // addmovie_btn
             // 
             this.addmovie_btn.BackColor = System.Drawing.Color.Gray;
@@ -269,7 +214,7 @@
             this.addmovie_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.addmovie_btn.ForeColor = System.Drawing.Color.White;
             this.addmovie_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addmovie_btn.Location = new System.Drawing.Point(181, 524);
+            this.addmovie_btn.Location = new System.Drawing.Point(181, 451);
             this.addmovie_btn.Margin = new System.Windows.Forms.Padding(0);
             this.addmovie_btn.Name = "addmovie_btn";
             this.addmovie_btn.Size = new System.Drawing.Size(137, 47);
@@ -278,21 +223,22 @@
             this.addmovie_btn.UseVisualStyleBackColor = false;
             this.addmovie_btn.Click += new System.EventHandler(this.addmovie_btn_Click);
             // 
-            // button1
+            // addmovie_return_btn
             // 
-            this.button1.BackColor = System.Drawing.Color.Gray;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.returnwhite;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 43);
-            this.button1.TabIndex = 20;
-            this.button1.UseVisualStyleBackColor = false;
+            this.addmovie_return_btn.BackColor = System.Drawing.Color.Gray;
+            this.addmovie_return_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.addmovie_return_btn.FlatAppearance.BorderSize = 0;
+            this.addmovie_return_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addmovie_return_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.addmovie_return_btn.ForeColor = System.Drawing.Color.White;
+            this.addmovie_return_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.returnwhite;
+            this.addmovie_return_btn.Location = new System.Drawing.Point(0, 0);
+            this.addmovie_return_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.addmovie_return_btn.Name = "addmovie_return_btn";
+            this.addmovie_return_btn.Size = new System.Drawing.Size(41, 43);
+            this.addmovie_return_btn.TabIndex = 20;
+            this.addmovie_return_btn.UseVisualStyleBackColor = false;
+            this.addmovie_return_btn.Click += new System.EventHandler(this.addmovie_return_btn_Click);
             // 
             // addmovie_posterpath_lbl
             // 
@@ -309,20 +255,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 601);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(513, 527);
+            this.Controls.Add(this.addmovie_return_btn);
             this.Controls.Add(this.addmovie_btn);
-            this.Controls.Add(this.addmovie_theater_dropdownbox);
-            this.Controls.Add(this.addmovie_times_dropdownlist);
             this.Controls.Add(this.addmovie_poster_btn);
             this.Controls.Add(this.addmovie_release_datepicker);
             this.Controls.Add(this.addmovie_description_txt);
             this.Controls.Add(this.addmovie_description_btn);
             this.Controls.Add(this.addmovie_rating_txt);
-            this.Controls.Add(this.addmovie_theater_lbl);
             this.Controls.Add(this.addmovie_posterpath_lbl);
             this.Controls.Add(this.addmovie_poster_lbl);
-            this.Controls.Add(this.addmovie_times_lbl);
             this.Controls.Add(this.addmovie_release_lbl);
             this.Controls.Add(this.addmovie_rating_lbl);
             this.Controls.Add(this.addmovie_duration_txt);
@@ -355,14 +297,10 @@
         private System.Windows.Forms.TextBox addmovie_rating_txt;
         private System.Windows.Forms.Label addmovie_release_lbl;
         private System.Windows.Forms.DateTimePicker addmovie_release_datepicker;
-        private System.Windows.Forms.Label addmovie_times_lbl;
         private System.Windows.Forms.Button addmovie_poster_btn;
-        private System.Windows.Forms.ComboBox addmovie_times_dropdownlist;
         private System.Windows.Forms.Label addmovie_poster_lbl;
-        private System.Windows.Forms.Label addmovie_theater_lbl;
-        private System.Windows.Forms.ComboBox addmovie_theater_dropdownbox;
         private System.Windows.Forms.Button addmovie_btn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addmovie_return_btn;
         private System.Windows.Forms.Label addmovie_posterpath_lbl;
     }
 }

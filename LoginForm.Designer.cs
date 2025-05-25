@@ -90,7 +90,7 @@
             this.login_password.Name = "login_password";
             this.login_password.PasswordChar = '*';
             this.login_password.Size = new System.Drawing.Size(224, 31);
-            this.login_password.TabIndex = 1;
+            this.login_password.TabIndex = 2;
             // 
             // login_showPassword
             // 
@@ -100,7 +100,7 @@
             this.login_showPassword.Location = new System.Drawing.Point(34, 341);
             this.login_showPassword.Name = "login_showPassword";
             this.login_showPassword.Size = new System.Drawing.Size(116, 19);
-            this.login_showPassword.TabIndex = 2;
+            this.login_showPassword.TabIndex = 3;
             this.login_showPassword.Text = "Show Password";
             this.login_showPassword.UseVisualStyleBackColor = true;
             this.login_showPassword.CheckedChanged += new System.EventHandler(this.login_showPassword_CheckedChanged);
@@ -114,7 +114,8 @@
             this.login_btn.Location = new System.Drawing.Point(36, 387);
             this.login_btn.Name = "login_btn";
             this.login_btn.Size = new System.Drawing.Size(215, 36);
-            this.login_btn.TabIndex = 3;
+            this.login_btn.TabIndex = 4;
+            this.login_btn.TabStop = false;
             this.login_btn.Text = "LOGIN";
             this.login_btn.UseVisualStyleBackColor = false;
             this.login_btn.Click += new System.EventHandler(this.login_btn_Click);
@@ -127,7 +128,8 @@
             this.close_btn.Location = new System.Drawing.Point(266, -1);
             this.close_btn.Name = "close_btn";
             this.close_btn.Size = new System.Drawing.Size(35, 35);
-            this.close_btn.TabIndex = 4;
+            this.close_btn.TabIndex = 6;
+            this.close_btn.TabStop = false;
             this.close_btn.Text = "X";
             this.close_btn.UseVisualStyleBackColor = false;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
@@ -152,7 +154,8 @@
             this.login_signupBtn.Location = new System.Drawing.Point(36, 611);
             this.login_signupBtn.Name = "login_signupBtn";
             this.login_signupBtn.Size = new System.Drawing.Size(215, 36);
-            this.login_signupBtn.TabIndex = 3;
+            this.login_signupBtn.TabIndex = 5;
+            this.login_signupBtn.TabStop = false;
             this.login_signupBtn.Text = "Register here";
             this.login_signupBtn.UseVisualStyleBackColor = false;
             this.login_signupBtn.Click += new System.EventHandler(this.login_signupBtn_Click);
