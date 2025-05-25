@@ -40,49 +40,83 @@ namespace MovieTicketBookingManagementSystem
         private void admin_dashboard_btn_Click(object sender, EventArgs e)
         {
             admin_dashboard_btn.BackColor = Color.FromArgb(46, 51, 73);
+            admin_manageusers_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_managemovies_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
+            // Open the Dashboard panel
+            // Hide the other panels if they are visible
+            //this.admin_dashboard_pnl.BringToFront();
+            //this.admin_dashboard_pnl.Visible = true;
+            this.manage_movies_pnl.Visible = false;
+            //this.manage_users_pnl.Visible = false;
+            //this.manage_tickets_pnl.Visible = false;
+
         }
 
         private void admin_managemovies_btn_Click(object sender, EventArgs e)
         {
             admin_managemovies_btn.BackColor = Color.FromArgb(46, 51, 73);
+            admin_manageusers_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_dashboard_btn.BackColor = Color.FromArgb(79, 144, 255);
             // Open the Manage Movies panel
             // Hide the other panels if they are visible
-
+            this.manage_movies_pnl.BringToFront();
+            this.manage_movies_pnl.Visible = true;
+            //this.manage_users_pnl.Visible = false;
+            //this.manage_tickets_pnl.Visible = false;
+            //this.admin_dashboard_pnl.Visible = false;
         }
 
         private void admin_manageusers_btn_Click(object sender, EventArgs e)
         {
             admin_manageusers_btn.BackColor = Color.FromArgb(46, 51, 73);
+            admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_managemovies_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_dashboard_btn.BackColor = Color.FromArgb(79, 144, 255);
+            // Open the Manage Users panel
+            // Hide the other panels if they are visible
+            //this.manage_users_pnl.BringToFront();
+            //this.manage_users_pnl.Visible = true;
+            //this.admin_dashboard_pnl.Visible = false;
+            this.manage_movies_pnl.Visible = false;
+            //this.manage_tickets_pnl.Visible = false;
         }
 
         private void admin_managetickets_btn_Click(object sender, EventArgs e)
         {
             admin_managetickets_btn.BackColor = Color.FromArgb(46, 51, 73);
-        }
-
-        private void admin_dashboard_btn_Leave(object sender, EventArgs e)
-        {
-            admin_dashboard_btn.BackColor = Color.FromArgb(79, 144, 255); 
-        }
-
-        private void admin_managemovies_btn_Leave(object sender, EventArgs e)
-        {
-            admin_managemovies_btn.BackColor = Color.FromArgb(79, 144, 255);
-        }
-
-        private void admin_manageusers_btn_Leave(object sender, EventArgs e)
-        {
             admin_manageusers_btn.BackColor = Color.FromArgb(79, 144, 255);
-        }
+            admin_managemovies_btn.BackColor = Color.FromArgb(79, 144, 255);
+            admin_dashboard_btn.BackColor = Color.FromArgb(79, 144, 255);
+            // Open the Manage Movies panel
+            // Hide the other panels if they are visible
+            //this.manage_tickets_pnl.BringToFront();
+            //this.manage_tickets_pnl.Visible = true;
+            //this.manage_users_pnl.Visible = false;
+            this.manage_movies_pnl.Visible = false;
+            //this.admin_dashboard_pnl.Visible = false;
+            
 
-        private void admin_managetickets_btn_Leave(object sender, EventArgs e)
-        {
-            admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
+
         }
 
         private void admin_addmovies_btn_Click(object sender, EventArgs e)
         {
-            
+            AddMoviesForm addMoviesForm = new AddMoviesForm();
+            addMoviesForm.ShowDialog();
+        }
+        private void admin_addshowtime_btn_Click_1(object sender, EventArgs e)
+        {
+            AddShowtimeForm addShowtimeForm = new AddShowtimeForm();
+            addShowtimeForm.ShowDialog();
+        }
+
+        private void admin_logout_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }

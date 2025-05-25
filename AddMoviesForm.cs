@@ -14,6 +14,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class AddMoviesForm : Form
     {
+        string poster_path;
         public AddMoviesForm()
         {
             InitializeComponent();
@@ -25,9 +26,7 @@ namespace MovieTicketBookingManagementSystem
                 addmovie_genre_txt.Text == "" ||
                 addmovie_duration_txt.Text == "" ||
                 addmovie_description_txt.Text == "" ||
-                addmovie_rating_txt.Text==""||
-                addmovie_times_dropdownlist.SelectedItem==null||
-                addmovie_theater_dropdownbox.SelectedItem==null)
+                addmovie_rating_txt.Text==""|| addmovie_posterpath_lbl.Text== "No file chosen")
             {
                 MessageBox.Show("Please fill all the fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -41,8 +40,7 @@ namespace MovieTicketBookingManagementSystem
                 {
                     conn.Open();
                     string query = "INSERT INTO movies (Title, Genre, Duration, Description, Rating, PosterPath, CreatedAt)" +
-                        " VALUES (@Title, @Genre, @Duration, @Description, @Rating, @PosterPath,@CreatedAt)\n" +
-                        " INSERT INTO showtimes()";
+                        " VALUES (@Title, @Genre, @Duration, @Description, @Rating, @PosterPath,@CreatedAt)";
                     DateTime today = DateTime.Today;
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -51,12 +49,23 @@ namespace MovieTicketBookingManagementSystem
                         cmd.Parameters.AddWithValue("@Duration", addmovie_duration_txt.Text.Trim());
                         cmd.Parameters.AddWithValue("@Description", addmovie_description_txt.Text.Trim());
                         cmd.Parameters.AddWithValue("@Rating", addmovie_rating_txt.Text.Trim());
-                        cmd.Parameters.AddWithValue("@PosterPath", addmovie_posterpath_lbl.Text.Trim());
+                        cmd.Parameters.AddWithValue("@PosterPath", poster_path.Trim());
                         cmd.Parameters.AddWithValue("@CreatedAt", today);
                         cmd.ExecuteNonQuery();
                     }
+                    conn.Close();
                 }
                 MessageBox.Show("Movie added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                foreach (Control c in this.Controls)
+                {
+                    if (c.GetType() == typeof(TextBox))
+                    {
+                        c.Text = "";
+                    }
+                }
+                addmovie_posterpath_lbl.Text = "No file chosen";
+                poster_path = string.Empty; // Reset the poster path
+                addmovie_release_datepicker.Value = DateTime.Now; // Reset the release date picker to current date
             }
         }
 
@@ -67,9 +76,18 @@ namespace MovieTicketBookingManagementSystem
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 // Load the selected image into the PictureBox
-                string poster_path = openFileDialog.FileName;
+                poster_path = openFileDialog.FileName;
                 addmovie_posterpath_lbl.Text = $"{Path.GetFileName(poster_path)}";
             }
+            else
+            {
+                MessageBox.Show("Please select a poster image", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void addmovie_return_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

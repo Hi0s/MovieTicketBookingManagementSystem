@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MovieTicketBookingManagementSystem.Models;
 
 namespace MovieTicketBookingManagementSystem
 {
@@ -17,6 +18,7 @@ namespace MovieTicketBookingManagementSystem
         public LoginForm()
         {
             InitializeComponent();
+            this.AcceptButton = login_btn;
         }
 
         private void close_btn_Click(object sender, EventArgs e)
@@ -38,7 +40,35 @@ namespace MovieTicketBookingManagementSystem
 
         private void login_btn_Click(object sender, EventArgs e)
         {
+            if (login_username.Text == "" || login_password.Text == "")
+            {
+                MessageBox.Show("Please enter username and password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(UserService.AuthenticateUser(login_username.Text.Trim(), login_password.Text.Trim(),out string role))
+            {
+                MessageBox.Show("Login successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide();
 
+                if (role == "admin")
+                {
+                    AdminDashboard adminDashboard = new AdminDashboard();
+                    adminDashboard.Show();
+                }
+                //else if (role == "user")
+                //{
+                //    UserDashboard userDashboard = new UserDashboard();
+                //    userDashboard.Show();
+                //}
+                else
+                {
+                    MessageBox.Show("Unknown role", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
