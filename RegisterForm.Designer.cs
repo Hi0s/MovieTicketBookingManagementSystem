@@ -269,6 +269,7 @@
             this.reg_male_btn.TabStop = true;
             this.reg_male_btn.Text = "Male";
             this.reg_male_btn.UseVisualStyleBackColor = true;
+            this.reg_male_btn.CheckedChanged += new System.EventHandler(this.reg_male_btn_CheckedChanged);
             // 
             // reg_female_btn
             // 
@@ -282,6 +283,7 @@
             this.reg_female_btn.TabStop = true;
             this.reg_female_btn.Text = "Female";
             this.reg_female_btn.UseVisualStyleBackColor = true;
+            this.reg_female_btn.CheckedChanged += new System.EventHandler(this.reg_female_btn_CheckedChanged);
             // 
             // reg_dateOfBirth
             // 
@@ -291,6 +293,7 @@
             this.reg_dateOfBirth.Name = "reg_dateOfBirth";
             this.reg_dateOfBirth.Size = new System.Drawing.Size(114, 21);
             this.reg_dateOfBirth.TabIndex = 22;
+            this.reg_dateOfBirth.ValueChanged += new System.EventHandler(this.reg_dateOfBirth_ValueChanged);
             // 
             // reg_email
             // 
@@ -387,8 +390,6 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegisterForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
