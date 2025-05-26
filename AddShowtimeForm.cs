@@ -34,7 +34,6 @@ namespace MovieTicketBookingManagementSystem
             addshowtime_startdate_datepicker.MinDate = DateTime.Now;
             addshowtime_enddate_datepicker.Value = end;
             addshowtime_startdate_datepicker.MinDate = DateTime.Now;
-            addshowtime_dailytime_lb.DataSource = dailyTimes;
 
         }
 
@@ -107,42 +106,37 @@ namespace MovieTicketBookingManagementSystem
                 // Code to add showtime to database
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
-
-                    string query = "INSERT INTO showtimes (MovieID, TheaterID,StartTime,TotalSeats,AvailableSeats) " +
-                        "VALUES (@MovieID, @TheaterID,@StartTime,@TotalSeats,@AvailableSeats)";
-                    foreach (DateTime day in EachDay(addshowtime_startdate_datepicker.Value
-                        , addshowtime_enddate_datepicker.Value)) {
-                        foreach (string timeString in addshowtime_dailytime_lb.SelectedItems)
+                    string query = "INSERT INTO showtimes (MovieID, TheaterID, StartTime, TotalSeats, AvailableSeats) " +
+                        "VALUES (@MovieID, @TheaterID, @StartTime, @TotalSeats, @AvailableSeats)";
+                    foreach (string timeString in addshowtime_dailytime_lb.SelectedItems)
+                    {
+                        // Convert the timeString (e.g., "6/10/2024 10:00:00 AM") to DateTime
+                        DateTime fullStartTime;
+                        if (!DateTime.TryParseExact(timeString, "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fullStartTime))
                         {
+                            MessageBox.Show($"Invalid time format: {timeString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
+                        }
+                        var selectedTheater = addshowtime_theater_cb.SelectedItem as Theaters;
+                        int totalSeats = (selectedTheater != null && selectedTheater.TotalSeats > 0)
+                            ? selectedTheater.TotalSeats
+                            : (selectedTheater != null ? selectedTheater.RowsCount * selectedTheater.SeatsPerRow : 0);
 
-                            if (TimeSpan.TryParse(timeString, out var time )==false) {
-                                MessageBox.Show($"Invalid time format: {timeString}");
-                            }
-                            //else if(){
-
-                            //}
-                            else
-                            {
-                                DateTime fullStartTime = day.Add(time);
-                                using (SqlCommand cmd = new SqlCommand(query, conn))
-                                {
-                                    cmd.Parameters.AddWithValue("@MovieID", addshowtime_movie_cb.SelectedValue);
-                                    cmd.Parameters.AddWithValue("@TheaterID", addshowtime_theater_cb.SelectedValue);
-                                    cmd.Parameters.AddWithValue("@StartTime", fullStartTime);
-                                    cmd.Parameters.AddWithValue("@TotalSeats",
-                                        (dynamic)addshowtime_theater_cb.SelectedItem).TotalSeats.ToString();
-                                    cmd.Parameters.AddWithValue("@AvailableSeats",
-                                        (dynamic)addshowtime_theater_cb.SelectedItem).TotalSeats.ToString();
-                                    conn.Open();
-                                    cmd.ExecuteNonQuery();
-                                }
-                            }
-
-                        } 
+                        using (SqlCommand cmd = new SqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@MovieID", addshowtime_movie_cb.SelectedValue);
+                            cmd.Parameters.AddWithValue("@TheaterID", addshowtime_theater_cb.SelectedValue);
+                            cmd.Parameters.AddWithValue("@StartTime", fullStartTime);
+                            cmd.Parameters.AddWithValue("@TotalSeats", totalSeats);
+                            cmd.Parameters.AddWithValue("@AvailableSeats", totalSeats);
+                            conn.Open();
+                            cmd.ExecuteNonQuery();
+                            conn.Close();
+                        }
                     }
-                    conn.Close();
+                    MessageBox.Show("Showtime added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
-                MessageBox.Show("Showtime added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClearForm(); // Clear the form after successful addition
             }
         }
@@ -160,29 +154,91 @@ namespace MovieTicketBookingManagementSystem
             }
 
             addshowtime_enddate_datepicker.MinDate = addshowtime_startdate_datepicker.Value; // Set the minimum date for end date picker to start date
+
+            // Trigger enddate change
+            addshowtime_enddate_datepicker_ValueChanged(sender, EventArgs.Empty);
+         
         }
+
 
         private void addshowtime_enddate_datepicker_ValueChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void addshowtime_theater_cb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            addshowtime_totalseats_lbl.Text = "Total Seats:    " +
-                ((dynamic)addshowtime_theater_cb.SelectedItem).TotalSeats.ToString();
-
-            addshowtime_dailytime_lb.Items.Clear(); // Clear the list box before adding new items
-
-            foreach (var showtime in showtimes)
+            // Focus on the first empty required field
+            if (addshowtime_movie_cb.SelectedValue == null || addshowtime_movie_cb.SelectedIndex == -1)
             {
-                if (showtime.TheaterID.ToString() == addshowtime_theater_cb.SelectedValue.ToString())
+                addshowtime_movie_cb.Focus();
+                addshowtime_dailytime_lb.DataSource = null;
+                return;
+            }
+            if (addshowtime_theater_cb.SelectedValue == null || addshowtime_movie_cb.SelectedIndex == -1)
+            {
+                addshowtime_theater_cb.Focus();
+                addshowtime_dailytime_lb.DataSource = null;
+                return;
+            }
+            if (addshowtime_startdate_datepicker.Value == null)
+            {
+                addshowtime_startdate_datepicker.Focus();
+                addshowtime_dailytime_lb.DataSource = null;
+                return;
+            }
+
+            // Build availableTimes as a list of all date+time combinations in the selected range
+            List<string> availableTimes = new List<string>();
+            DateTime startDate = addshowtime_startdate_datepicker.Value.Date;
+            DateTime endDate = addshowtime_enddate_datepicker.Value.Date;
+
+            foreach (DateTime day in EachDay(startDate, endDate))
+            {
+                foreach (string timeString in dailyTimes)
                 {
-                    DateTime startTime = showtime.StartTime;
-                    string TimeString = startTime.ToString("hh:mm tt"); // Format the time as "hh:mm AM/PM"
+                    if (DateTime.TryParseExact(timeString, "hh:mm tt", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var parsedTime))
+                    {
+                        DateTime fullDateTime = new DateTime(day.Year, day.Month, day.Day, parsedTime.Hour, parsedTime.Minute, 0);
+                        availableTimes.Add(fullDateTime.ToString("M/d/yyyy h:mm:ss tt"));
+                    }
                 }
             }
+
+            // Remove times that already exist as showtimes for the selected theater
+            if (addshowtime_theater_cb.SelectedValue != null)
+            {
+                int selectedTheaterId = (int)addshowtime_theater_cb.SelectedValue;
+                foreach (var showtime in showtimes)
+                {
+                    if (showtime.TheaterID == selectedTheaterId)
+                    {
+                        string showtimeString = showtime.StartTime.ToString("M/d/yyyy h:mm:ss tt");
+                        availableTimes.Remove(showtimeString);
+                    }
+                }
+            }
+
+            // Update the list box with the filtered times
+            addshowtime_dailytime_lb.DataSource = null;
+            addshowtime_dailytime_lb.DataSource = availableTimes;
         }
+        private void addshowtime_theater_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (addshowtime_theater_cb.SelectedItem is Theaters selectedTheater)
+            {
+                // Calculate TotalSeats if not set
+                int totalSeats = selectedTheater.TotalSeats > 0
+                    ? selectedTheater.TotalSeats
+                    : selectedTheater.RowsCount * selectedTheater.SeatsPerRow;
+
+                addshowtime_totalseats_lbl.Text = "Total Seats:    " + totalSeats;
+            }
+            else
+            {
+                addshowtime_totalseats_lbl.Text = "Total Seats:    0";
+             
+            }
+            addshowtime_enddate_datepicker_ValueChanged(sender, EventArgs.Empty);
+
+        }
+
+
 
         private void addshowtime_dailytime_lb_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -207,6 +263,7 @@ namespace MovieTicketBookingManagementSystem
 
         private void addshowtime_movie_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            addshowtime_enddate_datepicker_ValueChanged(sender, EventArgs.Empty);
 
         }
     }
