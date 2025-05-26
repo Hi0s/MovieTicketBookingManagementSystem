@@ -12,14 +12,15 @@ using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
 using MovieTicketBookingManagementSystem.Models;
 using BCrypt.Net;
+using MovieTicketBookingManagementSystem.Config;
 
 namespace MovieTicketBookingManagementSystem
 {
     public partial class RegisterForm : Form
     {
-        
 
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30";
+
+        string conn = DatabaseConfig.ConnectionString;
         private DateTime birthdate;
         private string gender;
         public RegisterForm()

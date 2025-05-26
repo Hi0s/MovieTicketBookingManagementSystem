@@ -1,20 +1,24 @@
-﻿using System;
+﻿using MovieTicketBookingManagementSystem.Config;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace MovieTicketBookingManagementSystem
 {
+
     public partial class AddMoviesForm : Form
     {
         string poster_path;
+        private readonly string connString = DatabaseConfig.ConnectionString;
+
         public AddMoviesForm()
         {
             InitializeComponent();
@@ -36,7 +40,7 @@ namespace MovieTicketBookingManagementSystem
             else
             {
                 // Code to add movie to database
-                using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30"))
+                using (SqlConnection conn = new SqlConnection(connString))
                 {
                     conn.Open();
                     string query = "INSERT INTO movies (Title, Genre, Duration, Description, Rating, PosterPath, CreatedAt)" +

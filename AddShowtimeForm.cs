@@ -1,19 +1,21 @@
-﻿using System;
+﻿using MovieTicketBookingManagementSystem.Config;
+using MovieTicketBookingManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using MovieTicketBookingManagementSystem.Models;
 
 namespace MovieTicketBookingManagementSystem
 {
     public partial class AddShowtimeForm : Form
     {
+        private readonly string connString = DatabaseConfig.ConnectionString;
         private DateTime start;
         private DateTime end;
         private List<string> dailyTimes = new List<string>
@@ -39,7 +41,7 @@ namespace MovieTicketBookingManagementSystem
         private void Add_Showtime_Load(object sender, EventArgs e)
         {
 
-            using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30"))
+            using (SqlConnection conn = new SqlConnection(connString))
             {
                 // Load movies and theaters into the combo boxes
                 conn.Open();
@@ -103,7 +105,7 @@ namespace MovieTicketBookingManagementSystem
             else
             {
                 // Code to add showtime to database
-                using (SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30"))
+                using (SqlConnection conn = new SqlConnection(connString))
                 {
 
                     string query = "INSERT INTO showtimes (MovieID, TheaterID,StartTime,TotalSeats,AvailableSeats) " +

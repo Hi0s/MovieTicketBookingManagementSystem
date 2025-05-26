@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using MovieTicketBookingManagementSystem.Models;
+using MovieTicketBookingManagementSystem.Config;
 
 namespace MovieTicketBookingManagementSystem
 {
     public partial class LoginForm : Form
     {
-        string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30";
+        string conn = DatabaseConfig.ConnectionString;
         public LoginForm()
         {
             InitializeComponent();

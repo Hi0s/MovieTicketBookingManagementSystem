@@ -9,6 +9,6 @@ namespace MovieTicketBookingManagementSystem.Config
     public static class DatabaseConfig
     {
         public static readonly string ConnectionString=
-            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\STUDY\IT\113-2\C\PROJECT\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30";
+            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\MOVIETICKETBOOKINGMANAGEMENTSYSTEM\DBO\MOVIE.MDF;Integrated Security=True;Connect Timeout=30";
     }
 }
