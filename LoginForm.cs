@@ -56,11 +56,11 @@ namespace MovieTicketBookingManagementSystem
                     AdminDashboard adminDashboard = new AdminDashboard();
                     adminDashboard.Show();
                 }
-                //else if (role == "user")
-                //{
-                //    UserDashboard userDashboard = new UserDashboard();
-                //    userDashboard.Show();
-                //}
+                else if (role == "user")
+                {
+                    userdashboard userDashboard = new userdashboard();
+                    userDashboard.Show();
+                }
                 else
                 {
                     MessageBox.Show("Unknown role", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
