@@ -15,6 +15,8 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class AddShowtimeForm : Form
     {
+        public event EventHandler RequestClose;
+
         private readonly string connString = DatabaseConfig.ConnectionString;
         private DateTime start;
         private DateTime end;
@@ -143,9 +145,12 @@ namespace MovieTicketBookingManagementSystem
 
         private void addmovie_return_btn_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // If embedded, raise event; if standalone, close as usual
+            if (RequestClose != null)
+                RequestClose(this, EventArgs.Empty);
+            else
+                this.Close();
         }
-
         private void addshowtime_startdate_datepicker_ValueChanged(object sender, EventArgs e)
         {
             if (addshowtime_enddate_datepicker.Value < addshowtime_startdate_datepicker.Value)

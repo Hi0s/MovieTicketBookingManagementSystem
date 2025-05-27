@@ -109,7 +109,16 @@ namespace MovieTicketBookingManagementSystem
         private void admin_addshowtime_btn_Click_1(object sender, EventArgs e)
         {
             AddShowtimeForm addShowtimeForm = new AddShowtimeForm();
-            addShowtimeForm.ShowDialog();
+            addShowtimeForm.TopLevel = false;
+            addShowtimeForm.FormBorderStyle = FormBorderStyle.None;
+            addShowtimeForm.Dock = DockStyle.Fill;
+
+            // Subscribe to the close event
+            addShowtimeForm.RequestClose += (s, args) => manage_movies_pnl.Controls.Remove(addShowtimeForm);
+
+            manage_movies_pnl.Controls.Add(addShowtimeForm);
+            addShowtimeForm.BringToFront();
+            addShowtimeForm.Show();
         }
 
         private void admin_logout_btn_Click(object sender, EventArgs e)
