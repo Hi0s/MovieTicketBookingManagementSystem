@@ -91,6 +91,13 @@ SELECT * from tickets;
 
 SELECT * from payments;
 
+SELECT movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
+showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath
+FROM showtimes 
+INNER JOIN movies ON showtimes.MovieID = movies.MovieID
+WHERE movies.IsActive =1
+
+
 DELETE FROM users where UserID = 1;
 
 DELETE FROM movies where MovieID = 3;

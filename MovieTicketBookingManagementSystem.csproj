@@ -235,11 +235,7 @@
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\DatabaseConfig.cs" />
-    <Compile Include="managemovieDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>managemovieDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AdminService.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\PasswordHasher.cs" />
     <Compile Include="Models\Payments.cs" />
@@ -302,17 +298,6 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="managemovieDataSet.xsc">
-      <DependentUpon>managemovieDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="managemovieDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>managemovieDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="managemovieDataSet.xss">
-      <DependentUpon>managemovieDataSet.xsd</DependentUpon>
-    </None>
     <EmbeddedResource Include="SeatSelection.resx">
       <DependentUpon>SeatSelection.cs</DependentUpon>
     </EmbeddedResource>

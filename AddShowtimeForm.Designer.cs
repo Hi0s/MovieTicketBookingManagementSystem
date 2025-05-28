@@ -35,9 +35,9 @@
             this.addmovie_form_lbl = new System.Windows.Forms.Label();
             this.addshowtime_movie_cb = new System.Windows.Forms.ComboBox();
             this.moviesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.managemovieDataSet = new MovieTicketBookingManagementSystem.managemovieDataSet();
+
             this.managemovieDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.moviesTableAdapter = new MovieTicketBookingManagementSystem.managemovieDataSetTableAdapters.moviesTableAdapter();
+
             this.addshowtime_theater_lbl = new System.Windows.Forms.Label();
             this.addshowtime_theater_cb = new System.Windows.Forms.ComboBox();
             this.addshowtime_startdate_lbl = new System.Windows.Forms.Label();
@@ -46,14 +46,11 @@
             this.addshowtime_enddate_datepicker = new System.Windows.Forms.DateTimePicker();
             this.addshowtime_dailytime_lbl = new System.Windows.Forms.Label();
             this.theatersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.theatersTableAdapter = new MovieTicketBookingManagementSystem.managemovieDataSetTableAdapters.theatersTableAdapter();
+           
             this.addshowtime_dailytime_lb = new System.Windows.Forms.ListBox();
             this.addshowtime_totalseats_lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.moviesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managemovieDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managemovieDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theatersBindingSource)).BeginInit();
+
             this.SuspendLayout();
             // 
             // addmovie_return_btn
@@ -123,24 +120,9 @@
             this.addshowtime_movie_cb.TabIndex = 39;
             this.addshowtime_movie_cb.SelectedIndexChanged += new System.EventHandler(this.addshowtime_movie_cb_SelectedIndexChanged);
             // 
-            // moviesBindingSource
+
             // 
-            this.moviesBindingSource.DataMember = "movies";
-            this.moviesBindingSource.DataSource = this.managemovieDataSet;
-            // 
-            // managemovieDataSet
-            // 
-            this.managemovieDataSet.DataSetName = "managemovieDataSet";
-            this.managemovieDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // managemovieDataSetBindingSource
-            // 
-            this.managemovieDataSetBindingSource.DataSource = this.managemovieDataSet;
-            this.managemovieDataSetBindingSource.Position = 0;
-            // 
-            // moviesTableAdapter
-            // 
-            this.moviesTableAdapter.ClearBeforeFill = true;
+
             // 
             // addshowtime_theater_lbl
             // 
@@ -222,9 +204,7 @@
             this.theatersBindingSource.DataMember = "theaters";
             this.theatersBindingSource.DataSource = this.managemovieDataSetBindingSource;
             // 
-            // theatersTableAdapter
-            // 
-            this.theatersTableAdapter.ClearBeforeFill = true;
+
             // 
             // addshowtime_dailytime_lb
             // 
@@ -285,7 +265,7 @@
             this.Name = "AddShowtimeForm";
             this.Load += new System.EventHandler(this.Add_Showtime_Load);
             ((System.ComponentModel.ISupportInitialize)(this.moviesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.managemovieDataSet)).EndInit();
+
             ((System.ComponentModel.ISupportInitialize)(this.managemovieDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.theatersBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -300,10 +280,10 @@
         private System.Windows.Forms.Label addshowtime_movie_lbl;
         private System.Windows.Forms.Label addmovie_form_lbl;
         private System.Windows.Forms.ComboBox addshowtime_movie_cb;
-        private managemovieDataSet managemovieDataSet;
+
         private System.Windows.Forms.BindingSource managemovieDataSetBindingSource;
         private System.Windows.Forms.BindingSource moviesBindingSource;
-        private managemovieDataSetTableAdapters.moviesTableAdapter moviesTableAdapter;
+
         private System.Windows.Forms.Label addshowtime_theater_lbl;
         private System.Windows.Forms.ComboBox addshowtime_theater_cb;
         private System.Windows.Forms.Label addshowtime_startdate_lbl;
@@ -312,7 +292,7 @@
         private System.Windows.Forms.DateTimePicker addshowtime_enddate_datepicker;
         private System.Windows.Forms.Label addshowtime_dailytime_lbl;
         private System.Windows.Forms.BindingSource theatersBindingSource;
-        private managemovieDataSetTableAdapters.theatersTableAdapter theatersTableAdapter;
+
         private System.Windows.Forms.ListBox addshowtime_dailytime_lb;
         private System.Windows.Forms.Label addshowtime_totalseats_lbl;
         private System.Windows.Forms.Label label1;

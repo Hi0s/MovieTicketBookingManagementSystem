@@ -30,8 +30,8 @@ namespace MovieTicketBookingManagementSystem.Models
             DateTime today = DateTime.Today;
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query= "INSERT INTO users(Username,Password,Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,CreatedAt)" +
-                                " VALUES(@usern, @pw,@fname,@lname,@gender,@birthdate,@email,@phone,@address,@createdat)";
+                string query= @"INSERT INTO users(Username,Password,Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,CreatedAt)
+                                 VALUES(@usern, @pw,@fname,@lname,@gender,@birthdate,@email,@phone,@address,@createdat)";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     cmd.Parameters.AddWithValue("@usern", user.Username);
