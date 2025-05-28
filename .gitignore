@@ -47,9 +47,6 @@ TestResults/
 publish/
 *.publish.xml
 
-# Local database files
-*.mdf
-*.ldf
 
 # Backup & temporary files
 *.bak
