@@ -15,12 +15,12 @@ namespace MovieTicketBookingManagementSystem.Models
         public decimal Price { get; set; }
         public DateTime BookingTime { get; set; }
         public string Status { get; set; }
-        public DateTime? CancelledTime { get; set; }
+     
 
         public Ticket() { }
 
         public Ticket(int userID, int showtimeID, string seatCode, decimal price,
-                      DateTime bookingTime, string status, DateTime? cancelledTime = null)
+                      DateTime bookingTime, string status)
         {
             UserID = userID;
             ShowtimeID = showtimeID;
@@ -28,7 +28,6 @@ namespace MovieTicketBookingManagementSystem.Models
             Price = price;
             BookingTime = bookingTime;
             Status = status;
-            CancelledTime = cancelledTime;
         }
     }
 }
