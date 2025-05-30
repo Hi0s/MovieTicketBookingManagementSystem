@@ -27,7 +27,7 @@ namespace MovieTicketBookingManagementSystem
 
         );
 
-        
+        Point lastPoint;
 
         public AdminDashboard()
         {
@@ -112,7 +112,21 @@ namespace MovieTicketBookingManagementSystem
         private void admin_addmovies_btn_Click(object sender, EventArgs e)
         {
             AddMoviesForm addMoviesForm = new AddMoviesForm();
-            addMoviesForm.ShowDialog();
+            //addMoviesForm.ShowDialog();
+            addMoviesForm.TopLevel = false;
+            addMoviesForm.FormBorderStyle = FormBorderStyle.None;
+            addMoviesForm.Dock = DockStyle.Fill;
+
+            // Subscribe to the close event
+            addMoviesForm.RequestClose += (s, args) => {
+                manage_movies_pnl.Controls.Remove(addMoviesForm);
+                LoadMoviesGridView(new object(), new EventArgs()); // Refresh the movies grid view
+            };
+
+            manage_movies_pnl.Controls.Add(addMoviesForm);
+            addMoviesForm.BringToFront();
+            addMoviesForm.Show();
+
         }
         private void admin_addshowtime_btn_Click(object sender, EventArgs e)
         {
@@ -122,7 +136,10 @@ namespace MovieTicketBookingManagementSystem
             addShowtimeForm.Dock = DockStyle.Fill;
 
             // Subscribe to the close event
-            addShowtimeForm.RequestClose += (s, args) => manage_movies_pnl.Controls.Remove(addShowtimeForm);
+            addShowtimeForm.RequestClose += (s, args) => {
+                manage_movies_pnl.Controls.Remove(addShowtimeForm);
+                LoadMoviesGridView(new object(), new EventArgs()); // Refresh the movies grid view
+            };
 
             manage_movies_pnl.Controls.Add(addShowtimeForm);
             addShowtimeForm.BringToFront();
@@ -140,6 +157,64 @@ namespace MovieTicketBookingManagementSystem
         private void LoadMoviesGridView(object sender, EventArgs e)
         {
             AdminService.ShowActiveMovies(manage_movie_datagridview);
+        }
+
+        private void admin_movieedit_btn_Click(object sender, EventArgs e)
+        {
+            //if(manage_movie_datagridview.SelectedRows.Count <1)
+            //{
+            //    MessageBox.Show("Please select a movie to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            //}
+            //else if(manage_movie_datagridview.SelectedRows.Count > 1)
+            //{
+            //    MessageBox.Show("Please select only one movie to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+
+                EditMovieForm editMovieForm = new EditMovieForm();
+                editMovieForm.TopLevel = false;
+                editMovieForm.FormBorderStyle = FormBorderStyle.None;
+                editMovieForm.Dock = DockStyle.Fill;
+
+
+                // Subscribe to the close event
+                editMovieForm.RequestClose += (s, args) => {
+                    manage_movies_pnl.Controls.Remove(editMovieForm);
+                    LoadMoviesGridView(new object(), new EventArgs()); // Refresh the movies grid view
+                };
+                manage_movies_pnl.Controls.Add(editMovieForm);
+                editMovieForm.BringToFront();
+                editMovieForm.Show();
+
+        }
+
+        private void AdminDashboard_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button== MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X; // Adjust the offset as needed
+                this.Top += e.Y - lastPoint.Y; // Adjust the offset as needed
+            }
+        }
+
+        private void AdminDashboard_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint=new Point(e.X, e.Y); // Store the current mouse position
+        }
+
+        private void manage_movies_pnl_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y); // Store the current mouse position
+        }
+
+        private void manage_movies_pnl_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X; // Adjust the offset as needed
+                this.Top += e.Y - lastPoint.Y; // Adjust the offset as needed
+            }
         }
     }
 }

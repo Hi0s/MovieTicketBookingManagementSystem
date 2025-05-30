@@ -15,6 +15,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class AddShowtimeForm : Form
     {
+        Point lastPoint;
         public event EventHandler RequestClose;
 
         private readonly string connString = DatabaseConfig.ConnectionString;
@@ -42,51 +43,61 @@ namespace MovieTicketBookingManagementSystem
         private void Add_Showtime_Load(object sender, EventArgs e)
         {
 
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                // Load movies and theaters into the combo boxes
-                conn.Open();
-                string movie_load = "SELECT MovieID, Title FROM movies";
-                string theater_load = "SELECT TheaterID, Name, RowsCount,SeatsPerRow  FROM theaters";
-                string showtimes_load = "SELECT TheaterID, StartTime, Status FROM showtimes";
-                SqlCommand movie_cmd = new SqlCommand(movie_load, conn);
-                SqlCommand theater_cmd = new SqlCommand(theater_load, conn);
-                SqlCommand showtimes_cmd = new SqlCommand(showtimes_load, conn);
+            //using (SqlConnection conn = new SqlConnection(connString))
+            //{
+            //    // Load movies and theaters into the combo boxes
+            //    conn.Open();
+            //    string movie_load = "SELECT MovieID, Title FROM movies";
+            //    string theater_load = "SELECT TheaterID, Name, RowsCount,SeatsPerRow  FROM theaters";
+            //    string showtimes_load = "SELECT TheaterID, StartTime, Status FROM showtimes";
+            //    SqlCommand movie_cmd = new SqlCommand(movie_load, conn);
+            //    SqlCommand theater_cmd = new SqlCommand(theater_load, conn);
+            //    SqlCommand showtimes_cmd = new SqlCommand(showtimes_load, conn);
 
-                SqlDataReader movie_dr = movie_cmd.ExecuteReader();
-                while (movie_dr.Read())
-                {
-                    movies.Add(new Movies{ 
-                        Title = movie_dr["Title"].ToString(),
-                        MovieID = Convert.ToInt32(movie_dr["MovieID"]) 
-                    });
-                }
-                movie_dr.Close(); // Close the reader before executing another command
+            //    SqlDataReader movie_dr = movie_cmd.ExecuteReader();
+            //    while (movie_dr.Read())
+            //    {
+            //        movies.Add(new Movies
+            //        {
+            //            Title = movie_dr["Title"].ToString(),
+            //            MovieID = Convert.ToInt32(movie_dr["MovieID"])
+            //        });
+            //    }
+            //    movie_dr.Close(); // Close the reader before executing another command
 
-                SqlDataReader theater_dr = theater_cmd.ExecuteReader();
-                while (theater_dr.Read())
-                {
-                    theaters.Add(new Theaters{
-                        Name = theater_dr["Name"].ToString(),
-                        TheaterID = Convert.ToInt32(theater_dr["TheaterID"]),
-                        RowsCount = Convert.ToInt32(theater_dr["RowsCount"]),
-                        SeatsPerRow=Convert.ToInt32(theater_dr["SeatsPerRow"])
-                    });
-                }
-                theater_dr.Close();
+            //    SqlDataReader theater_dr = theater_cmd.ExecuteReader();
+            //    while (theater_dr.Read())
+            //    {
+            //        theaters.Add(new Theaters
+            //        {
+            //            Name = theater_dr["Name"].ToString(),
+            //            TheaterID = Convert.ToInt32(theater_dr["TheaterID"]),
+            //            RowsCount = Convert.ToInt32(theater_dr["RowsCount"]),
+            //            SeatsPerRow = Convert.ToInt32(theater_dr["SeatsPerRow"])
+            //        });
+            //    }
+            //    theater_dr.Close();
 
-                SqlDataReader showtimes_dr= showtimes_cmd.ExecuteReader();
-                while (showtimes_dr.Read())
-                {
-                    showtimes.Add(new Showtimes{
-                        TheaterID = Convert.ToInt32(showtimes_dr["TheaterID"]),
-                        StartTime = showtimes_dr.GetDateTime(showtimes_dr.GetOrdinal("StartTime")),
-                        Status = showtimes_dr.ToString()
-                    });
-                }
+            //    SqlDataReader showtimes_dr = showtimes_cmd.ExecuteReader();
+            //    while (showtimes_dr.Read())
+            //    {
+            //        showtimes.Add(new Showtimes
+            //        {
+            //            TheaterID = Convert.ToInt32(showtimes_dr["TheaterID"]),
+            //            StartTime = showtimes_dr.GetDateTime(showtimes_dr.GetOrdinal("StartTime")),
+            //            Status = showtimes_dr.ToString()
+            //        });
+            //    }
 
-                conn.Close();
-            }
+            //    conn.Close();
+            //}
+            movies = AdminService.GetActiveMoviesList(); // Load movies from the database
+            theaters = AdminService.GetActiveTheatersList(); // Load theaters from the database
+            showtimes = AdminService.GetActiveShowtimesList(); // Load showtimes from the database
+
+
+            // Load movies and theaters into the combo boxes
+
             addshowtime_movie_cb.DisplayMember = "Title";
             addshowtime_movie_cb.ValueMember = "MovieID";
             addshowtime_movie_cb.DataSource = movies;
@@ -99,6 +110,8 @@ namespace MovieTicketBookingManagementSystem
 
         private void addshowtime_btn_Click(object sender, EventArgs e)
         {
+            // Use Chinese culture info
+            var chineseCulture = new System.Globalization.CultureInfo("zh-CN");
             if (addshowtime_movie_cb.SelectedValue == null || addshowtime_theater_cb.SelectedValue == null || addshowtime_dailytime_lb.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please select a movie, theater, and showtime.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -114,7 +127,8 @@ namespace MovieTicketBookingManagementSystem
                     {
                         // Convert the timeString (e.g., "6/10/2024 10:00:00 AM") to DateTime
                         DateTime fullStartTime;
-                        if (!DateTime.TryParseExact(timeString, "M/d/yyyy h:mm:ss tt", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fullStartTime))
+
+                        if (!DateTime.TryParseExact(timeString, "M/d/yyyy h:mm:ss tt", chineseCulture, System.Globalization.DateTimeStyles.None, out fullStartTime))
                         {
                             MessageBox.Show($"Invalid time format: {timeString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
@@ -150,6 +164,7 @@ namespace MovieTicketBookingManagementSystem
                 RequestClose(this, EventArgs.Empty);
             else
                 this.Close();
+                
         }
         private void addshowtime_startdate_datepicker_ValueChanged(object sender, EventArgs e)
         {
@@ -270,6 +285,20 @@ namespace MovieTicketBookingManagementSystem
         {
             addshowtime_enddate_datepicker_ValueChanged(sender, EventArgs.Empty);
 
+        }
+
+        private void AddShowtimeForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void AddShowtimeForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && this.ParentForm != null)
+            {
+                this.ParentForm.Left += e.X - lastPoint.X;
+                this.ParentForm.Top += e.Y - lastPoint.Y;
+            }
         }
     }
 }

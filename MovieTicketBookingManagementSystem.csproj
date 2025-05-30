@@ -241,6 +241,21 @@
     <Compile Include="DetailMovie.Designer.cs">
       <DependentUpon>DetailMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMovieForm.Designer.cs">
+      <DependentUpon>EditMovieForm.cs</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="ChooseDateTimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseDateTimeForm.Designer.cs">
+      <DependentUpon>ChooseDateTimeForm.cs</DependentUpon>
+    </Compile>
+>>>>>>> 165d8dadfb56b79704a38a20dd7940aef0bb7a8a
     <Compile Include="Models\AdminService.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\PasswordHasher.cs" />
@@ -291,6 +306,15 @@
     <EmbeddedResource Include="DetailMovie.resx">
       <DependentUpon>DetailMovie.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditMovieForm.resx">
+      <DependentUpon>EditMovieForm.cs</DependentUpon>
+    </EmbeddedResource>
+<<<<<<< HEAD
+=======
+    <EmbeddedResource Include="ChooseDateTimeForm.resx">
+      <DependentUpon>ChooseDateTimeForm.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> 165d8dadfb56b79704a38a20dd7940aef0bb7a8a
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -354,6 +378,7 @@
     <None Include="Resources\circleUser.png" />
     <Content Include="Resources\dashboard.png" />
     <None Include="Resources\listofmovie.png" />
+    <None Include="Resources\moveable.png" />
     <Content Include="Resources\movie.png" />
     <None Include="Resources\ticket.png" />
     <None Include="Resources\returnblack.png" />

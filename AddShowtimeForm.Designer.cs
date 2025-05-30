@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.addmovie_return_btn = new System.Windows.Forms.Button();
             this.addshowtime_btn = new System.Windows.Forms.Button();
             this.addshowtime_movie_lbl = new System.Windows.Forms.Label();
             this.addmovie_form_lbl = new System.Windows.Forms.Label();
             this.addshowtime_movie_cb = new System.Windows.Forms.ComboBox();
-            this.moviesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
-            this.managemovieDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
             this.addshowtime_theater_lbl = new System.Windows.Forms.Label();
             this.addshowtime_theater_cb = new System.Windows.Forms.ComboBox();
             this.addshowtime_startdate_lbl = new System.Windows.Forms.Label();
@@ -45,12 +40,9 @@
             this.addshowtime_enddate_lbl = new System.Windows.Forms.Label();
             this.addshowtime_enddate_datepicker = new System.Windows.Forms.DateTimePicker();
             this.addshowtime_dailytime_lbl = new System.Windows.Forms.Label();
-            this.theatersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-           
             this.addshowtime_dailytime_lb = new System.Windows.Forms.ListBox();
             this.addshowtime_totalseats_lbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-
             this.SuspendLayout();
             // 
             // addmovie_return_btn
@@ -78,7 +70,7 @@
             this.addshowtime_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.addshowtime_btn.ForeColor = System.Drawing.Color.White;
             this.addshowtime_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addshowtime_btn.Location = new System.Drawing.Point(165, 494);
+            this.addshowtime_btn.Location = new System.Drawing.Point(218, 612);
             this.addshowtime_btn.Margin = new System.Windows.Forms.Padding(0);
             this.addshowtime_btn.Name = "addshowtime_btn";
             this.addshowtime_btn.Size = new System.Drawing.Size(162, 47);
@@ -92,7 +84,7 @@
             this.addshowtime_movie_lbl.AutoSize = true;
             this.addshowtime_movie_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_movie_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addshowtime_movie_lbl.Location = new System.Drawing.Point(52, 82);
+            this.addshowtime_movie_lbl.Location = new System.Drawing.Point(105, 144);
             this.addshowtime_movie_lbl.Name = "addshowtime_movie_lbl";
             this.addshowtime_movie_lbl.Size = new System.Drawing.Size(59, 18);
             this.addshowtime_movie_lbl.TabIndex = 26;
@@ -103,7 +95,7 @@
             this.addmovie_form_lbl.AutoSize = true;
             this.addmovie_form_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_form_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_form_lbl.Location = new System.Drawing.Point(161, 31);
+            this.addmovie_form_lbl.Location = new System.Drawing.Point(199, 47);
             this.addmovie_form_lbl.Name = "addmovie_form_lbl";
             this.addmovie_form_lbl.Size = new System.Drawing.Size(203, 24);
             this.addmovie_form_lbl.TabIndex = 28;
@@ -114,22 +106,18 @@
             this.addshowtime_movie_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.addshowtime_movie_cb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_movie_cb.FormattingEnabled = true;
-            this.addshowtime_movie_cb.Location = new System.Drawing.Point(165, 80);
+            this.addshowtime_movie_cb.Location = new System.Drawing.Point(218, 142);
             this.addshowtime_movie_cb.Name = "addshowtime_movie_cb";
             this.addshowtime_movie_cb.Size = new System.Drawing.Size(253, 26);
             this.addshowtime_movie_cb.TabIndex = 39;
             this.addshowtime_movie_cb.SelectedIndexChanged += new System.EventHandler(this.addshowtime_movie_cb_SelectedIndexChanged);
-            // 
-
-            // 
-
             // 
             // addshowtime_theater_lbl
             // 
             this.addshowtime_theater_lbl.AutoSize = true;
             this.addshowtime_theater_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_theater_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addshowtime_theater_lbl.Location = new System.Drawing.Point(52, 134);
+            this.addshowtime_theater_lbl.Location = new System.Drawing.Point(105, 196);
             this.addshowtime_theater_lbl.Name = "addshowtime_theater_lbl";
             this.addshowtime_theater_lbl.Size = new System.Drawing.Size(76, 18);
             this.addshowtime_theater_lbl.TabIndex = 26;
@@ -140,7 +128,7 @@
             this.addshowtime_theater_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.addshowtime_theater_cb.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_theater_cb.FormattingEnabled = true;
-            this.addshowtime_theater_cb.Location = new System.Drawing.Point(165, 131);
+            this.addshowtime_theater_cb.Location = new System.Drawing.Point(218, 193);
             this.addshowtime_theater_cb.Name = "addshowtime_theater_cb";
             this.addshowtime_theater_cb.Size = new System.Drawing.Size(253, 26);
             this.addshowtime_theater_cb.TabIndex = 39;
@@ -151,7 +139,7 @@
             this.addshowtime_startdate_lbl.AutoSize = true;
             this.addshowtime_startdate_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_startdate_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addshowtime_startdate_lbl.Location = new System.Drawing.Point(52, 228);
+            this.addshowtime_startdate_lbl.Location = new System.Drawing.Point(105, 311);
             this.addshowtime_startdate_lbl.Name = "addshowtime_startdate_lbl";
             this.addshowtime_startdate_lbl.Size = new System.Drawing.Size(95, 18);
             this.addshowtime_startdate_lbl.TabIndex = 26;
@@ -160,7 +148,7 @@
             // addshowtime_startdate_datepicker
             // 
             this.addshowtime_startdate_datepicker.Font = new System.Drawing.Font("Arial", 12F);
-            this.addshowtime_startdate_datepicker.Location = new System.Drawing.Point(165, 222);
+            this.addshowtime_startdate_datepicker.Location = new System.Drawing.Point(218, 305);
             this.addshowtime_startdate_datepicker.Name = "addshowtime_startdate_datepicker";
             this.addshowtime_startdate_datepicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addshowtime_startdate_datepicker.Size = new System.Drawing.Size(253, 26);
@@ -172,7 +160,7 @@
             this.addshowtime_enddate_lbl.AutoSize = true;
             this.addshowtime_enddate_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_enddate_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addshowtime_enddate_lbl.Location = new System.Drawing.Point(52, 275);
+            this.addshowtime_enddate_lbl.Location = new System.Drawing.Point(105, 375);
             this.addshowtime_enddate_lbl.Name = "addshowtime_enddate_lbl";
             this.addshowtime_enddate_lbl.Size = new System.Drawing.Size(86, 18);
             this.addshowtime_enddate_lbl.TabIndex = 26;
@@ -181,7 +169,7 @@
             // addshowtime_enddate_datepicker
             // 
             this.addshowtime_enddate_datepicker.Font = new System.Drawing.Font("Arial", 12F);
-            this.addshowtime_enddate_datepicker.Location = new System.Drawing.Point(165, 269);
+            this.addshowtime_enddate_datepicker.Location = new System.Drawing.Point(218, 369);
             this.addshowtime_enddate_datepicker.Name = "addshowtime_enddate_datepicker";
             this.addshowtime_enddate_datepicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addshowtime_enddate_datepicker.Size = new System.Drawing.Size(253, 26);
@@ -193,26 +181,20 @@
             this.addshowtime_dailytime_lbl.AutoSize = true;
             this.addshowtime_dailytime_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_dailytime_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addshowtime_dailytime_lbl.Location = new System.Drawing.Point(52, 330);
+            this.addshowtime_dailytime_lbl.Location = new System.Drawing.Point(105, 448);
             this.addshowtime_dailytime_lbl.Name = "addshowtime_dailytime_lbl";
             this.addshowtime_dailytime_lbl.Size = new System.Drawing.Size(94, 18);
             this.addshowtime_dailytime_lbl.TabIndex = 26;
             this.addshowtime_dailytime_lbl.Text = "Daily Time:";
             // 
-            // theatersBindingSource
-            // 
-            this.theatersBindingSource.DataMember = "theaters";
-            this.theatersBindingSource.DataSource = this.managemovieDataSetBindingSource;
-            // 
-
-            // 
             // addshowtime_dailytime_lb
             // 
             this.addshowtime_dailytime_lb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.addshowtime_dailytime_lb.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addshowtime_dailytime_lb.FormatString = "t";
+            this.addshowtime_dailytime_lb.FormatString = "F";
+            this.addshowtime_dailytime_lb.FormattingEnabled = true;
             this.addshowtime_dailytime_lb.ItemHeight = 17;
-            this.addshowtime_dailytime_lb.Location = new System.Drawing.Point(165, 330);
+            this.addshowtime_dailytime_lb.Location = new System.Drawing.Point(218, 448);
             this.addshowtime_dailytime_lb.Name = "addshowtime_dailytime_lb";
             this.addshowtime_dailytime_lb.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.addshowtime_dailytime_lb.Size = new System.Drawing.Size(184, 87);
@@ -224,7 +206,7 @@
             this.addshowtime_totalseats_lbl.AutoSize = true;
             this.addshowtime_totalseats_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addshowtime_totalseats_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addshowtime_totalseats_lbl.Location = new System.Drawing.Point(52, 176);
+            this.addshowtime_totalseats_lbl.Location = new System.Drawing.Point(105, 250);
             this.addshowtime_totalseats_lbl.Name = "addshowtime_totalseats_lbl";
             this.addshowtime_totalseats_lbl.Size = new System.Drawing.Size(99, 18);
             this.addshowtime_totalseats_lbl.TabIndex = 26;
@@ -235,7 +217,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(52, 441);
+            this.label1.Location = new System.Drawing.Point(105, 559);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(286, 18);
             this.label1.TabIndex = 26;
@@ -245,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 576);
+            this.ClientSize = new System.Drawing.Size(582, 741);
             this.Controls.Add(this.addshowtime_dailytime_lb);
             this.Controls.Add(this.addshowtime_enddate_datepicker);
             this.Controls.Add(this.addshowtime_startdate_datepicker);
@@ -264,10 +246,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddShowtimeForm";
             this.Load += new System.EventHandler(this.Add_Showtime_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.moviesBindingSource)).EndInit();
-
-            ((System.ComponentModel.ISupportInitialize)(this.managemovieDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.theatersBindingSource)).EndInit();
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AddShowtimeForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AddShowtimeForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,9 +261,6 @@
         private System.Windows.Forms.Label addmovie_form_lbl;
         private System.Windows.Forms.ComboBox addshowtime_movie_cb;
 
-        private System.Windows.Forms.BindingSource managemovieDataSetBindingSource;
-        private System.Windows.Forms.BindingSource moviesBindingSource;
-
         private System.Windows.Forms.Label addshowtime_theater_lbl;
         private System.Windows.Forms.ComboBox addshowtime_theater_cb;
         private System.Windows.Forms.Label addshowtime_startdate_lbl;
@@ -291,7 +268,6 @@
         private System.Windows.Forms.Label addshowtime_enddate_lbl;
         private System.Windows.Forms.DateTimePicker addshowtime_enddate_datepicker;
         private System.Windows.Forms.Label addshowtime_dailytime_lbl;
-        private System.Windows.Forms.BindingSource theatersBindingSource;
 
         private System.Windows.Forms.ListBox addshowtime_dailytime_lb;
         private System.Windows.Forms.Label addshowtime_totalseats_lbl;

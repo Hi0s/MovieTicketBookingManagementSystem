@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menu_pnl = new System.Windows.Forms.Panel();
             this.info_pnl = new System.Windows.Forms.Panel();
             this.admin_username_lbl = new System.Windows.Forms.Label();
@@ -39,9 +39,13 @@
             this.admin_managemovies_btn = new System.Windows.Forms.Button();
             this.admin_dashboard_btn = new System.Windows.Forms.Button();
             this.manage_movies_pnl = new System.Windows.Forms.Panel();
+            this.admin_movieedit_btn = new System.Windows.Forms.Button();
             this.admin_addshowtime_btn = new System.Windows.Forms.Button();
             this.admin_addmovies_btn = new System.Windows.Forms.Button();
             this.manage_movie_datagridview = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.menu_pnl.SuspendLayout();
             this.info_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admin_avatar_pic)).BeginInit();
@@ -183,6 +187,10 @@
             // 
             // manage_movies_pnl
             // 
+            this.manage_movies_pnl.Controls.Add(this.radioButton2);
+            this.manage_movies_pnl.Controls.Add(this.radioButton1);
+            this.manage_movies_pnl.Controls.Add(this.button1);
+            this.manage_movies_pnl.Controls.Add(this.admin_movieedit_btn);
             this.manage_movies_pnl.Controls.Add(this.admin_addshowtime_btn);
             this.manage_movies_pnl.Controls.Add(this.admin_addmovies_btn);
             this.manage_movies_pnl.Controls.Add(this.manage_movie_datagridview);
@@ -191,6 +199,25 @@
             this.manage_movies_pnl.Name = "manage_movies_pnl";
             this.manage_movies_pnl.Size = new System.Drawing.Size(582, 741);
             this.manage_movies_pnl.TabIndex = 1;
+            this.manage_movies_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.manage_movies_pnl_MouseDown);
+            this.manage_movies_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.manage_movies_pnl_MouseMove);
+            // 
+            // admin_movieedit_btn
+            // 
+            this.admin_movieedit_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_movieedit_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_movieedit_btn.FlatAppearance.BorderSize = 0;
+            this.admin_movieedit_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_movieedit_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_movieedit_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_movieedit_btn.Location = new System.Drawing.Point(373, 648);
+            this.admin_movieedit_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_movieedit_btn.Name = "admin_movieedit_btn";
+            this.admin_movieedit_btn.Size = new System.Drawing.Size(148, 61);
+            this.admin_movieedit_btn.TabIndex = 16;
+            this.admin_movieedit_btn.Text = "Edit movie";
+            this.admin_movieedit_btn.UseVisualStyleBackColor = false;
+            this.admin_movieedit_btn.Click += new System.EventHandler(this.admin_movieedit_btn_Click);
             // 
             // admin_addshowtime_btn
             // 
@@ -218,10 +245,10 @@
             this.admin_addmovies_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
             this.admin_addmovies_btn.ForeColor = System.Drawing.Color.White;
             this.admin_addmovies_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_addmovies_btn.Location = new System.Drawing.Point(351, 68);
+            this.admin_addmovies_btn.Location = new System.Drawing.Point(387, 68);
             this.admin_addmovies_btn.Margin = new System.Windows.Forms.Padding(0);
             this.admin_addmovies_btn.Name = "admin_addmovies_btn";
-            this.admin_addmovies_btn.Size = new System.Drawing.Size(170, 60);
+            this.admin_addmovies_btn.Size = new System.Drawing.Size(134, 60);
             this.admin_addmovies_btn.TabIndex = 15;
             this.admin_addmovies_btn.Text = "+ Add Movie";
             this.admin_addmovies_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -231,24 +258,64 @@
             // manage_movie_datagridview
             // 
             this.manage_movie_datagridview.AllowUserToAddRows = false;
-            this.manage_movie_datagridview.AllowUserToOrderColumns = true;
+            this.manage_movie_datagridview.AllowUserToDeleteRows = false;
             this.manage_movie_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.manage_movie_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.manage_movie_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.manage_movie_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.manage_movie_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.manage_movie_datagridview.Location = new System.Drawing.Point(40, 205);
             this.manage_movie_datagridview.Margin = new System.Windows.Forms.Padding(2);
             this.manage_movie_datagridview.Name = "manage_movie_datagridview";
+            this.manage_movie_datagridview.ReadOnly = true;
             this.manage_movie_datagridview.RowTemplate.Height = 24;
             this.manage_movie_datagridview.Size = new System.Drawing.Size(481, 408);
             this.manage_movie_datagridview.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(199, 648);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 61);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Edit Showtime";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.admin_movieedit_btn_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(332, 172);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 16);
+            this.radioButton1.TabIndex = 17;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(436, 172);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 16);
+            this.radioButton2.TabIndex = 17;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton1";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // AdminDashboard
             // 
@@ -260,11 +327,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AdminDashboard_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AdminDashboard_MouseMove);
             this.menu_pnl.ResumeLayout(false);
             this.info_pnl.ResumeLayout(false);
             this.info_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.admin_avatar_pic)).EndInit();
             this.manage_movies_pnl.ResumeLayout(false);
+            this.manage_movies_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.manage_movie_datagridview)).EndInit();
             this.ResumeLayout(false);
 
@@ -285,5 +355,9 @@
         private System.Windows.Forms.DataGridView manage_movie_datagridview;
         private System.Windows.Forms.Button admin_addmovies_btn;
         private System.Windows.Forms.Button admin_addshowtime_btn;
+        private System.Windows.Forms.Button admin_movieedit_btn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

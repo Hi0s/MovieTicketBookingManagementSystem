@@ -15,6 +15,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class LoginForm : Form
     {
+        Point lastPoint;
         string conn = DatabaseConfig.ConnectionString;
         public LoginForm()
         {
@@ -69,6 +70,20 @@ namespace MovieTicketBookingManagementSystem
             else
             {
                 MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoginForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void LoginForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
             }
         }
     }
