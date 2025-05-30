@@ -50,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 350);
+            this.panel1.Size = new System.Drawing.Size(900, 323);
             this.panel1.TabIndex = 0;
             // 
             // splitContainer1
@@ -66,7 +66,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(900, 350);
+            this.splitContainer1.Size = new System.Drawing.Size(900, 323);
             this.splitContainer1.SplitterDistance = 220;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -75,7 +75,7 @@
             this.poster_movie.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poster_movie.Location = new System.Drawing.Point(0, 0);
             this.poster_movie.Name = "poster_movie";
-            this.poster_movie.Size = new System.Drawing.Size(220, 350);
+            this.poster_movie.Size = new System.Drawing.Size(220, 323);
             this.poster_movie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.poster_movie.TabIndex = 0;
             this.poster_movie.TabStop = false;
@@ -106,7 +106,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(676, 350);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(676, 323);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -240,9 +240,9 @@
             // 
             // DetailMovie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 350);
+            this.ClientSize = new System.Drawing.Size(900, 323);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -18,7 +18,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class RegisterForm : Form
     {
-
+        Point lastPoint;
 
         string conn = DatabaseConfig.ConnectionString;
         private DateTime birthdate;
@@ -129,6 +129,20 @@ namespace MovieTicketBookingManagementSystem
         private void reg_dateOfBirth_ValueChanged(object sender, EventArgs e)
         {
             birthdate = reg_dateOfBirth.Value;
+        }
+
+        private void RegisterForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void RegisterForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
         }
     }
 }

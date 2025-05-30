@@ -91,6 +91,9 @@ SELECT * from tickets;
 
 SELECT * from payments;
 
+SELECT * FROM movies WHERE IsActive=1
+UPDATE movies SET ReleaseDate = '2023-10-01' WHERE IsActive=1; 
+
 SELECT movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
 showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath
 FROM showtimes 

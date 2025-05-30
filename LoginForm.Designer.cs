@@ -180,6 +180,8 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,6 +16,8 @@ namespace MovieTicketBookingManagementSystem
 
     public partial class AddMoviesForm : Form
     {
+        Point lastPoint;
+        public event EventHandler RequestClose;
         string poster_path;
         private readonly string connString = DatabaseConfig.ConnectionString;
 
@@ -92,6 +94,20 @@ namespace MovieTicketBookingManagementSystem
         private void addmovie_return_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddMoviesForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && this.ParentForm != null)
+            {
+                this.ParentForm.Left += e.X - lastPoint.X;
+                this.ParentForm.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void AddMoviesForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
         }
     }
 }

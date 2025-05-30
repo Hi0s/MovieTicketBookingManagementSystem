@@ -241,6 +241,12 @@
     <Compile Include="DetailMovie.Designer.cs">
       <DependentUpon>DetailMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditMovieForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMovieForm.Designer.cs">
+      <DependentUpon>EditMovieForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AdminService.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\PasswordHasher.cs" />
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DetailMovie.resx">
       <DependentUpon>DetailMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMovieForm.resx">
+      <DependentUpon>EditMovieForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -354,6 +363,7 @@
     <None Include="Resources\circleUser.png" />
     <Content Include="Resources\dashboard.png" />
     <None Include="Resources\listofmovie.png" />
+    <None Include="Resources\moveable.png" />
     <Content Include="Resources\movie.png" />
     <None Include="Resources\ticket.png" />
     <None Include="Resources\returnblack.png" />

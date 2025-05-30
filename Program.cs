@@ -16,8 +16,8 @@ namespace MovieTicketBookingManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new LoginForm());
-            Application.Run(new DetailMovie());
+            Application.Run(new LoginForm());
+            //Application.Run(new DetailMovie());
             //Application.Run(new AddShowtimeForm());
             //Application.Run(new userdashboard());
             // Application.Run(new SeatSelection());

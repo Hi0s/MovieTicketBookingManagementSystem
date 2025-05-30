@@ -93,6 +93,16 @@ namespace MovieTicketBookingManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap moveable {
+            get {
+                object obj = ResourceManager.GetObject("moveable", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap movie {
             get {
                 object obj = ResourceManager.GetObject("movie", resourceCulture);
