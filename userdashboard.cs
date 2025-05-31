@@ -107,7 +107,7 @@ namespace MovieTicketBookingManagementSystem
             // Rating label (second row, with gold star)
             Label ratingLabel = new Label
             {
-                Text = $"★ {rating}/10",
+                Text = $"PG-{rating}",
                 Dock = DockStyle.Top,
                 Height = 24,
                 BackColor = Color.Transparent,
@@ -125,7 +125,7 @@ namespace MovieTicketBookingManagementSystem
             poster.Controls.Add(overlayPanel);
             overlayPanel.BringToFront();
 
-            Button buyButton = new Button
+            Button viewDetail = new Button
             {
                 Text = "View Detail",
                 BackColor = Color.FromArgb(220, 60, 40),
@@ -136,29 +136,80 @@ namespace MovieTicketBookingManagementSystem
                 Visible = false,
                 Tag = movieID
             };
-            buyButton.FlatAppearance.BorderSize = 0;
+
+            // Add event handler for button click
+  
+                viewDetail.Click += (s, e) =>
+                {
+                    // Hide panel1
+                    panel1.Visible = false;
+
+                    // Remove any existing DetailMovie controls
+                    foreach (Control ctrl in manage_movies_pnl.Controls.OfType<DetailMovie>().ToList())
+                    {
+                        manage_movies_pnl.Controls.Remove(ctrl);
+                        ctrl.Dispose();
+                    }
+
+                    // Optionally, pass movieID to DetailMovie via constructor or property if needed
+                    DetailMovie detailForm = new DetailMovie(movieID);
+                    detailForm.TopLevel = false;
+                    detailForm.FormBorderStyle = FormBorderStyle.None;
+                    detailForm.Dock = DockStyle.Fill;
+                    detailForm.RequestClose += (sender2, args2) =>
+                    {
+                        panel1.Visible = true;
+                        manage_movies_pnl.Controls.Remove(detailForm);
+                        detailForm.Dispose();
+                    };
+
+                    manage_movies_pnl.Controls.Add(detailForm);
+                    detailForm.BringToFront();
+                    detailForm.Show();
+                    viewDetail.Text = "View Detail";
+                };
+       
+
+
+            viewDetail.FlatAppearance.BorderSize = 0;
             // Center the button
-            buyButton.Location = new Point(
-                (poster.Width - buyButton.Width) / 2,
-                (poster.Height - buyButton.Height) / 2
+            viewDetail.Location = new Point(
+                (poster.Width - viewDetail.Width) / 2,
+                (poster.Height - viewDetail.Height) / 2
             );
             // Re-center on resize
             poster.Resize += (s, e) =>
             {
-                buyButton.Location = new Point(
-                    (poster.Width - buyButton.Width) / 2,
-                    (poster.Height - buyButton.Height) / 2
+                viewDetail.Location = new Point(
+                    (poster.Width - viewDetail.Width) / 2,
+                    (poster.Height - viewDetail.Height) / 2
                 );
             };
-            poster.Controls.Add(buyButton);
-            buyButton.BringToFront();
+            poster.Controls.Add(viewDetail);
+            viewDetail.BringToFront();
 
             // Show/hide button on hover
-            poster.MouseEnter += (s, e) => buyButton.Visible = true;
-            poster.MouseLeave += (s, e) => buyButton.Visible = false;
-            buyButton.MouseEnter += (s, e) => buyButton.Visible = true;
-            buyButton.MouseLeave += (s, e) => buyButton.Visible = false;
+            Timer hideTimer = new Timer { Interval = 10 }; // 10
 
+            poster.MouseEnter += (s, e) => {
+                hideTimer.Stop();
+                viewDetail.Visible = true;
+            };
+            poster.MouseLeave += (s, e) => {
+                hideTimer.Start();
+            };
+            viewDetail.MouseEnter += (s, e) => {
+                hideTimer.Stop();
+                viewDetail.Visible = true;
+            };
+            viewDetail.MouseLeave += (s, e) => {
+                hideTimer.Start();
+            };
+            hideTimer.Tick += (s, e) => {
+                viewDetail.Visible = false;
+                hideTimer.Stop();
+            };
+          
             card.Controls.Add(poster);
 
 
@@ -257,7 +308,9 @@ namespace MovieTicketBookingManagementSystem
 
         private void admin_logout_btn_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MovieTicketBookingManagementSystem
             Application.Run(new LoginForm());
             //Application.Run(new DetailMovie());
             //Application.Run(new AddShowtimeForm());
-            //Application.Run(new userdashboard());
+            // Application.Run(new userdashboard());
             // Application.Run(new SeatSelection());
         }
     }
