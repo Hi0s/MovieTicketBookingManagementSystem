@@ -17,9 +17,15 @@ namespace MovieTicketBookingManagementSystem.Models
         public Seats(int theaterId, string rowLabel, int seatNumber)
         {
             TheaterId = theaterId;
-            RowLabel = rowLabel;
+            RowLabel = rowLabel; 
             SeatNumber = seatNumber;
+        }
 
+        public Seats(int theaterID, string SeatCode)         
+        {
+            TheaterId = theaterID;
+            RowLabel = SeatCode.Substring(0, 1); // Extracts the row label (e.g., "A" from "A01")
+            SeatNumber = int.Parse(SeatCode.Substring(1)); // Extracts the seat number (e.g., "01" from "A01")
         }
     }
 }

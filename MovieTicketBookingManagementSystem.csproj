@@ -247,15 +247,12 @@
     <Compile Include="EditMovieForm.Designer.cs">
       <DependentUpon>EditMovieForm.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Include="ChooseDateTimeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChooseDateTimeForm.Designer.cs">
       <DependentUpon>ChooseDateTimeForm.cs</DependentUpon>
     </Compile>
->>>>>>> 165d8dadfb56b79704a38a20dd7940aef0bb7a8a
     <Compile Include="Models\AdminService.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\PasswordHasher.cs" />
@@ -309,12 +306,9 @@
     <EmbeddedResource Include="EditMovieForm.resx">
       <DependentUpon>EditMovieForm.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Include="ChooseDateTimeForm.resx">
       <DependentUpon>ChooseDateTimeForm.cs</DependentUpon>
     </EmbeddedResource>
->>>>>>> 165d8dadfb56b79704a38a20dd7940aef0bb7a8a
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -30,8 +30,8 @@
         {
             this.menu_pnl = new System.Windows.Forms.Panel();
             this.admin_username_lbl = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.admin_logout_btn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.yourticket_btn = new System.Windows.Forms.Button();
             this.listofmovie_btn = new System.Windows.Forms.Button();
             this.manage_movies_pnl = new System.Windows.Forms.Panel();
@@ -71,15 +71,6 @@
             this.admin_username_lbl.TabIndex = 1;
             this.admin_username_lbl.Text = "User Name";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 87);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // admin_logout_btn
             // 
             this.admin_logout_btn.BackColor = System.Drawing.Color.White;
@@ -93,6 +84,15 @@
             this.admin_logout_btn.Text = "Log out";
             this.admin_logout_btn.UseVisualStyleBackColor = false;
             this.admin_logout_btn.Click += new System.EventHandler(this.admin_logout_btn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
+            this.pictureBox1.Location = new System.Drawing.Point(64, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(80, 87);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // yourticket_btn
             // 
@@ -182,7 +182,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 618);
             this.Controls.Add(this.panel2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "userdashboard";
             this.Text = "userdashboard";
@@ -190,6 +191,7 @@
             this.menu_pnl.ResumeLayout(false);
             this.menu_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+
             this.manage_movies_pnl.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
