@@ -15,6 +15,7 @@ namespace MovieTicketBookingManagementSystem.Models
         public string Genre { get; set; }
         public int Duration { get; set; } // Duration in minutes
         public string Rating { get; set; } // e.g., "PG-13", "R"
+        public int Pricing { get; set; } // Price of the movie ticket
         public DateTime ReleaseDate { get; set; }
 
         public string PosterImagePath { get; set; }
@@ -22,12 +23,13 @@ namespace MovieTicketBookingManagementSystem.Models
         public DateTime CreatedAt { get; set; }  // Default value for CreatedAt
         public Movies() { }
         public Movies( string title, string description,
-            string genre, int duration, DateTime releaseDate,
+            string genre, int duration, DateTime releaseDate,int pricing,
             string posterImagePath, DateTime createdAt, bool isActive = true)
         {
             Title = title;
             Description = description;
             Genre = genre;
+            Pricing = pricing;
             Duration = duration;
             ReleaseDate = releaseDate;
             PosterImagePath = posterImagePath;

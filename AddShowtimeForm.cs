@@ -43,54 +43,7 @@ namespace MovieTicketBookingManagementSystem
         private void Add_Showtime_Load(object sender, EventArgs e)
         {
 
-            //using (SqlConnection conn = new SqlConnection(connString))
-            //{
-            //    // Load movies and theaters into the combo boxes
-            //    conn.Open();
-            //    string movie_load = "SELECT MovieID, Title FROM movies";
-            //    string theater_load = "SELECT TheaterID, Name, RowsCount,SeatsPerRow  FROM theaters";
-            //    string showtimes_load = "SELECT TheaterID, StartTime, Status FROM showtimes";
-            //    SqlCommand movie_cmd = new SqlCommand(movie_load, conn);
-            //    SqlCommand theater_cmd = new SqlCommand(theater_load, conn);
-            //    SqlCommand showtimes_cmd = new SqlCommand(showtimes_load, conn);
-
-            //    SqlDataReader movie_dr = movie_cmd.ExecuteReader();
-            //    while (movie_dr.Read())
-            //    {
-            //        movies.Add(new Movies
-            //        {
-            //            Title = movie_dr["Title"].ToString(),
-            //            MovieID = Convert.ToInt32(movie_dr["MovieID"])
-            //        });
-            //    }
-            //    movie_dr.Close(); // Close the reader before executing another command
-
-            //    SqlDataReader theater_dr = theater_cmd.ExecuteReader();
-            //    while (theater_dr.Read())
-            //    {
-            //        theaters.Add(new Theaters
-            //        {
-            //            Name = theater_dr["Name"].ToString(),
-            //            TheaterID = Convert.ToInt32(theater_dr["TheaterID"]),
-            //            RowsCount = Convert.ToInt32(theater_dr["RowsCount"]),
-            //            SeatsPerRow = Convert.ToInt32(theater_dr["SeatsPerRow"])
-            //        });
-            //    }
-            //    theater_dr.Close();
-
-            //    SqlDataReader showtimes_dr = showtimes_cmd.ExecuteReader();
-            //    while (showtimes_dr.Read())
-            //    {
-            //        showtimes.Add(new Showtimes
-            //        {
-            //            TheaterID = Convert.ToInt32(showtimes_dr["TheaterID"]),
-            //            StartTime = showtimes_dr.GetDateTime(showtimes_dr.GetOrdinal("StartTime")),
-            //            Status = showtimes_dr.ToString()
-            //        });
-            //    }
-
-            //    conn.Close();
-            //}
+            
             movies = AdminService.GetActiveMoviesList(); // Load movies from the database
             theaters = AdminService.GetActiveTheatersList(); // Load theaters from the database
             showtimes = AdminService.GetActiveShowtimesList(); // Load showtimes from the database

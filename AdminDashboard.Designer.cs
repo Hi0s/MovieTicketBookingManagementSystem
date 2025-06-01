@@ -29,28 +29,34 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menu_pnl = new System.Windows.Forms.Panel();
             this.info_pnl = new System.Windows.Forms.Panel();
             this.admin_username_lbl = new System.Windows.Forms.Label();
-            this.admin_avatar_pic = new System.Windows.Forms.PictureBox();
             this.admin_logout_btn = new System.Windows.Forms.Button();
-            this.admin_managetickets_btn = new System.Windows.Forms.Button();
-            this.admin_manageusers_btn = new System.Windows.Forms.Button();
-            this.admin_managemovies_btn = new System.Windows.Forms.Button();
-            this.admin_dashboard_btn = new System.Windows.Forms.Button();
             this.manage_movies_pnl = new System.Windows.Forms.Panel();
+            this.manage_users_pnl = new System.Windows.Forms.Panel();
+            this.admin_useredit_btn = new System.Windows.Forms.Button();
+            this.manage_users_datagridview = new System.Windows.Forms.DataGridView();
+            this.admin_inactiveshowtimes_rd = new System.Windows.Forms.RadioButton();
+            this.admin_activeshowtimes_rd = new System.Windows.Forms.RadioButton();
+            this.admin_cancelshowtime_btn = new System.Windows.Forms.Button();
             this.admin_movieedit_btn = new System.Windows.Forms.Button();
             this.admin_addshowtime_btn = new System.Windows.Forms.Button();
             this.admin_addmovies_btn = new System.Windows.Forms.Button();
             this.manage_movie_datagridview = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.admin_avatar_pic = new System.Windows.Forms.PictureBox();
+            this.admin_managetickets_btn = new System.Windows.Forms.Button();
+            this.admin_manageusers_btn = new System.Windows.Forms.Button();
+            this.admin_managemovies_btn = new System.Windows.Forms.Button();
+            this.admin_dashboard_btn = new System.Windows.Forms.Button();
             this.menu_pnl.SuspendLayout();
             this.info_pnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.admin_avatar_pic)).BeginInit();
             this.manage_movies_pnl.SuspendLayout();
+            this.manage_users_pnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.manage_users_datagridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manage_movie_datagridview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.admin_avatar_pic)).BeginInit();
             this.SuspendLayout();
             // 
             // menu_pnl
@@ -89,15 +95,6 @@
             this.admin_username_lbl.TabIndex = 1;
             this.admin_username_lbl.Text = "Admin";
             // 
-            // admin_avatar_pic
-            // 
-            this.admin_avatar_pic.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
-            this.admin_avatar_pic.Location = new System.Drawing.Point(61, 12);
-            this.admin_avatar_pic.Name = "admin_avatar_pic";
-            this.admin_avatar_pic.Size = new System.Drawing.Size(80, 80);
-            this.admin_avatar_pic.TabIndex = 0;
-            this.admin_avatar_pic.TabStop = false;
-            // 
             // admin_logout_btn
             // 
             this.admin_logout_btn.BackColor = System.Drawing.Color.White;
@@ -112,84 +109,11 @@
             this.admin_logout_btn.UseVisualStyleBackColor = false;
             this.admin_logout_btn.Click += new System.EventHandler(this.admin_logout_btn_Click);
             // 
-            // admin_managetickets_btn
-            // 
-            this.admin_managetickets_btn.FlatAppearance.BorderSize = 0;
-            this.admin_managetickets_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.admin_managetickets_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.admin_managetickets_btn.ForeColor = System.Drawing.Color.White;
-            this.admin_managetickets_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.ticket;
-            this.admin_managetickets_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_managetickets_btn.Location = new System.Drawing.Point(0, 332);
-            this.admin_managetickets_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.admin_managetickets_btn.Name = "admin_managetickets_btn";
-            this.admin_managetickets_btn.Size = new System.Drawing.Size(210, 47);
-            this.admin_managetickets_btn.TabIndex = 1;
-            this.admin_managetickets_btn.Text = "Manage Tickets";
-            this.admin_managetickets_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.admin_managetickets_btn.UseVisualStyleBackColor = true;
-            this.admin_managetickets_btn.Click += new System.EventHandler(this.admin_managetickets_btn_Click);
-            // 
-            // admin_manageusers_btn
-            // 
-            this.admin_manageusers_btn.FlatAppearance.BorderSize = 0;
-            this.admin_manageusers_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.admin_manageusers_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.admin_manageusers_btn.ForeColor = System.Drawing.Color.White;
-            this.admin_manageusers_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.user;
-            this.admin_manageusers_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_manageusers_btn.Location = new System.Drawing.Point(0, 285);
-            this.admin_manageusers_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.admin_manageusers_btn.Name = "admin_manageusers_btn";
-            this.admin_manageusers_btn.Size = new System.Drawing.Size(210, 47);
-            this.admin_manageusers_btn.TabIndex = 1;
-            this.admin_manageusers_btn.Text = "Manage Users";
-            this.admin_manageusers_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.admin_manageusers_btn.UseVisualStyleBackColor = true;
-            this.admin_manageusers_btn.Click += new System.EventHandler(this.admin_manageusers_btn_Click);
-            // 
-            // admin_managemovies_btn
-            // 
-            this.admin_managemovies_btn.FlatAppearance.BorderSize = 0;
-            this.admin_managemovies_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.admin_managemovies_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.admin_managemovies_btn.ForeColor = System.Drawing.Color.White;
-            this.admin_managemovies_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.movie;
-            this.admin_managemovies_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_managemovies_btn.Location = new System.Drawing.Point(0, 238);
-            this.admin_managemovies_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.admin_managemovies_btn.Name = "admin_managemovies_btn";
-            this.admin_managemovies_btn.Size = new System.Drawing.Size(210, 47);
-            this.admin_managemovies_btn.TabIndex = 1;
-            this.admin_managemovies_btn.Text = "Manage Movies";
-            this.admin_managemovies_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.admin_managemovies_btn.UseVisualStyleBackColor = true;
-            this.admin_managemovies_btn.Click += new System.EventHandler(this.admin_managemovies_btn_Click);
-            // 
-            // admin_dashboard_btn
-            // 
-            this.admin_dashboard_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.admin_dashboard_btn.FlatAppearance.BorderSize = 0;
-            this.admin_dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.admin_dashboard_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.admin_dashboard_btn.ForeColor = System.Drawing.Color.White;
-            this.admin_dashboard_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.dashboard;
-            this.admin_dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.admin_dashboard_btn.Location = new System.Drawing.Point(0, 191);
-            this.admin_dashboard_btn.Margin = new System.Windows.Forms.Padding(0);
-            this.admin_dashboard_btn.Name = "admin_dashboard_btn";
-            this.admin_dashboard_btn.Size = new System.Drawing.Size(210, 47);
-            this.admin_dashboard_btn.TabIndex = 1;
-            this.admin_dashboard_btn.Text = "Dashboard";
-            this.admin_dashboard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.admin_dashboard_btn.UseVisualStyleBackColor = false;
-            this.admin_dashboard_btn.Click += new System.EventHandler(this.admin_dashboard_btn_Click);
-            // 
             // manage_movies_pnl
             // 
-            this.manage_movies_pnl.Controls.Add(this.radioButton2);
-            this.manage_movies_pnl.Controls.Add(this.radioButton1);
-            this.manage_movies_pnl.Controls.Add(this.button1);
+            this.manage_movies_pnl.Controls.Add(this.admin_inactiveshowtimes_rd);
+            this.manage_movies_pnl.Controls.Add(this.admin_activeshowtimes_rd);
+            this.manage_movies_pnl.Controls.Add(this.admin_cancelshowtime_btn);
             this.manage_movies_pnl.Controls.Add(this.admin_movieedit_btn);
             this.manage_movies_pnl.Controls.Add(this.admin_addshowtime_btn);
             this.manage_movies_pnl.Controls.Add(this.admin_addmovies_btn);
@@ -201,6 +125,99 @@
             this.manage_movies_pnl.TabIndex = 1;
             this.manage_movies_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.manage_movies_pnl_MouseDown);
             this.manage_movies_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.manage_movies_pnl_MouseMove);
+            // 
+            // manage_users_pnl
+            // 
+            this.manage_users_pnl.Controls.Add(this.admin_useredit_btn);
+            this.manage_users_pnl.Controls.Add(this.manage_users_datagridview);
+            this.manage_users_pnl.Location = new System.Drawing.Point(203, 0);
+            this.manage_users_pnl.Name = "manage_users_pnl";
+            this.manage_users_pnl.Size = new System.Drawing.Size(579, 741);
+            this.manage_users_pnl.TabIndex = 18;
+            // 
+            // admin_useredit_btn
+            // 
+            this.admin_useredit_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_useredit_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_useredit_btn.FlatAppearance.BorderSize = 0;
+            this.admin_useredit_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_useredit_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_useredit_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_useredit_btn.Location = new System.Drawing.Point(419, 608);
+            this.admin_useredit_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_useredit_btn.Name = "admin_useredit_btn";
+            this.admin_useredit_btn.Size = new System.Drawing.Size(111, 40);
+            this.admin_useredit_btn.TabIndex = 18;
+            this.admin_useredit_btn.Text = "Edit";
+            this.admin_useredit_btn.UseVisualStyleBackColor = false;
+            this.admin_useredit_btn.Click += new System.EventHandler(this.admin_useredit_btn_Click);
+            // 
+            // manage_users_datagridview
+            // 
+            this.manage_users_datagridview.AllowUserToAddRows = false;
+            this.manage_users_datagridview.AllowUserToDeleteRows = false;
+            this.manage_users_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.manage_users_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.manage_users_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.manage_users_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.manage_users_datagridview.Location = new System.Drawing.Point(49, 162);
+            this.manage_users_datagridview.Margin = new System.Windows.Forms.Padding(2);
+            this.manage_users_datagridview.Name = "manage_users_datagridview";
+            this.manage_users_datagridview.ReadOnly = true;
+            this.manage_users_datagridview.RowTemplate.Height = 24;
+            this.manage_users_datagridview.Size = new System.Drawing.Size(481, 408);
+            this.manage_users_datagridview.TabIndex = 17;
+            // 
+            // admin_inactiveshowtimes_rd
+            // 
+            this.admin_inactiveshowtimes_rd.AutoSize = true;
+            this.admin_inactiveshowtimes_rd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_inactiveshowtimes_rd.Location = new System.Drawing.Point(366, 162);
+            this.admin_inactiveshowtimes_rd.Name = "admin_inactiveshowtimes_rd";
+            this.admin_inactiveshowtimes_rd.Size = new System.Drawing.Size(155, 26);
+            this.admin_inactiveshowtimes_rd.TabIndex = 17;
+            this.admin_inactiveshowtimes_rd.TabStop = true;
+            this.admin_inactiveshowtimes_rd.Text = "Show Inactive";
+            this.admin_inactiveshowtimes_rd.UseVisualStyleBackColor = true;
+            this.admin_inactiveshowtimes_rd.CheckedChanged += new System.EventHandler(this.admin_inactiveshowtimes_rd_CheckedChanged);
+            // 
+            // admin_activeshowtimes_rd
+            // 
+            this.admin_activeshowtimes_rd.AutoSize = true;
+            this.admin_activeshowtimes_rd.Checked = true;
+            this.admin_activeshowtimes_rd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_activeshowtimes_rd.Location = new System.Drawing.Point(199, 162);
+            this.admin_activeshowtimes_rd.Name = "admin_activeshowtimes_rd";
+            this.admin_activeshowtimes_rd.Size = new System.Drawing.Size(141, 26);
+            this.admin_activeshowtimes_rd.TabIndex = 17;
+            this.admin_activeshowtimes_rd.TabStop = true;
+            this.admin_activeshowtimes_rd.Text = "Show Active";
+            this.admin_activeshowtimes_rd.UseVisualStyleBackColor = true;
+            this.admin_activeshowtimes_rd.CheckedChanged += new System.EventHandler(this.admin_activeshowtimes_rd_CheckedChanged);
+            // 
+            // admin_cancelshowtime_btn
+            // 
+            this.admin_cancelshowtime_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_cancelshowtime_btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_cancelshowtime_btn.FlatAppearance.BorderSize = 0;
+            this.admin_cancelshowtime_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_cancelshowtime_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_cancelshowtime_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_cancelshowtime_btn.Location = new System.Drawing.Point(155, 648);
+            this.admin_cancelshowtime_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_cancelshowtime_btn.Name = "admin_cancelshowtime_btn";
+            this.admin_cancelshowtime_btn.Size = new System.Drawing.Size(181, 61);
+            this.admin_cancelshowtime_btn.TabIndex = 16;
+            this.admin_cancelshowtime_btn.Text = "Cancel Showtime";
+            this.admin_cancelshowtime_btn.UseVisualStyleBackColor = false;
+            this.admin_cancelshowtime_btn.Click += new System.EventHandler(this.admin_cancelshowtime_btn_Click);
             // 
             // admin_movieedit_btn
             // 
@@ -261,14 +278,14 @@
             this.manage_movie_datagridview.AllowUserToDeleteRows = false;
             this.manage_movie_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.manage_movie_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.manage_movie_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.manage_movie_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.manage_movie_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.manage_movie_datagridview.Location = new System.Drawing.Point(40, 205);
             this.manage_movie_datagridview.Margin = new System.Windows.Forms.Padding(2);
@@ -278,52 +295,96 @@
             this.manage_movie_datagridview.Size = new System.Drawing.Size(481, 408);
             this.manage_movie_datagridview.TabIndex = 0;
             // 
-            // button1
+            // admin_avatar_pic
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(199, 648);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 61);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Edit Showtime";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.admin_movieedit_btn_Click);
+            this.admin_avatar_pic.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
+            this.admin_avatar_pic.Location = new System.Drawing.Point(61, 12);
+            this.admin_avatar_pic.Name = "admin_avatar_pic";
+            this.admin_avatar_pic.Size = new System.Drawing.Size(80, 80);
+            this.admin_avatar_pic.TabIndex = 0;
+            this.admin_avatar_pic.TabStop = false;
             // 
-            // radioButton1
+            // admin_managetickets_btn
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(332, 172);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 16);
-            this.radioButton1.TabIndex = 17;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.admin_managetickets_btn.FlatAppearance.BorderSize = 0;
+            this.admin_managetickets_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admin_managetickets_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_managetickets_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_managetickets_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.ticket;
+            this.admin_managetickets_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_managetickets_btn.Location = new System.Drawing.Point(0, 332);
+            this.admin_managetickets_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_managetickets_btn.Name = "admin_managetickets_btn";
+            this.admin_managetickets_btn.Size = new System.Drawing.Size(210, 47);
+            this.admin_managetickets_btn.TabIndex = 4;
+            this.admin_managetickets_btn.Text = "Manage Tickets";
+            this.admin_managetickets_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.admin_managetickets_btn.UseVisualStyleBackColor = true;
+            this.admin_managetickets_btn.Click += new System.EventHandler(this.admin_managetickets_btn_Click);
             // 
-            // radioButton2
+            // admin_manageusers_btn
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(436, 172);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 16);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton1";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.admin_manageusers_btn.FlatAppearance.BorderSize = 0;
+            this.admin_manageusers_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admin_manageusers_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_manageusers_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_manageusers_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.user;
+            this.admin_manageusers_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_manageusers_btn.Location = new System.Drawing.Point(0, 285);
+            this.admin_manageusers_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_manageusers_btn.Name = "admin_manageusers_btn";
+            this.admin_manageusers_btn.Size = new System.Drawing.Size(210, 47);
+            this.admin_manageusers_btn.TabIndex = 3;
+            this.admin_manageusers_btn.Text = "Manage Users";
+            this.admin_manageusers_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.admin_manageusers_btn.UseVisualStyleBackColor = true;
+            this.admin_manageusers_btn.Click += new System.EventHandler(this.admin_manageusers_btn_Click);
+            // 
+            // admin_managemovies_btn
+            // 
+            this.admin_managemovies_btn.FlatAppearance.BorderSize = 0;
+            this.admin_managemovies_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admin_managemovies_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_managemovies_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_managemovies_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.movie;
+            this.admin_managemovies_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_managemovies_btn.Location = new System.Drawing.Point(0, 238);
+            this.admin_managemovies_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_managemovies_btn.Name = "admin_managemovies_btn";
+            this.admin_managemovies_btn.Size = new System.Drawing.Size(210, 47);
+            this.admin_managemovies_btn.TabIndex = 2;
+            this.admin_managemovies_btn.Text = "Manage Movies";
+            this.admin_managemovies_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.admin_managemovies_btn.UseVisualStyleBackColor = true;
+            this.admin_managemovies_btn.Click += new System.EventHandler(this.admin_managemovies_btn_Click);
+            // 
+            // admin_dashboard_btn
+            // 
+            this.admin_dashboard_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.admin_dashboard_btn.FlatAppearance.BorderSize = 0;
+            this.admin_dashboard_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.admin_dashboard_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F);
+            this.admin_dashboard_btn.ForeColor = System.Drawing.Color.White;
+            this.admin_dashboard_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.dashboard;
+            this.admin_dashboard_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.admin_dashboard_btn.Location = new System.Drawing.Point(0, 191);
+            this.admin_dashboard_btn.Margin = new System.Windows.Forms.Padding(0);
+            this.admin_dashboard_btn.Name = "admin_dashboard_btn";
+            this.admin_dashboard_btn.Size = new System.Drawing.Size(210, 47);
+            this.admin_dashboard_btn.TabIndex = 1;
+            this.admin_dashboard_btn.Text = "Dashboard";
+            this.admin_dashboard_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.admin_dashboard_btn.UseVisualStyleBackColor = false;
+            this.admin_dashboard_btn.Click += new System.EventHandler(this.admin_dashboard_btn_Click);
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 741);
-            this.Controls.Add(this.menu_pnl);
+            this.Controls.Add(this.manage_users_pnl);
             this.Controls.Add(this.manage_movies_pnl);
+            this.Controls.Add(this.menu_pnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
@@ -332,10 +393,12 @@
             this.menu_pnl.ResumeLayout(false);
             this.info_pnl.ResumeLayout(false);
             this.info_pnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.admin_avatar_pic)).EndInit();
             this.manage_movies_pnl.ResumeLayout(false);
             this.manage_movies_pnl.PerformLayout();
+            this.manage_users_pnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.manage_users_datagridview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manage_movie_datagridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.admin_avatar_pic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -356,8 +419,11 @@
         private System.Windows.Forms.Button admin_addmovies_btn;
         private System.Windows.Forms.Button admin_addshowtime_btn;
         private System.Windows.Forms.Button admin_movieedit_btn;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button admin_cancelshowtime_btn;
+        private System.Windows.Forms.RadioButton admin_inactiveshowtimes_rd;
+        private System.Windows.Forms.RadioButton admin_activeshowtimes_rd;
+        private System.Windows.Forms.Panel manage_users_pnl;
+        private System.Windows.Forms.Button admin_useredit_btn;
+        private System.Windows.Forms.DataGridView manage_users_datagridview;
     }
 }

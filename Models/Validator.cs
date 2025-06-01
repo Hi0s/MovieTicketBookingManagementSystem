@@ -19,5 +19,6 @@ namespace MovieTicketBookingManagementSystem.Models
             string regex = @"^09\d{8}$";
             return Regex.IsMatch(phone, regex, RegexOptions.IgnoreCase);
         }
+
     }
 }

@@ -50,8 +50,10 @@
             this.editmovie_slmovie_cb = new System.Windows.Forms.ComboBox();
             this.editmovie_IsActive_lbl = new System.Windows.Forms.Label();
             this.editmovie_active_rd = new System.Windows.Forms.RadioButton();
-            this.editmovie_deactive_rd = new System.Windows.Forms.RadioButton();
+            this.editmovie_inactive_rd = new System.Windows.Forms.RadioButton();
             this.editmovie_CreatedAt_lbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.editmovie_price_txt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // editmovie_save_btn
@@ -99,7 +101,7 @@
             // editmovie_description_txt
             // 
             this.editmovie_description_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editmovie_description_txt.Location = new System.Drawing.Point(227, 180);
+            this.editmovie_description_txt.Location = new System.Drawing.Point(227, 141);
             this.editmovie_description_txt.Multiline = true;
             this.editmovie_description_txt.Name = "editmovie_description_txt";
             this.editmovie_description_txt.Size = new System.Drawing.Size(277, 112);
@@ -110,7 +112,7 @@
             this.editmovie_description_lbl.AutoSize = true;
             this.editmovie_description_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editmovie_description_lbl.ForeColor = System.Drawing.Color.Black;
-            this.editmovie_description_lbl.Location = new System.Drawing.Point(87, 180);
+            this.editmovie_description_lbl.Location = new System.Drawing.Point(87, 141);
             this.editmovie_description_lbl.Name = "editmovie_description_lbl";
             this.editmovie_description_lbl.Size = new System.Drawing.Size(109, 18);
             this.editmovie_description_lbl.TabIndex = 29;
@@ -119,7 +121,7 @@
             // editmovie_rating_txt
             // 
             this.editmovie_rating_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editmovie_rating_txt.Location = new System.Drawing.Point(227, 422);
+            this.editmovie_rating_txt.Location = new System.Drawing.Point(227, 383);
             this.editmovie_rating_txt.Multiline = true;
             this.editmovie_rating_txt.Name = "editmovie_rating_txt";
             this.editmovie_rating_txt.Size = new System.Drawing.Size(218, 27);
@@ -163,7 +165,7 @@
             this.editmovie_rating_lbl.AutoSize = true;
             this.editmovie_rating_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editmovie_rating_lbl.ForeColor = System.Drawing.Color.Black;
-            this.editmovie_rating_lbl.Location = new System.Drawing.Point(87, 425);
+            this.editmovie_rating_lbl.Location = new System.Drawing.Point(87, 386);
             this.editmovie_rating_lbl.Name = "editmovie_rating_lbl";
             this.editmovie_rating_lbl.Size = new System.Drawing.Size(65, 18);
             this.editmovie_rating_lbl.TabIndex = 24;
@@ -172,7 +174,7 @@
             // editmovie_duration_txt
             // 
             this.editmovie_duration_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editmovie_duration_txt.Location = new System.Drawing.Point(227, 366);
+            this.editmovie_duration_txt.Location = new System.Drawing.Point(227, 327);
             this.editmovie_duration_txt.Multiline = true;
             this.editmovie_duration_txt.Name = "editmovie_duration_txt";
             this.editmovie_duration_txt.Size = new System.Drawing.Size(218, 27);
@@ -183,7 +185,7 @@
             this.editmovie_duration_lbl.AutoSize = true;
             this.editmovie_duration_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editmovie_duration_lbl.ForeColor = System.Drawing.Color.Black;
-            this.editmovie_duration_lbl.Location = new System.Drawing.Point(87, 369);
+            this.editmovie_duration_lbl.Location = new System.Drawing.Point(87, 330);
             this.editmovie_duration_lbl.Name = "editmovie_duration_lbl";
             this.editmovie_duration_lbl.Size = new System.Drawing.Size(82, 18);
             this.editmovie_duration_lbl.TabIndex = 23;
@@ -192,7 +194,7 @@
             // editmovie_genre_txt
             // 
             this.editmovie_genre_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editmovie_genre_txt.Location = new System.Drawing.Point(227, 314);
+            this.editmovie_genre_txt.Location = new System.Drawing.Point(227, 275);
             this.editmovie_genre_txt.Multiline = true;
             this.editmovie_genre_txt.Name = "editmovie_genre_txt";
             this.editmovie_genre_txt.Size = new System.Drawing.Size(218, 27);
@@ -203,7 +205,7 @@
             this.editmovie_genre_lbl.AutoSize = true;
             this.editmovie_genre_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editmovie_genre_lbl.ForeColor = System.Drawing.Color.Black;
-            this.editmovie_genre_lbl.Location = new System.Drawing.Point(87, 317);
+            this.editmovie_genre_lbl.Location = new System.Drawing.Point(87, 278);
             this.editmovie_genre_lbl.Name = "editmovie_genre_lbl";
             this.editmovie_genre_lbl.Size = new System.Drawing.Size(63, 18);
             this.editmovie_genre_lbl.TabIndex = 22;
@@ -212,7 +214,7 @@
             // editmovie_title_txt
             // 
             this.editmovie_title_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editmovie_title_txt.Location = new System.Drawing.Point(227, 137);
+            this.editmovie_title_txt.Location = new System.Drawing.Point(227, 98);
             this.editmovie_title_txt.Multiline = true;
             this.editmovie_title_txt.Name = "editmovie_title_txt";
             this.editmovie_title_txt.Size = new System.Drawing.Size(277, 27);
@@ -223,7 +225,7 @@
             this.editmovie_title_btn.AutoSize = true;
             this.editmovie_title_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editmovie_title_btn.ForeColor = System.Drawing.Color.Black;
-            this.editmovie_title_btn.Location = new System.Drawing.Point(87, 137);
+            this.editmovie_title_btn.Location = new System.Drawing.Point(87, 98);
             this.editmovie_title_btn.Name = "editmovie_title_btn";
             this.editmovie_title_btn.Size = new System.Drawing.Size(47, 18);
             this.editmovie_title_btn.TabIndex = 26;
@@ -234,7 +236,7 @@
             this.editmovie_lbl.AutoSize = true;
             this.editmovie_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editmovie_lbl.ForeColor = System.Drawing.Color.Black;
-            this.editmovie_lbl.Location = new System.Drawing.Point(240, 52);
+            this.editmovie_lbl.Location = new System.Drawing.Point(240, 13);
             this.editmovie_lbl.Name = "editmovie_lbl";
             this.editmovie_lbl.Size = new System.Drawing.Size(69, 24);
             this.editmovie_lbl.TabIndex = 28;
@@ -262,7 +264,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(87, 93);
+            this.label1.Location = new System.Drawing.Point(87, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 18);
             this.label1.TabIndex = 26;
@@ -273,7 +275,7 @@
             this.editmovie_slmovie_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editmovie_slmovie_cb.Font = new System.Drawing.Font("Arial", 12F);
             this.editmovie_slmovie_cb.FormattingEnabled = true;
-            this.editmovie_slmovie_cb.Location = new System.Drawing.Point(227, 93);
+            this.editmovie_slmovie_cb.Location = new System.Drawing.Point(227, 54);
             this.editmovie_slmovie_cb.Name = "editmovie_slmovie_cb";
             this.editmovie_slmovie_cb.Size = new System.Drawing.Size(190, 26);
             this.editmovie_slmovie_cb.TabIndex = 39;
@@ -301,18 +303,20 @@
             this.editmovie_active_rd.TabStop = true;
             this.editmovie_active_rd.Text = "Activate";
             this.editmovie_active_rd.UseVisualStyleBackColor = true;
+            this.editmovie_active_rd.CheckedChanged += new System.EventHandler(this.editmovie_active_rd_CheckedChanged);
             // 
-            // editmovie_deactive_rd
+            // editmovie_inactive_rd
             // 
-            this.editmovie_deactive_rd.AutoSize = true;
-            this.editmovie_deactive_rd.Font = new System.Drawing.Font("Arial", 12F);
-            this.editmovie_deactive_rd.Location = new System.Drawing.Point(339, 574);
-            this.editmovie_deactive_rd.Name = "editmovie_deactive_rd";
-            this.editmovie_deactive_rd.Size = new System.Drawing.Size(101, 22);
-            this.editmovie_deactive_rd.TabIndex = 40;
-            this.editmovie_deactive_rd.TabStop = true;
-            this.editmovie_deactive_rd.Text = "Deactivate";
-            this.editmovie_deactive_rd.UseVisualStyleBackColor = true;
+            this.editmovie_inactive_rd.AutoSize = true;
+            this.editmovie_inactive_rd.Font = new System.Drawing.Font("Arial", 12F);
+            this.editmovie_inactive_rd.Location = new System.Drawing.Point(339, 574);
+            this.editmovie_inactive_rd.Name = "editmovie_inactive_rd";
+            this.editmovie_inactive_rd.Size = new System.Drawing.Size(101, 22);
+            this.editmovie_inactive_rd.TabIndex = 40;
+            this.editmovie_inactive_rd.TabStop = true;
+            this.editmovie_inactive_rd.Text = "Deactivate";
+            this.editmovie_inactive_rd.UseVisualStyleBackColor = true;
+            this.editmovie_inactive_rd.CheckedChanged += new System.EventHandler(this.editmovie_inactive_rd_CheckedChanged);
             // 
             // editmovie_CreatedAt_lbl
             // 
@@ -325,12 +329,32 @@
             this.editmovie_CreatedAt_lbl.TabIndex = 21;
             this.editmovie_CreatedAt_lbl.Text = "Created At:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(87, 429);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 18);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Price:";
+            // 
+            // editmovie_price_txt
+            // 
+            this.editmovie_price_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editmovie_price_txt.Location = new System.Drawing.Point(227, 426);
+            this.editmovie_price_txt.Multiline = true;
+            this.editmovie_price_txt.Name = "editmovie_price_txt";
+            this.editmovie_price_txt.Size = new System.Drawing.Size(218, 27);
+            this.editmovie_price_txt.TabIndex = 34;
+            // 
             // EditMovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 741);
-            this.Controls.Add(this.editmovie_deactive_rd);
+            this.Controls.Add(this.editmovie_inactive_rd);
             this.Controls.Add(this.editmovie_active_rd);
             this.Controls.Add(this.editmovie_slmovie_cb);
             this.Controls.Add(this.editmovie_return_btn);
@@ -339,11 +363,13 @@
             this.Controls.Add(this.editmovie_release_datepicker);
             this.Controls.Add(this.editmovie_description_txt);
             this.Controls.Add(this.editmovie_description_lbl);
+            this.Controls.Add(this.editmovie_price_txt);
             this.Controls.Add(this.editmovie_rating_txt);
             this.Controls.Add(this.editmovie_posterpath_lbl);
             this.Controls.Add(this.editmovie_CreatedAt_lbl);
             this.Controls.Add(this.editmovie_IsActive_lbl);
             this.Controls.Add(this.editmovie_poster_lbl);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.editmovie_release_lbl);
             this.Controls.Add(this.editmovie_rating_lbl);
             this.Controls.Add(this.editmovie_duration_txt);
@@ -389,7 +415,9 @@
         private System.Windows.Forms.ComboBox editmovie_slmovie_cb;
         private System.Windows.Forms.Label editmovie_IsActive_lbl;
         private System.Windows.Forms.RadioButton editmovie_active_rd;
-        private System.Windows.Forms.RadioButton editmovie_deactive_rd;
+        private System.Windows.Forms.RadioButton editmovie_inactive_rd;
         private System.Windows.Forms.Label editmovie_CreatedAt_lbl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox editmovie_price_txt;
     }
 }

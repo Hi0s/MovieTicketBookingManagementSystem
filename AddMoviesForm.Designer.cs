@@ -46,6 +46,8 @@
             this.addmovie_btn = new System.Windows.Forms.Button();
             this.addmovie_posterpath_lbl = new System.Windows.Forms.Label();
             this.addmovie_return_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.addmovie_price_txt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addmovie_form_lbl
@@ -64,7 +66,7 @@
             this.addmovie_title_btn.AutoSize = true;
             this.addmovie_title_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_title_btn.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_title_btn.Location = new System.Drawing.Point(99, 117);
+            this.addmovie_title_btn.Location = new System.Drawing.Point(99, 109);
             this.addmovie_title_btn.Name = "addmovie_title_btn";
             this.addmovie_title_btn.Size = new System.Drawing.Size(47, 18);
             this.addmovie_title_btn.TabIndex = 2;
@@ -73,7 +75,7 @@
             // addmovie_title_txt
             // 
             this.addmovie_title_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_title_txt.Location = new System.Drawing.Point(225, 117);
+            this.addmovie_title_txt.Location = new System.Drawing.Point(245, 109);
             this.addmovie_title_txt.Multiline = true;
             this.addmovie_title_txt.Name = "addmovie_title_txt";
             this.addmovie_title_txt.Size = new System.Drawing.Size(277, 27);
@@ -84,7 +86,7 @@
             this.addmovie_description_btn.AutoSize = true;
             this.addmovie_description_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_description_btn.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_description_btn.Location = new System.Drawing.Point(99, 183);
+            this.addmovie_description_btn.Location = new System.Drawing.Point(99, 158);
             this.addmovie_description_btn.Name = "addmovie_description_btn";
             this.addmovie_description_btn.Size = new System.Drawing.Size(109, 18);
             this.addmovie_description_btn.TabIndex = 2;
@@ -93,7 +95,7 @@
             // addmovie_description_txt
             // 
             this.addmovie_description_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_description_txt.Location = new System.Drawing.Point(225, 183);
+            this.addmovie_description_txt.Location = new System.Drawing.Point(245, 158);
             this.addmovie_description_txt.Multiline = true;
             this.addmovie_description_txt.Name = "addmovie_description_txt";
             this.addmovie_description_txt.Size = new System.Drawing.Size(277, 112);
@@ -104,7 +106,7 @@
             this.addmovie_genre_lbl.AutoSize = true;
             this.addmovie_genre_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_genre_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_genre_lbl.Location = new System.Drawing.Point(99, 323);
+            this.addmovie_genre_lbl.Location = new System.Drawing.Point(99, 298);
             this.addmovie_genre_lbl.Name = "addmovie_genre_lbl";
             this.addmovie_genre_lbl.Size = new System.Drawing.Size(63, 18);
             this.addmovie_genre_lbl.TabIndex = 2;
@@ -113,7 +115,7 @@
             // addmovie_genre_txt
             // 
             this.addmovie_genre_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_genre_txt.Location = new System.Drawing.Point(225, 320);
+            this.addmovie_genre_txt.Location = new System.Drawing.Point(245, 295);
             this.addmovie_genre_txt.Multiline = true;
             this.addmovie_genre_txt.Name = "addmovie_genre_txt";
             this.addmovie_genre_txt.Size = new System.Drawing.Size(218, 27);
@@ -124,7 +126,7 @@
             this.addmovie_duration_lbl.AutoSize = true;
             this.addmovie_duration_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_duration_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_duration_lbl.Location = new System.Drawing.Point(99, 381);
+            this.addmovie_duration_lbl.Location = new System.Drawing.Point(99, 352);
             this.addmovie_duration_lbl.Name = "addmovie_duration_lbl";
             this.addmovie_duration_lbl.Size = new System.Drawing.Size(82, 18);
             this.addmovie_duration_lbl.TabIndex = 2;
@@ -133,7 +135,7 @@
             // addmovie_duration_txt
             // 
             this.addmovie_duration_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_duration_txt.Location = new System.Drawing.Point(225, 378);
+            this.addmovie_duration_txt.Location = new System.Drawing.Point(245, 349);
             this.addmovie_duration_txt.Multiline = true;
             this.addmovie_duration_txt.Name = "addmovie_duration_txt";
             this.addmovie_duration_txt.Size = new System.Drawing.Size(218, 27);
@@ -144,7 +146,7 @@
             this.addmovie_rating_lbl.AutoSize = true;
             this.addmovie_rating_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_rating_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_rating_lbl.Location = new System.Drawing.Point(99, 441);
+            this.addmovie_rating_lbl.Location = new System.Drawing.Point(99, 405);
             this.addmovie_rating_lbl.Name = "addmovie_rating_lbl";
             this.addmovie_rating_lbl.Size = new System.Drawing.Size(65, 18);
             this.addmovie_rating_lbl.TabIndex = 2;
@@ -153,7 +155,7 @@
             // addmovie_rating_txt
             // 
             this.addmovie_rating_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addmovie_rating_txt.Location = new System.Drawing.Point(225, 438);
+            this.addmovie_rating_txt.Location = new System.Drawing.Point(245, 402);
             this.addmovie_rating_txt.Multiline = true;
             this.addmovie_rating_txt.Name = "addmovie_rating_txt";
             this.addmovie_rating_txt.Size = new System.Drawing.Size(218, 27);
@@ -173,7 +175,7 @@
             // addmovie_release_datepicker
             // 
             this.addmovie_release_datepicker.Font = new System.Drawing.Font("Arial", 12F);
-            this.addmovie_release_datepicker.Location = new System.Drawing.Point(225, 506);
+            this.addmovie_release_datepicker.Location = new System.Drawing.Point(245, 506);
             this.addmovie_release_datepicker.Name = "addmovie_release_datepicker";
             this.addmovie_release_datepicker.Size = new System.Drawing.Size(218, 26);
             this.addmovie_release_datepicker.TabIndex = 4;
@@ -186,7 +188,7 @@
             this.addmovie_poster_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
             this.addmovie_poster_btn.ForeColor = System.Drawing.Color.White;
             this.addmovie_poster_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addmovie_poster_btn.Location = new System.Drawing.Point(225, 569);
+            this.addmovie_poster_btn.Location = new System.Drawing.Point(245, 569);
             this.addmovie_poster_btn.Margin = new System.Windows.Forms.Padding(0);
             this.addmovie_poster_btn.Name = "addmovie_poster_btn";
             this.addmovie_poster_btn.Size = new System.Drawing.Size(96, 33);
@@ -228,7 +230,7 @@
             this.addmovie_posterpath_lbl.AutoSize = true;
             this.addmovie_posterpath_lbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addmovie_posterpath_lbl.ForeColor = System.Drawing.Color.Black;
-            this.addmovie_posterpath_lbl.Location = new System.Drawing.Point(334, 576);
+            this.addmovie_posterpath_lbl.Location = new System.Drawing.Point(354, 576);
             this.addmovie_posterpath_lbl.Name = "addmovie_posterpath_lbl";
             this.addmovie_posterpath_lbl.Size = new System.Drawing.Size(106, 18);
             this.addmovie_posterpath_lbl.TabIndex = 2;
@@ -251,6 +253,26 @@
             this.addmovie_return_btn.UseVisualStyleBackColor = false;
             this.addmovie_return_btn.Click += new System.EventHandler(this.addmovie_return_btn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(99, 461);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Price (per ticket):";
+            // 
+            // addmovie_price_txt
+            // 
+            this.addmovie_price_txt.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addmovie_price_txt.Location = new System.Drawing.Point(245, 458);
+            this.addmovie_price_txt.Multiline = true;
+            this.addmovie_price_txt.Name = "addmovie_price_txt";
+            this.addmovie_price_txt.Size = new System.Drawing.Size(218, 27);
+            this.addmovie_price_txt.TabIndex = 3;
+            // 
             // AddMoviesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -262,9 +284,11 @@
             this.Controls.Add(this.addmovie_release_datepicker);
             this.Controls.Add(this.addmovie_description_txt);
             this.Controls.Add(this.addmovie_description_btn);
+            this.Controls.Add(this.addmovie_price_txt);
             this.Controls.Add(this.addmovie_rating_txt);
             this.Controls.Add(this.addmovie_posterpath_lbl);
             this.Controls.Add(this.addmovie_poster_lbl);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.addmovie_release_lbl);
             this.Controls.Add(this.addmovie_rating_lbl);
             this.Controls.Add(this.addmovie_duration_txt);
@@ -304,5 +328,7 @@
         private System.Windows.Forms.Button addmovie_btn;
         private System.Windows.Forms.Button addmovie_return_btn;
         private System.Windows.Forms.Label addmovie_posterpath_lbl;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox addmovie_price_txt;
     }
 }

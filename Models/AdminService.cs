@@ -15,13 +15,14 @@ namespace MovieTicketBookingManagementSystem.Models
         private static readonly string conn = DatabaseConfig.ConnectionString;
         public static bool ShowActiveMovies(DataGridView moviesGridView)
         {
+            UpdatePremieredShowtimes();
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 string query = @"SELECT movies.MovieID, showtimes.showtimeID ,movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
                 showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath
                 FROM showtimes 
                 INNER JOIN movies ON showtimes.MovieID = movies.MovieID
-                WHERE movies.IsActive =1";
+                WHERE showtimes.Status='Scheduled' OR showtimes.Status='Premiered'";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     connect.Open();
@@ -35,7 +36,107 @@ namespace MovieTicketBookingManagementSystem.Models
                 }
             }
         }
-        public static List<Movies> GetActiveMoviesList() {
+        public static bool ShowInactiveMovies(DataGridView moviesGridView)
+        {
+            UpdatePremieredShowtimes();
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = @"SELECT movies.MovieID, showtimes.showtimeID ,movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
+                showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath
+                FROM showtimes 
+                INNER JOIN movies ON showtimes.MovieID = movies.MovieID
+                WHERE showtimes.Status='Cancelled'";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    //SqlDataReader showActiveMovies_rd = cmd.ExecuteReader();
+                    SqlDataAdapter moviesAdapter = new SqlDataAdapter(cmd);
+                    DataTable inactiveMovies = new DataTable();
+                    moviesAdapter.Fill(inactiveMovies); // Fill the DataTable with the results
+                    moviesGridView.DataSource = inactiveMovies; // Bind the DataTable to the DataGridView
+                    connect.Close();
+                    return inactiveMovies.Rows.Count > 0; // Returns true if there are active movies
+                }
+            }
+        }
+        public static bool ShowUsers(DataGridView usersGridView)
+        {
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = @"SELECT UserID, Username, Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,Role,CreatedAt,IsActive FROM users";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    //SqlDataReader showActiveMovies_rd = cmd.ExecuteReader();
+                    SqlDataAdapter moviesAdapter = new SqlDataAdapter(cmd);
+                    DataTable inactiveMovies = new DataTable();
+                    moviesAdapter.Fill(inactiveMovies); // Fill the DataTable with the results
+                    usersGridView.DataSource = inactiveMovies; // Bind the DataTable to the DataGridView
+                    connect.Close();
+                    return inactiveMovies.Rows.Count > 0; // Returns true if there are active movies
+                }
+            }
+            }
+        public static Users ShowUsers(int userID)
+        {
+            Users user = new Users();
+            user.UserID = userID;
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = @"SELECT UserID, Username, Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,Role,CreatedAt,IsActive FROM users WHERE UserID=@userID";
+                
+                connect.Open();
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                    SqlDataReader user_load_dr = cmd.ExecuteReader();
+                    if (user_load_dr.Read())
+                    {
+                        user.Username = user_load_dr["Username"].ToString();
+                        user.Firstname = user_load_dr["Firstname"].ToString();
+                        user.Lastname = user_load_dr["Lastname"].ToString();
+                        user.Email = user_load_dr["Email"].ToString();
+                        user.Gender = user_load_dr["Gender"].ToString();
+                        user.Birthdate = Convert.ToDateTime(user_load_dr["Birthdate"]);
+                        user.Phone = user_load_dr["Phone"].ToString();
+                        user.Address = user_load_dr["Address"].ToString();
+                        user.Role = user_load_dr["Role"].ToString();
+                        user.CreatedAt = Convert.ToDateTime(user_load_dr["CreatedAt"]);
+                        user.IsActive = Convert.ToBoolean(user_load_dr["IsActive"]);
+                    }
+                    connect.Close();
+                }
+            }
+            return user;
+        }
+        public static bool UpdateUser(Users user)
+        {
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = @"UPDATE users SET Username = @Username, Firstname = @Firstname, Lastname = @Lastname,
+                                Gender=@Gender, Birthdate=@Birthdate, Email=@Email,Phone=@Phone,Address=@Address,
+                                Role=@Role,IsActive=@IsActive FROM users WHERE UserID=@UserID";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", user.UserID);
+                    cmd.Parameters.AddWithValue("@Username", user.Username);
+                    cmd.Parameters.AddWithValue("@Firstname", user.Firstname);
+                    cmd.Parameters.AddWithValue("@Lastname", user.Lastname);
+                    cmd.Parameters.AddWithValue("@Gender", user.Gender);
+                    cmd.Parameters.AddWithValue("@Birthdate", user.Birthdate);
+                    cmd.Parameters.AddWithValue("@Email", user.Email);
+                    cmd.Parameters.AddWithValue("@Phone", user.Phone);
+                    cmd.Parameters.AddWithValue("@Address", user.Address);
+                    cmd.Parameters.AddWithValue("@Role", user.Role);
+                    cmd.Parameters.AddWithValue("@IsActive", user.IsActive);
+                    connect.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    connect.Close();
+                    return rowsAffected > 0; // Returns true if the movie was successfully updated
+                }
+            }
+        }
+                    public static List<Movies> GetActiveMoviesList() {
             List<Movies> moviesList = new List<Movies>();
             using(SqlConnection connect=new SqlConnection(conn))
             {
@@ -53,6 +154,7 @@ namespace MovieTicketBookingManagementSystem.Models
                         Duration = Convert.ToInt32(movie_load_dr["Duration"]),
                         Description = movie_load_dr["Description"].ToString(),
                         Rating = movie_load_dr["Rating"].ToString(),
+                        Pricing = Convert.ToInt32(movie_load_dr["Pricing"]),
                         PosterImagePath = movie_load_dr["PosterPath"].ToString(),
                         ReleaseDate = Convert.ToDateTime(movie_load_dr["ReleaseDate"]),
                         CreatedAt = Convert.ToDateTime(movie_load_dr["CreatedAt"]),
@@ -84,6 +186,7 @@ namespace MovieTicketBookingManagementSystem.Models
                         Duration = Convert.ToInt32(movie_load_dr["Duration"]),
                         Description = movie_load_dr["Description"].ToString(),
                         Rating = movie_load_dr["Rating"].ToString(),
+                        Pricing=Convert.ToInt32(movie_load_dr["Pricing"]),
                         PosterImagePath = movie_load_dr["PosterPath"].ToString(),
                         ReleaseDate = Convert.ToDateTime(movie_load_dr["ReleaseDate"]),
                         CreatedAt = Convert.ToDateTime(movie_load_dr["CreatedAt"]),
@@ -190,8 +293,8 @@ namespace MovieTicketBookingManagementSystem.Models
         {
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = @"INSERT INTO movies(Title, Genre, Duration, Description, Rating, PosterPath, ReleaseDate, CreatedAt)
-                                 VALUES(@Title, @Genre, @Duration, @Description, @Rating, @PosterPath, @ReleaseDate, @CreatedAt)";
+                string query = @"INSERT INTO movies(Title, Genre, Duration, Description,  Rating, Pricing, PosterPath, ReleaseDate, CreatedAt)
+                                 VALUES(@Title, @Genre, @Duration, @Description, @Rating,@Pricing, @PosterPath, @ReleaseDate, @CreatedAt)";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     cmd.Parameters.AddWithValue("@Title", movie.Title);
@@ -199,6 +302,7 @@ namespace MovieTicketBookingManagementSystem.Models
                     cmd.Parameters.AddWithValue("@Duration", movie.Duration);
                     cmd.Parameters.AddWithValue("@Description", movie.Description);
                     cmd.Parameters.AddWithValue("@Rating", movie.Rating);
+                    cmd.Parameters.AddWithValue("@Pricing", movie.Pricing);
                     cmd.Parameters.AddWithValue("@PosterPath", movie.PosterImagePath);
                     cmd.Parameters.AddWithValue("@ReleaseDate", movie.ReleaseDate);
                     cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
@@ -212,10 +316,11 @@ namespace MovieTicketBookingManagementSystem.Models
         }
         public static bool UpdateMovie(Movies movie)
         {
+
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 string query = @"UPDATE movies SET Title = @Title, Genre = @Genre, Duration = @Duration, 
-                                 Description = @Description, Rating = @Rating, PosterPath = @PosterPath, 
+                                 Description = @Description, Rating = @Rating,Pricing=@Pricing, PosterPath = @PosterPath, 
                                  ReleaseDate = @ReleaseDate,IsActive=@IsActive WHERE MovieID = @MovieID";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
@@ -224,12 +329,16 @@ namespace MovieTicketBookingManagementSystem.Models
                     cmd.Parameters.AddWithValue("@Genre", movie.Genre);
                     cmd.Parameters.AddWithValue("@Duration", movie.Duration);
                     cmd.Parameters.AddWithValue("@Description", movie.Description);
+                    cmd.Parameters.AddWithValue("@Pricing", movie.Pricing);
                     cmd.Parameters.AddWithValue("@Rating", movie.Rating);
                     cmd.Parameters.AddWithValue("@PosterPath", movie.PosterImagePath);
                     cmd.Parameters.AddWithValue("@ReleaseDate", movie.ReleaseDate);
                     cmd.Parameters.AddWithValue("@IsActive", movie.IsActive);
                     connect.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
+                    if (!movie.IsActive) { // If the movie is being deactivated, also deactivate all associated showtimes
+                        DeactivateMovie(movie.MovieID);
+                    }
                     connect.Close();
                     return rowsAffected > 0; // Returns true if the movie was successfully updated
                 }
@@ -258,11 +367,13 @@ namespace MovieTicketBookingManagementSystem.Models
                 }
             }
         }
+
+        //Deactivating a movie means cancelling all its showtimes
         public static bool DeactivateMovie(int movieId)
         {
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = "UPDATE movies SET IsActive = 0 WHERE MovieID = @MovieID";
+                string query = "UPDATE showtimes SET Status = 'Cancelled' WHERE MovieID = @MovieID AND NOT Status= 'Premiered'";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     cmd.Parameters.AddWithValue("@MovieID", movieId);
@@ -274,11 +385,11 @@ namespace MovieTicketBookingManagementSystem.Models
             }
         }
 
-        public static bool DeactivateShowtime(int showtimeId)
+        public static bool CancelShowtime(int showtimeId)
         {
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = "UPDATE showtimes SET Status = 'Inactive' WHERE ShowtimeID = @ShowtimeID";
+                string query = "UPDATE showtimes SET Status = 'Cancelled' WHERE ShowtimeID = @ShowtimeID";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     cmd.Parameters.AddWithValue("@ShowtimeID", showtimeId);
@@ -290,5 +401,33 @@ namespace MovieTicketBookingManagementSystem.Models
             }
         }
 
+        public static bool CancelMultipleShowtime(List<int> showtimeIDList)
+        {
+            foreach (int showtimeID in showtimeIDList)
+            {
+                if (!CancelShowtime(showtimeID))
+                {
+                    return false; // If any cancellation fails, return false
+                }
+            }
+            return true;
+        }
+
+        public static void UpdatePremieredShowtimes()
+        {
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = @"UPDATE showtimes
+                                 SET Status = 'Premiered'
+                                 WHERE Status = 'Scheduled' AND StartTime <= @Now";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    cmd.Parameters.AddWithValue("@Now", DateTime.Now);
+                    connect.Open();
+                    cmd.ExecuteNonQuery();
+                    connect.Close();
+                }
+            }
+        }
     }
 }

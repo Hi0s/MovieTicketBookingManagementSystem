@@ -43,7 +43,7 @@ namespace MovieTicketBookingManagementSystem
                 editmovie_slmovie_cb.ValueMember = "MovieID";
                 editmovie_slmovie_cb.DataSource = moviesList;
             }
-           
+
 
 
         }
@@ -73,11 +73,12 @@ namespace MovieTicketBookingManagementSystem
                 editmovie_description_txt.Text = selectedMovie.Description;
                 editmovie_rating_txt.Text = selectedMovie.Rating.ToString();
                 editmovie_release_datepicker.Value = selectedMovie.ReleaseDate;
+                editmovie_price_txt.Text = selectedMovie.Pricing.ToString();
                 editmovie_posterpath_lbl.Text = selectedMovie.PosterImagePath != null ?
                     Path.GetFileName(selectedMovie.PosterImagePath) : "No file chosen";
                 editmovie_active_rd.Checked = selectedMovie.IsActive;
-                editmovie_deactive_rd.Checked = !selectedMovie.IsActive;
-                editmovie_CreatedAt_lbl.Text=$"Created At:           {selectedMovie.CreatedAt.ToString("M/d/yyyy")}";
+                editmovie_inactive_rd.Checked = !selectedMovie.IsActive;
+                editmovie_CreatedAt_lbl.Text = $"Created At:           {selectedMovie.CreatedAt.ToString("M/d/yyyy")}";
             }
             else
             {
@@ -106,12 +107,13 @@ namespace MovieTicketBookingManagementSystem
             if (!ValidateMovieFields()) return;
             selectedMovie.Title = editmovie_title_txt.Text.Trim();
             selectedMovie.Description = editmovie_description_txt.Text.Trim();
-            selectedMovie.Duration= int.Parse(editmovie_duration_txt.Text.Trim());
+            selectedMovie.Duration = int.Parse(editmovie_duration_txt.Text.Trim());
             selectedMovie.Genre = editmovie_genre_txt.Text.Trim();
             selectedMovie.Rating = editmovie_rating_txt.Text.Trim();
-            selectedMovie.ReleaseDate=editmovie_release_datepicker.Value;
+            selectedMovie.Pricing = int.Parse(editmovie_price_txt.Text.Trim());
+            selectedMovie.ReleaseDate = editmovie_release_datepicker.Value;
             selectedMovie.IsActive = editmovie_active_rd.Checked ? true :
-                editmovie_deactive_rd.Checked ? false: throw new InvalidOperationException("Please select an active status.");
+                editmovie_inactive_rd.Checked ? false : throw new InvalidOperationException("Please select an active status.");
 
             AdminService.UpdateMovie(selectedMovie);
             MessageBox.Show("Movie updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,7 +131,7 @@ namespace MovieTicketBookingManagementSystem
             {
                 MessageBox.Show("Genre cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            } 
+            }
             if (!int.TryParse(editmovie_duration_txt.Text.Trim(), out int duration) || duration <= 0)
             {
                 MessageBox.Show("Duration must be a positive number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -145,12 +147,32 @@ namespace MovieTicketBookingManagementSystem
                 MessageBox.Show("Rating cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(editmovie_posterpath_lbl.Text) || editmovie_posterpath_lbl.Text == "No file chosen")
+            if (string.IsNullOrWhiteSpace(editmovie_posterpath_lbl.Text) || editmovie_posterpath_lbl.Text.Trim() == "No file chosen")
             {
                 MessageBox.Show("Please select a poster image.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            if (string.IsNullOrWhiteSpace(editmovie_price_txt.Text))
+            {
+                MessageBox.Show("Price cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return true;
+        }
+
+        private void editmovie_active_rd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (editmovie_active_rd.Checked)
+            {
+                editmovie_inactive_rd.Checked = false;
+            }
+        }
+
+        private void editmovie_inactive_rd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (editmovie_inactive_rd.Checked)
+            {
+                editmovie_active_rd.Checked = false;
+            }
         }
     }
 }

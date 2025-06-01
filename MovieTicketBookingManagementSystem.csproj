@@ -285,6 +285,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Validator.cs" />
+    <Compile Include="UserEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserEditForm.Designer.cs">
+      <DependentUpon>UserEditForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddShowtimeForm.resx">
       <DependentUpon>AddShowtimeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="userdashboard.resx">
       <DependentUpon>userdashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserEditForm.resx">
+      <DependentUpon>UserEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
     <None Include="packages.config" />

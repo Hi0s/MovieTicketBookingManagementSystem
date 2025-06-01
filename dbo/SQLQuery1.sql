@@ -76,6 +76,8 @@ CREATE TABLE payments (
     Status VARCHAR(20) DEFAULT 'Success', -- Success, Failed
     FOREIGN KEY (TicketID) REFERENCES Tickets(TicketID)
 );
+SELECT * from seats;
+
 
 SELECT * from users;
 
@@ -83,7 +85,6 @@ SELECT * from movies;
 
 SELECT * from theaters;
 
-SELECT * from seats;
 
 SELECT * from showtimes;
 
@@ -91,8 +92,13 @@ SELECT * from tickets;
 
 SELECT * from payments;
 
+UPDATE showtimes SET Status = 'Cancelled' WHERE ShowtimeID = 1
+UPDATE showtimes SET Status = 'Scheduled' WHERE ShowtimeID = 1
+
+UPDATE showtimes SET Status = 'Scheduled' WHERE Status = 'Cancelled'
+
 SELECT * FROM movies WHERE IsActive=1
-UPDATE movies SET ReleaseDate = '2023-10-01' WHERE IsActive=1; 
+UPDATE movies SET ReleaseDate = '2025-06-01' WHERE MovieID=10; 
 
 SELECT movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
 showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath

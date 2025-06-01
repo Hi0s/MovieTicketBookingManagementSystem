@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MovieTicketBookingManagementSystem.Models;
 
 namespace MovieTicketBookingManagementSystem
 {
@@ -25,42 +26,65 @@ namespace MovieTicketBookingManagementSystem
         {
             InitializeComponent();
         }
-
+        private bool ValidateMovieFields()
+        {
+            if (string.IsNullOrWhiteSpace(addmovie_title_txt.Text))
+            {
+                MessageBox.Show("Title cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(addmovie_genre_txt.Text))
+            {
+                MessageBox.Show("Genre cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!int.TryParse(addmovie_duration_txt.Text.Trim(), out int duration) || duration <= 0)
+            {
+                MessageBox.Show("Duration must be a positive number.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(addmovie_description_txt.Text))
+            {
+                MessageBox.Show("Description cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(addmovie_rating_txt.Text))
+            {
+                MessageBox.Show("Rating cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(addmovie_posterpath_lbl.Text) || addmovie_posterpath_lbl.Text.Trim() == "No file chosen")
+            {
+                MessageBox.Show("Please select a poster image.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!int.TryParse(addmovie_price_txt.Text.Trim(), out int pricing) || pricing <= 0)
+            {
+                MessageBox.Show("Price cannot be empty.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
         private void addmovie_btn_Click(object sender, EventArgs e)
         {
-            if(addmovie_title_txt.Text == "" ||
-                addmovie_genre_txt.Text == "" ||
-                addmovie_duration_txt.Text == "" ||
-                addmovie_description_txt.Text == "" ||
-                addmovie_rating_txt.Text==""|| addmovie_posterpath_lbl.Text== "No file chosen")
+            if(ValidateMovieFields())
             {
-                MessageBox.Show("Please fill all the fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (Int32.TryParse(addmovie_duration_txt.Text,out _)==false) {
-                MessageBox.Show("Duration must be a number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                // Code to add movie to database
-                using (SqlConnection conn = new SqlConnection(connString))
-                {
-                    conn.Open();
-                    string query = "INSERT INTO movies (Title, Genre, Duration, Description, Rating, PosterPath, CreatedAt)" +
-                        " VALUES (@Title, @Genre, @Duration, @Description, @Rating, @PosterPath,@CreatedAt)";
-                    DateTime today = DateTime.Today;
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Title", addmovie_title_txt.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Genre", addmovie_genre_txt.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Duration", addmovie_duration_txt.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Description", addmovie_description_txt.Text.Trim());
-                        cmd.Parameters.AddWithValue("@Rating", addmovie_rating_txt.Text.Trim());
-                        cmd.Parameters.AddWithValue("@PosterPath", poster_path.Trim());
-                        cmd.Parameters.AddWithValue("@CreatedAt", today);
-                        cmd.ExecuteNonQuery();
-                    }
-                    conn.Close();
-                }
+                
+                // Code to add movie to database using AdminService
+                Movies movie = new Movies();
+                movie.Title=addmovie_title_txt.Text.Trim();
+                movie.Description = addmovie_description_txt.Text.Trim();
+                movie.Genre = addmovie_genre_txt.Text.Trim();
+                movie.Duration= int.Parse(addmovie_duration_txt.Text.Trim());
+                movie.Rating = addmovie_rating_txt.Text.Trim();
+                movie.Pricing = int.Parse(addmovie_price_txt.Text.Trim());
+                movie.ReleaseDate = addmovie_release_datepicker.Value;
+                movie.PosterImagePath = poster_path.Trim();
+                movie.CreatedAt = DateTime.Now; // Set CreatedAt to current date and time
+
+                AdminService.AddMovie(movie);
+
+
                 MessageBox.Show("Movie added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 foreach (Control c in this.Controls)
                 {
