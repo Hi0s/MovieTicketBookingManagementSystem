@@ -70,6 +70,7 @@
             this.admin_username_lbl.Size = new System.Drawing.Size(96, 18);
             this.admin_username_lbl.TabIndex = 1;
             this.admin_username_lbl.Text = "User Name";
+            this.admin_username_lbl.Click += new System.EventHandler(this.admin_username_lbl_Click);
             // 
             // admin_logout_btn
             // 
@@ -182,16 +183,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 618);
             this.Controls.Add(this.panel2);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "userdashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "userdashboard";
             this.Load += new System.EventHandler(this.userdashboard_Load);
             this.menu_pnl.ResumeLayout(false);
             this.menu_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-
             this.manage_movies_pnl.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -127,10 +127,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_back_list.BackColor = System.Drawing.Color.Transparent;
-            this.btn_back_list.Location = new System.Drawing.Point(10, 232);
-            this.btn_back_list.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_back_list.Location = new System.Drawing.Point(10, 233);
+            this.btn_back_list.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.btn_back_list.Name = "btn_back_list";
-            this.btn_back_list.Size = new System.Drawing.Size(91, 52);
+            this.btn_back_list.Size = new System.Drawing.Size(91, 50);
             this.btn_back_list.TabIndex = 18;
             this.btn_back_list.Text = "Back";
             this.btn_back_list.UseVisualStyleBackColor = false;
@@ -293,10 +293,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_buy_ticket.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.SetColumnSpan(this.btn_buy_ticket, 3);
-            this.btn_buy_ticket.Location = new System.Drawing.Point(121, 232);
-            this.btn_buy_ticket.Margin = new System.Windows.Forms.Padding(10);
+            this.btn_buy_ticket.Location = new System.Drawing.Point(121, 233);
+            this.btn_buy_ticket.Margin = new System.Windows.Forms.Padding(10, 11, 10, 11);
             this.btn_buy_ticket.Name = "btn_buy_ticket";
-            this.btn_buy_ticket.Size = new System.Drawing.Size(442, 52);
+            this.btn_buy_ticket.Size = new System.Drawing.Size(442, 50);
             this.btn_buy_ticket.TabIndex = 17;
             this.btn_buy_ticket.Text = "Buy Ticket";
             this.btn_buy_ticket.UseVisualStyleBackColor = false;
@@ -304,7 +304,7 @@
             // 
             // DetailMovie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 618);
             this.ControlBox = false;

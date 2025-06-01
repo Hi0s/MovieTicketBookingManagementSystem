@@ -1,14 +1,18 @@
-﻿using System;
+﻿using MovieTicketBookingManagementSystem.Config;
+using MovieTicketBookingManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Data.SqlClient;
 
 namespace MovieTicketBookingManagementSystem
 {
@@ -36,8 +40,10 @@ namespace MovieTicketBookingManagementSystem
 
         private void userdashboard_Load(object sender, EventArgs e)
         {
+            admin_username_lbl.Text = SessionManager.Username;
 
         }
+
 
         private Panel CreateMoviePanel(string movieID, string name, string rating, string releaseDate, string imageUrl)
         {
@@ -60,7 +66,7 @@ namespace MovieTicketBookingManagementSystem
             try
             {
                 if (!string.IsNullOrEmpty(imageUrl))
-                    poster.Load(imageUrl);
+                    poster.LoadAsync(imageUrl); // Use async loading to prevent UI lag
             }
             catch
             {
@@ -71,7 +77,7 @@ namespace MovieTicketBookingManagementSystem
             // Top tag label 
             Label tag = new Label
             {
-                Text = $"Movie: {name}",
+                Text = $"{name}",
                 AutoSize = true,
                 BackColor = Color.FromArgb(220, 60, 40),
                 ForeColor = Color.White,
@@ -216,12 +222,98 @@ namespace MovieTicketBookingManagementSystem
             return card;
         }
 
+        private Panel CreateTicketPanel(string movieName, DateTime movieTime, DateTime bookingTime, decimal price, string theaterName, string seatCode)
+        {
+            Panel ticketPanel = new Panel
+            {
+                Size = new Size(500, 100),
+                BackColor = Color.White,
+                Margin = new Padding(10),
+                BorderStyle = BorderStyle.None
+            };
+
+            // Add border radius to panel
+            ticketPanel.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, ticketPanel.Width, ticketPanel.Height, 20, 20));
+
+
+            // Movie Name
+            Label lblMovie = new Label
+            {
+                Text = $"Movie: {movieName}",
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Location = new Point(10, 10),
+                AutoSize = true
+            };
+            ticketPanel.Controls.Add(lblMovie);
+
+            // Time MovieShow
+            Label lblMovieTime = new Label
+            {
+                Text = $"Movie Show: {movieTime:G}",
+                Font = new Font("Segoe UI", 9),
+                Location = new Point(10, 35),
+                AutoSize = true
+            };
+            ticketPanel.Controls.Add(lblMovieTime);
+
+
+            // Seat Code
+            Label lblSeat = new Label
+            {
+                Text = $"Seat: {seatCode}",
+                Font = new Font("Segoe UI", 9),
+                Location = new Point(250, 35),
+                AutoSize = true
+            };
+            ticketPanel.Controls.Add(lblSeat);
+
+            // Time Buy
+            Label lblTime = new Label
+            {
+                Text = $"Booking Time: {bookingTime:G}",
+                Font = new Font("Segoe UI", 9),
+                Location = new Point(10, 55),
+                AutoSize = true
+            };
+            ticketPanel.Controls.Add(lblTime);
+
+
+            // Theater Name
+            Label lblTheater = new Label
+            {
+                Text = $"Theater: {theaterName}",
+                Font = new Font("Segoe UI", 9),
+                Location = new Point(250, 55),
+                AutoSize = true
+            };
+            ticketPanel.Controls.Add(lblTheater);
+
+            // Pricing
+            Label lblPrice = new Label
+            {
+                Text = $"Price: ${price}",
+                Font = new Font("Segoe UI", 9),
+                Location = new Point(10, 75),
+                AutoSize = true
+            };
+            ticketPanel.Controls.Add(lblPrice);
+
+
+            return ticketPanel;
+        }
+
         private void listofmovie_Click(object sender, EventArgs e)
         {
             listofmovie_btn.BackColor = Color.FromArgb(46, 51, 73);
+            label1.Text = "List of Movies";
+
+            manage_movies_pnl.Controls.Clear();
+            manage_movies_pnl.Controls.Add(panel1);
+            panel1.Visible = true;
+
+
 
             // Create a scrollable panel
-
             Panel scrollPanel = new Panel
             {
                 Dock = DockStyle.Fill,
@@ -229,12 +321,6 @@ namespace MovieTicketBookingManagementSystem
                 BackColor = Color.LightGray
             };
             scrollPanel.AutoScroll = true;
-
-            if (manage_movies_pnl.Controls.Contains(scrollPanel))
-            {
-                manage_movies_pnl.Controls.Remove(scrollPanel);
-                scrollPanel.Dispose();
-            }
 
             // Create TableLayoutPanel for 3 columns, many rows
             TableLayoutPanel table = new TableLayoutPanel
@@ -251,7 +337,7 @@ namespace MovieTicketBookingManagementSystem
             table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3f));
 
             // Load movies from database
-            string connString = MovieTicketBookingManagementSystem.Config.DatabaseConfig.ConnectionString;
+            string connString = DatabaseConfig.ConnectionString;
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
@@ -288,12 +374,94 @@ namespace MovieTicketBookingManagementSystem
             }
 
             scrollPanel.Controls.Add(table);
+            // Add the scrollPanel with key "scrollPanel" to manage_movies_pnl
+            scrollPanel.Name = "scrollPanel";
             manage_movies_pnl.Controls.Add(scrollPanel);
         }
 
         private void yourticket_btn_Click(object sender, EventArgs e)
         {
+            // Clear all form 
             yourticket_btn.BackColor = Color.FromArgb(46, 51, 73);
+            label1.Text = "List of Tickets";
+            // Clear all controls in manage_movies_pnl except for the panel1
+            manage_movies_pnl.Controls.Clear();
+            manage_movies_pnl.Controls.Add(panel1);
+            panel1.Visible = true;
+
+
+
+            Panel scrollPanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+                BackColor = Color.LightGray
+            };
+            scrollPanel.AutoScroll = true;
+
+            // Create TableLayoutPanel for 3 columns, many rows
+            TableLayoutPanel table = new TableLayoutPanel
+            {
+                ColumnCount = 1,
+                Dock = DockStyle.Top,
+                Padding = new Padding(0, 50, 0, 100),
+                BackColor = Color.LightGray,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink
+            };
+
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+
+            // Load tickets from database
+            string connString = MovieTicketBookingManagementSystem.Config.DatabaseConfig.ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                string query = @"
+                    SELECT t.ShowTimeID, t.Price, t.SeatCode, t.BookingTime, m.Title, th.Name, st.StartTime 
+                    FROM tickets t
+                    LEFT JOIN showtimes st ON st.ShowTimeID = t.ShowTimeID
+                    LEFT JOIN theaters th on th.TheaterID = st.TheaterID
+                    LEFT JOIN movies m ON st.MovieID = m.MovieID
+                    WHERE t.UserID = @UserID
+                    ORDER BY t.BookingTime DESC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", SessionManager.UserID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        int index = 0;
+                        while (reader.Read())
+                        {
+                            string title = reader["Title"].ToString();
+                            DateTime bookingTime = reader.GetDateTime(reader.GetOrdinal("BookingTime"));
+                            decimal price = reader.GetDecimal(reader.GetOrdinal("Price"));
+                            string theaterName = reader["Name"].ToString();
+                            string seatCode = reader["SeatCode"].ToString();
+                            DateTime movieTime = reader.GetDateTime(reader.GetOrdinal("StartTime"));
+                            Panel moviePanel = CreateTicketPanel(title,
+                                movieTime,
+                                bookingTime,
+                                price,
+                                theaterName,
+                                seatCode);
+
+                            if (table.RowCount <= index)
+                            {
+                                table.RowCount = index + 1;
+                            }
+
+                            table.Controls.Add(moviePanel, 0, index);
+                            index++;
+                        }
+                    }
+                }
+            }
+
+            // Add DataGridView to the panel
+            scrollPanel.Controls.Add(table);
+            scrollPanel.Name = "scrollPanel";
+            manage_movies_pnl.Controls.Add(scrollPanel);
         }
 
         private void listofmovie_btn_Leave(object sender, EventArgs e)
@@ -311,6 +479,11 @@ namespace MovieTicketBookingManagementSystem
             this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void admin_username_lbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
