@@ -272,6 +272,23 @@ namespace MovieTicketBookingManagementSystem
                     loadingForm.Close();
                 }
 
+                string updateSeatsQuery = @"
+                    UPDATE showtimes
+                    SET AvailableSeats = TotalSeats - (
+                        SELECT COUNT(*) FROM tickets WHERE tickets.ShowtimeID = @showtimeID
+                    )
+                    WHERE ShowtimeID = @showtimeID";
+                using (SqlConnection conn = new SqlConnection(DatabaseConfig.ConnectionString))
+                {
+                    using (SqlCommand cmd = new SqlCommand(updateSeatsQuery, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@showtimeID", this.showTimeId);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+
                 MessageBox.Show("Tickets purchased successfully!", "Purchase Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RequestClose?.Invoke(this, EventArgs.Empty); // Notify parent form to close
                 this.Close(); // Close the current form
