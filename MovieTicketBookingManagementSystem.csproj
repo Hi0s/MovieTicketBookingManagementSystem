@@ -253,6 +253,12 @@
     <Compile Include="ChooseDateTimeForm.Designer.cs">
       <DependentUpon>ChooseDateTimeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingForm.Designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AdminService.cs" />
     <Compile Include="Models\Movies.cs" />
     <Compile Include="Models\PasswordHasher.cs" />

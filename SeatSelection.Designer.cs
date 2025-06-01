@@ -31,13 +31,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.valTotal = new System.Windows.Forms.Label();
+            this.valTicket = new System.Windows.Forms.Label();
+            this.valTime = new System.Windows.Forms.Label();
+            this.valDuration = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button41 = new System.Windows.Forms.Button();
+            this.btn_buyTicket = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblNumberTickets = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -46,10 +50,6 @@
             this.seatsTableLayoutPanel = new System.Windows.Forms.Panel();
             this.seatSelection_back_btn = new System.Windows.Forms.Button();
             this.panelSeat = new System.Windows.Forms.Panel();
-            this.valDuration = new System.Windows.Forms.Label();
-            this.valTime = new System.Windows.Forms.Label();
-            this.valTicket = new System.Windows.Forms.Label();
-            this.valTotal = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.seatsTableLayoutPanel.SuspendLayout();
@@ -79,6 +79,7 @@
             // 
             // panel2
             // 
+            this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.valTotal);
@@ -91,18 +92,62 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.button41);
+            this.panel2.Controls.Add(this.btn_buyTicket);
             this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.lblNumberTickets);
             this.panel2.Controls.Add(this.lblTime);
             this.panel2.Controls.Add(this.lblDuration);
             this.panel2.Controls.Add(this.lblMovieName);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(569, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 522);
+            this.panel2.Size = new System.Drawing.Size(232, 522);
             this.panel2.TabIndex = 45;
+            // 
+            // valTotal
+            // 
+            this.valTotal.AutoSize = true;
+            this.valTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.valTotal.Location = new System.Drawing.Point(83, 224);
+            this.valTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.valTotal.Name = "valTotal";
+            this.valTotal.Size = new System.Drawing.Size(37, 13);
+            this.valTotal.TabIndex = 65;
+            this.valTotal.Text = "50000";
+            // 
+            // valTicket
+            // 
+            this.valTicket.AutoSize = true;
+            this.valTicket.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.valTicket.Location = new System.Drawing.Point(83, 181);
+            this.valTicket.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.valTicket.Name = "valTicket";
+            this.valTicket.Size = new System.Drawing.Size(13, 13);
+            this.valTicket.TabIndex = 64;
+            this.valTicket.Text = "5";
+            // 
+            // valTime
+            // 
+            this.valTime.AutoSize = true;
+            this.valTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.valTime.Location = new System.Drawing.Point(83, 138);
+            this.valTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.valTime.Name = "valTime";
+            this.valTime.Size = new System.Drawing.Size(102, 13);
+            this.valTime.TabIndex = 63;
+            this.valTime.Text = "6/1/2025 10:00 AM";
+            // 
+            // valDuration
+            // 
+            this.valDuration.AutoSize = true;
+            this.valDuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.valDuration.Location = new System.Drawing.Point(83, 98);
+            this.valDuration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.valDuration.Name = "valDuration";
+            this.valDuration.Size = new System.Drawing.Size(64, 13);
+            this.valDuration.TabIndex = 62;
+            this.valDuration.Text = "120 minutes";
             // 
             // label23
             // 
@@ -161,16 +206,17 @@
             this.panel3.Size = new System.Drawing.Size(15, 16);
             this.panel3.TabIndex = 57;
             // 
-            // button41
+            // btn_buyTicket
             // 
-            this.button41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button41.Location = new System.Drawing.Point(52, 274);
-            this.button41.Margin = new System.Windows.Forms.Padding(2);
-            this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(117, 36);
-            this.button41.TabIndex = 56;
-            this.button41.Text = "Book now";
-            this.button41.UseVisualStyleBackColor = true;
+            this.btn_buyTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buyTicket.Location = new System.Drawing.Point(52, 274);
+            this.btn_buyTicket.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_buyTicket.Name = "btn_buyTicket";
+            this.btn_buyTicket.Size = new System.Drawing.Size(117, 36);
+            this.btn_buyTicket.TabIndex = 56;
+            this.btn_buyTicket.Text = "Book now";
+            this.btn_buyTicket.UseVisualStyleBackColor = true;
+            this.btn_buyTicket.Click += new System.EventHandler(this.btn_buyTicket_Click);
             // 
             // lblTotal
             // 
@@ -218,10 +264,11 @@
             // 
             // lblMovieName
             // 
+            this.lblMovieName.AutoEllipsis = true;
             this.lblMovieName.AutoSize = true;
             this.lblMovieName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovieName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblMovieName.Location = new System.Drawing.Point(48, 43);
+            this.lblMovieName.Location = new System.Drawing.Point(47, 21);
             this.lblMovieName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMovieName.Name = "lblMovieName";
             this.lblMovieName.Size = new System.Drawing.Size(141, 26);
@@ -264,55 +311,12 @@
             this.panelSeat.Size = new System.Drawing.Size(503, 323);
             this.panelSeat.TabIndex = 40;
             // 
-            // valDuration
-            // 
-            this.valDuration.AutoSize = true;
-            this.valDuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valDuration.Location = new System.Drawing.Point(83, 98);
-            this.valDuration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valDuration.Name = "valDuration";
-            this.valDuration.Size = new System.Drawing.Size(64, 13);
-            this.valDuration.TabIndex = 62;
-            this.valDuration.Text = "120 minutes";
-            // 
-            // valTime
-            // 
-            this.valTime.AutoSize = true;
-            this.valTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valTime.Location = new System.Drawing.Point(83, 138);
-            this.valTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valTime.Name = "valTime";
-            this.valTime.Size = new System.Drawing.Size(102, 13);
-            this.valTime.TabIndex = 63;
-            this.valTime.Text = "6/1/2025 10:00 AM";
-            // 
-            // valTicket
-            // 
-            this.valTicket.AutoSize = true;
-            this.valTicket.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valTicket.Location = new System.Drawing.Point(83, 181);
-            this.valTicket.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valTicket.Name = "valTicket";
-            this.valTicket.Size = new System.Drawing.Size(13, 13);
-            this.valTicket.TabIndex = 64;
-            this.valTicket.Text = "5";
-            // 
-            // valTotal
-            // 
-            this.valTotal.AutoSize = true;
-            this.valTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valTotal.Location = new System.Drawing.Point(83, 224);
-            this.valTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.valTotal.Name = "valTotal";
-            this.valTotal.Size = new System.Drawing.Size(37, 13);
-            this.valTotal.TabIndex = 65;
-            this.valTotal.Text = "50000";
-            // 
             // SeatSelection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 522);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(801, 522);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.seatsTableLayoutPanel);
@@ -327,6 +331,7 @@
             this.panel2.PerformLayout();
             this.seatsTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -338,7 +343,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button41;
+        private System.Windows.Forms.Button btn_buyTicket;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblNumberTickets;
         private System.Windows.Forms.Label lblTime;

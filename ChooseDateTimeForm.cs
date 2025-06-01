@@ -40,7 +40,7 @@ namespace MovieTicketBookingManagementSystem
             using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@MovieID", movieID);
-                command.Parameters.AddWithValue("@Now", DateTime.Now);
+                command.Parameters.AddWithValue("@Now", DateTime.Now.AddHours(-1));
                 connection.Open();
                 int count = (int)command.ExecuteScalar();
                 return count > 0;
@@ -59,7 +59,7 @@ namespace MovieTicketBookingManagementSystem
             using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@MovieID", movieID);
-                command.Parameters.AddWithValue("@Now", DateTime.Now);
+                command.Parameters.AddWithValue("@Now", DateTime.Now.AddHours(-1));
                 connection.Open();
                 using (var reader = command.ExecuteReader())
                 {
@@ -91,13 +91,14 @@ namespace MovieTicketBookingManagementSystem
                 return;
 
             string connectionString = DatabaseConfig.ConnectionString;
-            string query = "SELECT ShowTimeID, StartTime, TheaterID FROM showtimes WHERE MovieID = @MovieID AND CAST(StartTime AS DATE) = @SelectedDate";
+            string query = "SELECT ShowTimeID, StartTime, TheaterID FROM showtimes WHERE MovieID = @MovieID AND CAST(StartTime AS DATE) = @SelectedDate AND StartTime >= @NOW";
 
             using (var connection = new System.Data.SqlClient.SqlConnection(connectionString))
             using (var command = new System.Data.SqlClient.SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@MovieID", movieID);
                 command.Parameters.AddWithValue("@SelectedDate", selectedDate.Date);
+                command.Parameters.AddWithValue("@Now", DateTime.Now.AddHours(-1));
                 connection.Open();
                 using (var reader = command.ExecuteReader())
                 {

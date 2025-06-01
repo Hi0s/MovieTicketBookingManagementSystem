@@ -107,7 +107,19 @@ namespace MovieTicketBookingManagementSystem
                 {
                     if (reader.Read())
                     {
-                        lblMovieName.Text = reader["Title"].ToString();
+                        // If title too long, add tooltip and ellipsis
+                        string title = reader["Title"].ToString();
+                        if (title.Length > 10)
+                        {
+                            ToolTip toolTip = new ToolTip();
+                            toolTip.SetToolTip(lblMovieName, title);
+                            lblMovieName.Text = title.Substring(0, 10) + "..."; // Show first 30 characters with ellipsis
+                        }
+                        else
+                        {
+                            lblMovieName.Text = title;
+                        }
+
                         valDuration.Text = reader["Duration"].ToString();
                         valTime.Text = showTimesText;
                         valTicket.Text = "0";
@@ -209,6 +221,61 @@ namespace MovieTicketBookingManagementSystem
         private void seatSelection_back_btn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_buyTicket_Click(object sender, EventArgs e)
+        {
+            if (selectedSeats.Count == 0)
+            {
+                MessageBox.Show("Please select at least one seat.", "No Seats Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Show messageBox confirming the purchase
+            StringBuilder sb = new StringBuilder("You have selected the following seats:\n");
+            foreach (var seat in selectedSeats.Values)
+            {
+                sb.AppendLine(seat.SeatCode);
+            }
+            sb.AppendLine($"Total Tickets: {selectedSeats.Count}");
+            sb.AppendLine($"Total Price: ${selectedSeats.Count * this.pricingTicket}");
+            DialogResult result = MessageBox.Show(sb.ToString(), "Confirm Purchase", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // Show Loading with progress bar for selected seats
+                using (var loadingForm = new LoadingForm(selectedSeats.Count))
+                {
+                    loadingForm.Show();
+                    loadingForm.Refresh();
+
+                    string connectionString = DatabaseConfig.ConnectionString;
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        foreach (var seat in selectedSeats.Values)
+                        {
+                            string insertQuery = "INSERT INTO tickets (UserID, ShowtimeID, SeatCode, Price, BookingTime) VALUES (@userID, @showTimeId, @seatCode, @pricing, @time)";
+                            using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
+                            {
+                                cmd.Parameters.AddWithValue("@userID", SessionManager.UserID);
+                                cmd.Parameters.AddWithValue("@showTimeId", this.showTimeId);
+                                cmd.Parameters.AddWithValue("@seatCode", seat.SeatCode);
+                                cmd.Parameters.AddWithValue("@pricing", this.pricingTicket);
+                                cmd.Parameters.AddWithValue("@time", DateTime.Now);
+                                cmd.ExecuteNonQuery();
+                            }
+                            loadingForm.Increment();
+                            Application.DoEvents(); // Allow UI to update
+                        }
+                        conn.Close();
+                    }
+                    loadingForm.Close();
+                }
+
+                MessageBox.Show("Tickets purchased successfully!", "Purchase Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RequestClose?.Invoke(this, EventArgs.Empty); // Notify parent form to close
+                this.Close(); // Close the current form
+            }
         }
     }
 }
