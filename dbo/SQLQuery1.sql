@@ -92,6 +92,18 @@ SELECT * from tickets;
 
 SELECT * from payments;
 
+
+DELETE FROM tickets 
+
+DELETE from showtimes
+
+DELETE FROM movies
+
+
+
+
+SELECT COUNT(*) FROM movies
+
 UPDATE showtimes SET Status = 'Cancelled' WHERE ShowtimeID = 1
 UPDATE showtimes SET Status = 'Scheduled' WHERE ShowtimeID = 1
 
@@ -107,6 +119,22 @@ INNER JOIN movies ON showtimes.MovieID = movies.MovieID
 WHERE movies.IsActive =1
 
 
+SELECT movies.Title, SUM(tickets.Price) AS TotalRevenue
+FROM tickets
+INNER JOIN showtimes ON tickets.ShowtimeID = showtimes.ShowtimeID
+INNER JOIN movies ON showtimes.MovieID = movies.MovieID
+WHERE tickets.Status = 'Reserved' AND movies.IsActive = 1
+GROUP BY movies.Title
+ORDER BY TotalRevenue DESC;
+
+SELECT TOP 10 users.Username,movies.Title,tickets.BookingTime As 'Booking Date'
+FROM tickets
+INNER JOIN showtimes ON tickets.ShowtimeID = showtimes.ShowtimeID
+INNER JOIN movies ON showtimes.MovieID = movies.MovieID
+INNER JOIN users ON tickets.UserID = users.UserID
+WHERE tickets.Status = 'Reserved' AND movies.IsActive = 1
+ORDER BY tickets.BookingTime DESC;
+
 DELETE FROM users where UserID = 1;
 
 DELETE FROM movies where MovieID = 3;
@@ -116,6 +144,10 @@ SELECT COUNT(*) FROM users WHERE Username = 'admin';
 DBCC CHECKIDENT ('users', RESEED, 0); --reset ID count
 
 DBCC CHECKIDENT ('movies', RESEED, 0)
+
+DBCC CHECKIDENT ('theaters', RESEED, 0)
+
+DBCC CHECKIDENT ('tickets', RESEED, 0)
 
 DBCC CHECKIDENT ('movies')
 

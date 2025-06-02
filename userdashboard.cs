@@ -18,6 +18,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class userdashboard : Form
     {
+        Point lastPoint;
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -35,13 +36,13 @@ namespace MovieTicketBookingManagementSystem
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             listofmovie_Click(new object(), new EventArgs());
-            this.AcceptButton = listofmovie_btn;
+            this.ActiveControl = listofmovie_btn;
         }
 
         private void userdashboard_Load(object sender, EventArgs e)
         {
             admin_username_lbl.Text = SessionManager.Username;
-
+            admin_username_lbl.Location = new Point(menu_pnl.Width/2-admin_username_lbl.Width/2, 124);
         }
 
 
@@ -113,7 +114,7 @@ namespace MovieTicketBookingManagementSystem
             // Rating label (second row, with gold star)
             Label ratingLabel = new Label
             {
-                Text = $"PG-{rating}",
+                Text = $"{rating}",
                 Dock = DockStyle.Top,
                 Height = 24,
                 BackColor = Color.Transparent,
@@ -484,6 +485,20 @@ namespace MovieTicketBookingManagementSystem
         private void admin_username_lbl_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void menu_pnl_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void menu_pnl_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace MovieTicketBookingManagementSystem
         private DateTime end;
         private List<string> dailyTimes = new List<string>
         {
-            "10:00 AM", "12:00 PM", "02:00 PM", "04:00 PM", "06:00 PM", "08:00 PM"
+            "09:00 AM", "12:00 PM", "03:00 PM", "06:00 PM", "09:00 PM", "00:00 AM"
         };
         private List<Movies> movies = new List<Movies>();
         private List<Theaters> theaters = new List<Theaters>();

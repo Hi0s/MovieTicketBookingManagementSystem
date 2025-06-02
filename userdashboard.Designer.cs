@@ -57,19 +57,21 @@
             this.menu_pnl.Location = new System.Drawing.Point(0, 0);
             this.menu_pnl.Margin = new System.Windows.Forms.Padding(0);
             this.menu_pnl.Name = "menu_pnl";
-            this.menu_pnl.Size = new System.Drawing.Size(210, 618);
+            this.menu_pnl.Size = new System.Drawing.Size(210, 570);
             this.menu_pnl.TabIndex = 2;
+            this.menu_pnl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menu_pnl_MouseDown);
+            this.menu_pnl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menu_pnl_MouseMove);
             // 
             // admin_username_lbl
             // 
             this.admin_username_lbl.AutoSize = true;
             this.admin_username_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admin_username_lbl.ForeColor = System.Drawing.Color.White;
-            this.admin_username_lbl.Location = new System.Drawing.Point(61, 131);
+            this.admin_username_lbl.Location = new System.Drawing.Point(81, 124);
             this.admin_username_lbl.Name = "admin_username_lbl";
-            this.admin_username_lbl.Size = new System.Drawing.Size(96, 18);
+            this.admin_username_lbl.Size = new System.Drawing.Size(46, 18);
             this.admin_username_lbl.TabIndex = 1;
-            this.admin_username_lbl.Text = "User Name";
+            this.admin_username_lbl.Text = "User";
             this.admin_username_lbl.Click += new System.EventHandler(this.admin_username_lbl_Click);
             // 
             // admin_logout_btn
@@ -78,9 +80,9 @@
             this.admin_logout_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.admin_logout_btn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.admin_logout_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.admin_logout_btn.Location = new System.Drawing.Point(64, 560);
+            this.admin_logout_btn.Location = new System.Drawing.Point(64, 517);
             this.admin_logout_btn.Name = "admin_logout_btn";
-            this.admin_logout_btn.Size = new System.Drawing.Size(92, 48);
+            this.admin_logout_btn.Size = new System.Drawing.Size(92, 44);
             this.admin_logout_btn.TabIndex = 13;
             this.admin_logout_btn.Text = "Log out";
             this.admin_logout_btn.UseVisualStyleBackColor = false;
@@ -89,9 +91,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 23);
+            this.pictureBox1.Location = new System.Drawing.Point(64, 21);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 87);
+            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -103,10 +105,10 @@
             this.yourticket_btn.ForeColor = System.Drawing.Color.White;
             this.yourticket_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.ticket;
             this.yourticket_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.yourticket_btn.Location = new System.Drawing.Point(0, 255);
+            this.yourticket_btn.Location = new System.Drawing.Point(0, 235);
             this.yourticket_btn.Margin = new System.Windows.Forms.Padding(0);
             this.yourticket_btn.Name = "yourticket_btn";
-            this.yourticket_btn.Size = new System.Drawing.Size(210, 51);
+            this.yourticket_btn.Size = new System.Drawing.Size(210, 47);
             this.yourticket_btn.TabIndex = 1;
             this.yourticket_btn.Text = "Your ticket";
             this.yourticket_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -123,10 +125,10 @@
             this.listofmovie_btn.ForeColor = System.Drawing.Color.White;
             this.listofmovie_btn.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.listofmovie;
             this.listofmovie_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.listofmovie_btn.Location = new System.Drawing.Point(0, 204);
+            this.listofmovie_btn.Location = new System.Drawing.Point(0, 188);
             this.listofmovie_btn.Margin = new System.Windows.Forms.Padding(0);
             this.listofmovie_btn.Name = "listofmovie_btn";
-            this.listofmovie_btn.Size = new System.Drawing.Size(210, 51);
+            this.listofmovie_btn.Size = new System.Drawing.Size(210, 47);
             this.listofmovie_btn.TabIndex = 1;
             this.listofmovie_btn.Text = "List of movies";
             this.listofmovie_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -141,7 +143,7 @@
             this.manage_movies_pnl.Location = new System.Drawing.Point(210, 0);
             this.manage_movies_pnl.Margin = new System.Windows.Forms.Padding(0);
             this.manage_movies_pnl.Name = "manage_movies_pnl";
-            this.manage_movies_pnl.Size = new System.Drawing.Size(573, 618);
+            this.manage_movies_pnl.Size = new System.Drawing.Size(573, 570);
             this.manage_movies_pnl.TabIndex = 3;
             // 
             // panel1
@@ -152,7 +154,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 39);
+            this.panel1.Size = new System.Drawing.Size(573, 36);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -160,7 +162,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(18, 11);
+            this.label1.Location = new System.Drawing.Point(18, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(97, 20);
@@ -174,14 +176,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(783, 618);
+            this.panel2.Size = new System.Drawing.Size(783, 570);
             this.panel2.TabIndex = 4;
             // 
             // userdashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 618);
+            this.ClientSize = new System.Drawing.Size(783, 570);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);

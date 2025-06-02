@@ -383,8 +383,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>movie.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\user_icon_dashboard.png" />
     <None Include="Resources\yourticket.png" />
     <None Include="Resources\circleUser.png" />
+    <None Include="Resources\bookings_icon_dashboard.png" />
     <Content Include="Resources\dashboard.png" />
     <None Include="Resources\listofmovie.png" />
     <None Include="Resources\moveable.png" />
@@ -393,6 +395,8 @@
     <None Include="Resources\returnblack.png" />
     <None Include="Resources\returnwhite.png" />
     <None Include="Resources\Untitled.png" />
+    <None Include="Resources\movies_icon_dashboard.png" />
+    <None Include="Resources\revenue_icon_dashboard.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup>

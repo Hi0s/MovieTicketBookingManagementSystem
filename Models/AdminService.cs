@@ -109,6 +109,141 @@ namespace MovieTicketBookingManagementSystem.Models
             }
             return user;
         }
+        public static int MoviesCount()
+        {
+            int count = 0;
+            using(SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = "SELECT COUNT(*) FROM movies WHERE IsActive=1";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    count = (int)cmd.ExecuteScalar(); // Execute the query and get the count
+                    connect.Close();
+                }
+            }
+            return count;
+        }
+        public static int UsersCount()
+        {
+            int count = 0;
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = "SELECT COUNT(*) FROM users WHERE IsActive=1";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    count = (int)cmd.ExecuteScalar(); // Execute the query and get the count
+                    connect.Close();
+                }
+            }
+            return count;
+        }
+        public static int TicketsCount()
+        {
+            int count = 0;
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = "SELECT COUNT(*) FROM tickets WHERE Status='Reserved'";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    count = (int)cmd.ExecuteScalar(); // Execute the query and get the count
+                    connect.Close();
+                }
+            }
+            return count;
+        }
+
+        
+        public static int RevenueCalc()
+        {
+            int  sum = 0;
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = "SELECT Price FROM tickets WHERE Status='Reserved'";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    SqlDataReader ticket_price_rd = cmd.ExecuteReader();
+                    while (ticket_price_rd.Read())
+                    {
+                        sum += Convert.ToInt32(ticket_price_rd["Price"]);
+                    }
+                    connect.Close();
+                }
+            }
+            return sum;
+        }
+
+        public static bool ShowTopMovies(DataGridView topMoviesGridView) 
+        {
+            string query = @"SELECT movies.Title, SUM(tickets.Price) AS 'Total Revenue' 
+                                FROM tickets
+                                INNER JOIN showtimes ON tickets.ShowtimeID = showtimes.ShowtimeID
+                                INNER JOIN movies ON showtimes.MovieID = movies.MovieID
+                                WHERE tickets.Status = 'Reserved' AND movies.IsActive = 1
+                                GROUP BY movies.Title
+                                ORDER BY 'Total Revenue' DESC";
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    SqlDataAdapter topMoviesAdapter = new SqlDataAdapter(cmd);
+                    DataTable topMoviesTable = new DataTable();
+                    topMoviesAdapter.Fill(topMoviesTable); // Fill the DataTable with the results
+                    topMoviesGridView.DataSource = topMoviesTable; // Bind the DataTable to the DataGridView
+                    connect.Close();
+                    return topMoviesTable.Rows.Count > 0; // Returns true if there are active movies
+                }
+            }
+        }
+
+        public static bool ShowRecentBookings(DataGridView recentBookingGridView)
+        {
+            string query = @"SELECT TOP 10 movies.Title,tickets.BookingTime As 'Booking Date'
+                            FROM tickets
+                            INNER JOIN showtimes ON tickets.ShowtimeID = showtimes.ShowtimeID
+                            INNER JOIN movies ON showtimes.MovieID = movies.MovieID
+                            WHERE tickets.Status = 'Reserved' AND movies.IsActive = 1
+                            ORDER BY tickets.BookingTime DESC;";
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                using (SqlCommand cmd= new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    SqlDataAdapter recentBookingAdapter = new SqlDataAdapter(cmd);
+                    DataTable recentBookingTable = new DataTable();
+                    recentBookingAdapter.Fill(recentBookingTable); // Fill the DataTable with the results
+                    recentBookingGridView.DataSource = recentBookingTable;
+                    connect.Close();
+                    return recentBookingTable.Rows.Count > 0;
+                }
+            }
+        }
+        public static bool ShowTickets(DataGridView ticketsGridView)
+        {
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                string query = @"SELECT tickets.TicketID, tickets.UserID, users.Username, tickets.ShowtimeID, showtimes.StartTime, 
+                                 tickets.SeatCode, tickets.Price,tickets.BookingTime, tickets.Status
+                                 FROM tickets 
+                                 INNER JOIN users ON tickets.UserID = users.UserID
+                                 INNER JOIN showtimes ON tickets.ShowtimeID = showtimes.ShowtimeID";
+                using (SqlCommand cmd = new SqlCommand(query, connect))
+                {
+                    connect.Open();
+                    //SqlDataReader showActiveMovies_rd = cmd.ExecuteReader();
+                    SqlDataAdapter ticketsAdapter = new SqlDataAdapter(cmd);
+                    DataTable ticketsTable = new DataTable();
+                    ticketsAdapter.Fill(ticketsTable); // Fill the DataTable with the results
+                    ticketsGridView.DataSource = ticketsTable; // Bind the DataTable to the DataGridView
+                    connect.Close();
+                    return ticketsTable.Rows.Count > 0; // Returns true if there are active movies
+                }
+            }
+        }
         public static bool UpdateUser(Users user)
         {
             using (SqlConnection connect = new SqlConnection(conn))
@@ -136,7 +271,7 @@ namespace MovieTicketBookingManagementSystem.Models
                 }
             }
         }
-                    public static List<Movies> GetActiveMoviesList() {
+        public static List<Movies> GetActiveMoviesList() {
             List<Movies> moviesList = new List<Movies>();
             using(SqlConnection connect=new SqlConnection(conn))
             {
@@ -254,41 +389,6 @@ namespace MovieTicketBookingManagementSystem.Models
             return theatersList;
         }
 
-        public static List<Users> GetUsersList()
-        {
-            List<Users> usersList = new List<Users>();
-            using (SqlConnection connect = new SqlConnection(conn))
-            {
-                string user_load = @"SELECT * FROM users WHERE IsActive=1";
-                connect.Open();
-                SqlCommand user_cmd = new SqlCommand(user_load, connect);
-                SqlDataReader user_load_dr = user_cmd.ExecuteReader();
-                while (user_load_dr.Read())
-                {
-                    Users user = new Users
-                    {
-                        UserID = Convert.ToInt32(user_load_dr["UserID"]),
-                        Username = user_load_dr["Username"].ToString(),
-                        Password = user_load_dr["Password"].ToString(),
-                        Firstname = user_load_dr["Firstname"].ToString(),
-                        Lastname = user_load_dr["Lastname"].ToString(),
-                        Gender = user_load_dr["Gender"].ToString(),
-                        Birthdate = Convert.ToDateTime(user_load_dr["Birthdate"]),
-                        Email = user_load_dr["Email"].ToString(),
-                        Phone = user_load_dr["Phone"].ToString(),
-                        Address = user_load_dr["Address"].ToString(),
-                        Role = user_load_dr["Role"].ToString(),
-                        CreatedAt = Convert.ToDateTime(user_load_dr["CreatedAt"]),
-                        IsActive = Convert.ToBoolean(user_load_dr["IsActive"])
-                    };
-                    usersList.Add(user);
-                }
-                user_load_dr.Close();
-                connect.Close();
-            }
-            return usersList;
-        }
-
         public static bool AddMovie(Movies movie)
         {
             using (SqlConnection connect = new SqlConnection(conn))
@@ -346,27 +446,6 @@ namespace MovieTicketBookingManagementSystem.Models
         }
 
 
-        public static bool AddShowtime(Showtimes showtime)
-        {
-            using (SqlConnection connect = new SqlConnection(conn))
-            {
-                string query = @"INSERT INTO showtimes(MovieID, TheaterID, StartTime, TotalSeats, AvailableSeats, Status)
-                                 VALUES(@MovieID, @TheaterID, @StartTime, @TotalSeats, @AvailableSeats, @Status)";
-                using (SqlCommand cmd = new SqlCommand(query, connect))
-                {
-                    cmd.Parameters.AddWithValue("@MovieID", showtime.MovieID);
-                    cmd.Parameters.AddWithValue("@TheaterID", showtime.TheaterID);
-                    cmd.Parameters.AddWithValue("@StartTime", showtime.StartTime);
-                    cmd.Parameters.AddWithValue("@TotalSeats", showtime.TotalSeats);
-                    cmd.Parameters.AddWithValue("@AvailableSeats", showtime.AvailableSeats);
-                    cmd.Parameters.AddWithValue("@Status", showtime.Status);
-                    connect.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    connect.Close();
-                    return rowsAffected > 0; // Returns true if the showtime was successfully added
-                }
-            }
-        }
 
         //Deactivating a movie means cancelling all its showtimes
         public static bool DeactivateMovie(int movieId)
@@ -401,17 +480,6 @@ namespace MovieTicketBookingManagementSystem.Models
             }
         }
 
-        public static bool CancelMultipleShowtime(List<int> showtimeIDList)
-        {
-            foreach (int showtimeID in showtimeIDList)
-            {
-                if (!CancelShowtime(showtimeID))
-                {
-                    return false; // If any cancellation fails, return false
-                }
-            }
-            return true;
-        }
 
         public static void UpdatePremieredShowtimes()
         {
