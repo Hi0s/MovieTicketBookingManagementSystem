@@ -168,7 +168,10 @@ namespace MovieTicketBookingManagementSystem
                     if (DateTime.TryParseExact(timeString, "hh:mm tt", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var parsedTime))
                     {
                         DateTime fullDateTime = new DateTime(day.Year, day.Month, day.Day, parsedTime.Hour, parsedTime.Minute, 0);
-                        availableTimes.Add(fullDateTime.ToString("M/d/yyyy h:mm:ss tt"));
+                        string formatted = fullDateTime.ToString("M/d/yyyy h:mm:ss tt");
+                        // Replace AM/PM with Chinese equivalents
+                        formatted = formatted.Replace("AM", "上午").Replace("PM", "下午");
+                        availableTimes.Add(formatted);
                     }
                 }
             }
@@ -176,12 +179,20 @@ namespace MovieTicketBookingManagementSystem
             // Remove times that already exist as showtimes for the selected theater
             if (addshowtime_theater_cb.SelectedValue != null)
             {
+                MessageBox.Show("OK");
                 int selectedTheaterId = (int)addshowtime_theater_cb.SelectedValue;
                 foreach (var showtime in showtimes)
                 {
+                    MessageBox.Show("OK2");
                     if (showtime.TheaterID == selectedTheaterId)
                     {
-                        string showtimeString = showtime.StartTime.ToString("M/d/yyyy h:mm:ss tt");
+                        string showtimeString = showtime.StartTime.ToString("M/d/yyyy h:mm:ss tt").Replace("AM", "上午").Replace("PM", "下午");
+                        MessageBox.Show(showtimeString);
+                        // Fix for CS1002 and CS1503 errors
+                        // Replace the problematic line:
+
+                        // With the corrected line:
+                        MessageBox.Show(string.Join(", ", availableTimes));
                         availableTimes.Remove(showtimeString);
                     }
                 }

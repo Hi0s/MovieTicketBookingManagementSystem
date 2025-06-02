@@ -339,7 +339,7 @@ namespace MovieTicketBookingManagementSystem.Models
             List<Showtimes> showtimesList = new List<Showtimes>();
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string showtime_load = @"SELECT * FROM showtimes WHERE showtimes.Status='Active'";
+                string showtime_load = @"SELECT * FROM showtimes WHERE showtimes.Status='Scheduled'";
                 connect.Open();
                 SqlCommand showtime_cmd = new SqlCommand(showtime_load, connect);
                 SqlDataReader showtime_load_dr = showtime_cmd.ExecuteReader();
