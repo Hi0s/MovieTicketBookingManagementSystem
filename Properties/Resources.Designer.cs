@@ -63,6 +63,16 @@ namespace MovieTicketBookingManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bookings_icon_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("bookings_icon_dashboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circleUser {
             get {
                 object obj = ResourceManager.GetObject("circleUser", resourceCulture);
@@ -113,6 +123,16 @@ namespace MovieTicketBookingManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap movies_icon_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("movies_icon_dashboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap returnblack {
             get {
                 object obj = ResourceManager.GetObject("returnblack", resourceCulture);
@@ -126,6 +146,16 @@ namespace MovieTicketBookingManagementSystem.Properties {
         internal static System.Drawing.Bitmap returnwhite {
             get {
                 object obj = ResourceManager.GetObject("returnwhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap revenue_icon_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("revenue_icon_dashboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +186,16 @@ namespace MovieTicketBookingManagementSystem.Properties {
         internal static System.Drawing.Bitmap user {
             get {
                 object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_icon_dashboard {
+            get {
+                object obj = ResourceManager.GetObject("user_icon_dashboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

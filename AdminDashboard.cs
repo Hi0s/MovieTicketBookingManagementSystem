@@ -32,10 +32,26 @@ namespace MovieTicketBookingManagementSystem
         public AdminDashboard()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             
             admin_dashboard_btn_Click(new object(), new EventArgs());
             this.ActiveControl = admin_dashboard_btn;
+            movies_pnl.Region = Region.FromHrgn(CreateRoundRectRgn(
+    0, 0,
+    movies_pnl.Width, movies_pnl.Height,
+    25, 25));
+            users_pnl.Region = Region.FromHrgn(CreateRoundRectRgn(
+    0, 0,
+    users_pnl.Width, users_pnl.Height,
+    25, 25));
+            bookings_pnl.Region= Region.FromHrgn(CreateRoundRectRgn(
+    0, 0,
+    bookings_pnl.Width, bookings_pnl.Height,
+    25, 25));
+            revenue_pnl.Region= Region.FromHrgn(CreateRoundRectRgn(
+    0, 0,
+    revenue_pnl.Width, revenue_pnl.Height,
+    25, 25));
 
 
 
@@ -47,13 +63,16 @@ namespace MovieTicketBookingManagementSystem
             admin_manageusers_btn.BackColor = Color.FromArgb(79, 144, 255);
             admin_managemovies_btn.BackColor = Color.FromArgb(79, 144, 255);
             admin_managetickets_btn.BackColor = Color.FromArgb(79, 144, 255);
+            LoadAdminDashboard(new object(), new EventArgs());
+
             // Open the Dashboard panel
             // Hide the other panels if they are visible
             //this.admin_dashboard_pnl.BringToFront();
             //this.admin_dashboard_pnl.Visible = true;
             this.manage_movies_pnl.Visible = false;
             this.manage_users_pnl.Visible = false;
-            //this.manage_tickets_pnl.Visible = false;
+            this.manage_tickets_pnl.Visible = false;
+
 
         }
 
@@ -70,7 +89,7 @@ namespace MovieTicketBookingManagementSystem
             this.manage_movies_pnl.BringToFront();
             this.manage_movies_pnl.Visible = true;
             this.manage_users_pnl.Visible = false;
-            //this.manage_tickets_pnl.Visible = false;
+            this.manage_tickets_pnl.Visible = false;
             //this.admin_dashboard_pnl.Visible = false;
 
 
@@ -89,7 +108,7 @@ namespace MovieTicketBookingManagementSystem
             this.manage_users_pnl.Visible = true;
             this.manage_movies_pnl.Visible = false;
             //this.admin_dashboard_pnl.Visible = false;
-            //this.manage_tickets_pnl.Visible = false;
+            this.manage_tickets_pnl.Visible = false;
         }
 
         private void admin_managetickets_btn_Click(object sender, EventArgs e)
@@ -100,12 +119,12 @@ namespace MovieTicketBookingManagementSystem
             admin_dashboard_btn.BackColor = Color.FromArgb(79, 144, 255);
             // Open the Manage Movies panel
             // Hide the other panels if they are visible
-            //this.manage_tickets_pnl.BringToFront();
-            //this.manage_tickets_pnl.Visible = true;
+            this.manage_tickets_pnl.BringToFront();
+            this.manage_tickets_pnl.Visible = true;
             this.manage_users_pnl.Visible = false;
             this.manage_movies_pnl.Visible = false;
             //this.admin_dashboard_pnl.Visible = false;
-            
+            LoadTicketsGridView(new object(), new EventArgs());
 
 
         }
@@ -154,6 +173,15 @@ namespace MovieTicketBookingManagementSystem
             loginForm.Show();
         }
 
+        private void LoadAdminDashboard(object sender, EventArgs e)
+        {
+            movies_txt.Text = AdminService.MoviesCount().ToString().Trim();
+            users_txt.Text = AdminService.UsersCount().ToString().Trim();
+            bookings_txt.Text = AdminService.TicketsCount().ToString().Trim();
+            revenue_txt.Text = AdminService.RevenueCalc().ToString().Trim();
+            AdminService.ShowTopMovies(admin_dashboard_topmovies_gv);
+            AdminService.ShowRecentBookings(admin_dashboard_recentbookings_gv);
+        }
 
         private void LoadMoviesGridView(object sender, EventArgs e)
         {
@@ -165,6 +193,10 @@ namespace MovieTicketBookingManagementSystem
         private void LoadUsersGridView(object sender, EventArgs e)
         {
             AdminService.ShowUsers(manage_users_datagridview);
+        }
+        private void LoadTicketsGridView(object sender, EventArgs e)
+        {
+            AdminService.ShowTickets(manage_tickets_datagridview);
         }
 
         private void admin_movieedit_btn_Click(object sender, EventArgs e)

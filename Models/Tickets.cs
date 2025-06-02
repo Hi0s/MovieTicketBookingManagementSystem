@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MovieTicketBookingManagementSystem.Models
 {
-    public class Ticket
+    public class Tickets
     {
         public int TicketID { get; set; }
         public int UserID { get; set; }
@@ -17,9 +17,9 @@ namespace MovieTicketBookingManagementSystem.Models
         public string Status { get; set; }
      
 
-        public Ticket() { }
+        public Tickets() { }
 
-        public Ticket(int userID, int showtimeID, string seatCode, decimal price,
+        public Tickets(int userID, int showtimeID, string seatCode, decimal price,
                       DateTime bookingTime, string status)
         {
             UserID = userID;
