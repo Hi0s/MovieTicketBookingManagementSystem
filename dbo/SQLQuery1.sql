@@ -149,7 +149,7 @@ DBCC CHECKIDENT ('theaters', RESEED, 0)
 
 DBCC CHECKIDENT ('tickets', RESEED, 0)
 
-DBCC CHECKIDENT ('movies')
+DBCC CHECKIDENT ('showtimes',RESEED, 0)
 
 INSERT INTO Users (Username, Password,Role) VALUES ('admin', '12345678','admin') -- create admin account
 

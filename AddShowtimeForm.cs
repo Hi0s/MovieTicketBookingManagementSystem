@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class AddShowtimeForm : Form
     {
+        CultureInfo chineseCulture = new CultureInfo("zh-CN");
         Point lastPoint;
         public event EventHandler RequestClose;
 
@@ -23,7 +25,7 @@ namespace MovieTicketBookingManagementSystem
         private DateTime end;
         private List<string> dailyTimes = new List<string>
         {
-            "09:00 AM", "12:00 PM", "03:00 PM", "06:00 PM", "09:00 PM", "00:00 AM"
+            "09:00:00 上午", "12:00:00 下午", "03:00:00 下午", "06:00:00 下午", "09:00:00 下午", "12:00:00 上午"
         };
         private List<Movies> movies = new List<Movies>();
         private List<Theaters> theaters = new List<Theaters>();
@@ -64,7 +66,7 @@ namespace MovieTicketBookingManagementSystem
         private void addshowtime_btn_Click(object sender, EventArgs e)
         {
             // Use Chinese culture info
-            var chineseCulture = new System.Globalization.CultureInfo("zh-CN");
+            //var chineseCulture = new CultureInfo("zh-CN");
             if (addshowtime_movie_cb.SelectedValue == null || addshowtime_theater_cb.SelectedValue == null || addshowtime_dailytime_lb.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please select a movie, theater, and showtime.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -81,7 +83,7 @@ namespace MovieTicketBookingManagementSystem
                         // Convert the timeString (e.g., "6/10/2024 10:00:00 AM") to DateTime
                         DateTime fullStartTime;
 
-                        if (!DateTime.TryParseExact(timeString, "M/d/yyyy h:mm:ss tt", chineseCulture, System.Globalization.DateTimeStyles.None, out fullStartTime))
+                        if (!DateTime.TryParseExact(timeString, "M/d/yyyy hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out fullStartTime))
                         {
                             MessageBox.Show($"Invalid time format: {timeString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
@@ -136,6 +138,7 @@ namespace MovieTicketBookingManagementSystem
 
         private void addshowtime_enddate_datepicker_ValueChanged(object sender, EventArgs e)
         {
+
             // Focus on the first empty required field
             if (addshowtime_movie_cb.SelectedValue == null || addshowtime_movie_cb.SelectedIndex == -1)
             {
@@ -165,10 +168,10 @@ namespace MovieTicketBookingManagementSystem
             {
                 foreach (string timeString in dailyTimes)
                 {
-                    if (DateTime.TryParseExact(timeString, "hh:mm tt", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var parsedTime))
+                    if (DateTime.TryParseExact(timeString, "hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out var parsedTime))
                     {
-                        DateTime fullDateTime = new DateTime(day.Year, day.Month, day.Day, parsedTime.Hour, parsedTime.Minute, 0);
-                        availableTimes.Add(fullDateTime.ToString("M/d/yyyy h:mm:ss tt"));
+                        DateTime fullDateTime = new DateTime(day.Year, day.Month, day.Day, parsedTime.Hour, parsedTime.Minute, parsedTime.Second);
+                        availableTimes.Add(fullDateTime.ToString("M/d/yyyy hh:mm:ss tt"));
                     }
                 }
             }
@@ -177,15 +180,12 @@ namespace MovieTicketBookingManagementSystem
             if (addshowtime_theater_cb.SelectedValue != null)
             {
                 int selectedTheaterId = (int)addshowtime_theater_cb.SelectedValue;
-                foreach (var showtime in showtimes)
-                {
-                    if (showtime.TheaterID == selectedTheaterId)
-                    {
-                        string showtimeString = showtime.StartTime.ToString("M/d/yyyy h:mm:ss tt");
-                        availableTimes.Remove(showtimeString);
-                    }
-                }
+
+                availableTimes.RemoveAll(timeStr =>
+                    DateTime.TryParseExact(timeStr, "M/d/yyyy hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out DateTime parsedTime)
+                    && showtimes.Any(s => s.TheaterID == selectedTheaterId && s.StartTime == parsedTime));
             }
+
 
             // Update the list box with the filtered times
             addshowtime_dailytime_lb.DataSource = null;
