@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MovieTicketBookingManagementSystem.Config;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MovieTicketBookingManagementSystem.Config;
-using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Forms;
 
 namespace MovieTicketBookingManagementSystem.Models
@@ -32,6 +33,10 @@ namespace MovieTicketBookingManagementSystem.Models
                     moviesAdapter.Fill(activeMovies); // Fill the DataTable with the results
                     moviesGridView.DataSource = activeMovies; // Bind the DataTable to the DataGridView
                     connect.Close();
+
+                    moviesGridView.Columns["StartTime"].DefaultCellStyle.Format = "yyyy/M/d hh:mm:ss tt";
+                    //moviesGridView.Columns["StartTime"].DefaultCellStyle.FormatProvider = new CultureInfo("zh-CN");
+
                     return activeMovies.Rows.Count>0; // Returns true if there are active movies
                 }
             }
@@ -240,6 +245,11 @@ namespace MovieTicketBookingManagementSystem.Models
                     ticketsAdapter.Fill(ticketsTable); // Fill the DataTable with the results
                     ticketsGridView.DataSource = ticketsTable; // Bind the DataTable to the DataGridView
                     connect.Close();
+                    ticketsGridView.Columns["StartTime"].DefaultCellStyle.Format = "yyyy/M/d hh:mm:ss tt";
+                    //ticketsGridView.Columns["StartTime"].DefaultCellStyle.FormatProvider = new CultureInfo("zh-CN");
+                    ticketsGridView.Columns["BookingTime"].DefaultCellStyle.Format = "yyyy/M/d hh:mm:ss tt";
+                    //ticketsGridView.Columns["StartTime"].DefaultCellStyle.FormatProvider = new CultureInfo("zh-CN");
+
                     return ticketsTable.Rows.Count > 0; // Returns true if there are active movies
                 }
             }

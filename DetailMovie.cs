@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MovieTicketBookingManagementSystem
 {
@@ -45,13 +46,13 @@ namespace MovieTicketBookingManagementSystem
                         lblReleaseValue.Text = reader["ReleaseDate"] != DBNull.Value
                             ? Convert.ToDateTime(reader["ReleaseDate"]).ToShortDateString()
                             : "N/A";
-                        lblPrice.Text = "$";
-                        lblRatedValue.Text = "PG-" + reader["Rating"].ToString();
+                        lblPrice.Text = "$"+reader["Pricing"].ToString();
+                        lblRatedValue.Text =  reader["Rating"].ToString();
                         lblGenreValue.Text = reader["Genre"].ToString();
                         lblDescription.Text = reader["Description"].ToString();
                         string posterPath = reader["PosterPath"].ToString();
                         string imageUrl = (!string.IsNullOrEmpty(posterPath) && System.IO.File.Exists(posterPath))
-                            ? posterPath
+                            ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, posterPath)
                             : "";
                         if (!string.IsNullOrEmpty(imageUrl))
                         {

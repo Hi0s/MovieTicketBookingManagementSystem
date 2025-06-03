@@ -108,6 +108,8 @@ namespace MovieTicketBookingManagementSystem
                 // Load the selected image into the PictureBox
                 poster_path = openFileDialog.FileName;
                 addmovie_posterpath_lbl.Text = $"{Path.GetFileName(poster_path)}";
+
+                poster_path=@"Resources\" + Path.GetFileName(poster_path);
             }
             else
             {

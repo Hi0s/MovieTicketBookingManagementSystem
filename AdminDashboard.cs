@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MovieTicketBookingManagementSystem.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using MovieTicketBookingManagementSystem.Models;
 
 namespace MovieTicketBookingManagementSystem
 {
@@ -190,6 +191,7 @@ namespace MovieTicketBookingManagementSystem
                 AdminService.ShowActiveMovies(manage_movie_datagridview);
             else if(admin_inactiveshowtimes_rd.Checked)
                 AdminService.ShowInactiveMovies(manage_movie_datagridview);
+
         }
         private void LoadUsersGridView(object sender, EventArgs e)
         {

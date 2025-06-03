@@ -76,7 +76,6 @@ CREATE TABLE payments (
     Status VARCHAR(20) DEFAULT 'Success', -- Success, Failed
     FOREIGN KEY (TicketID) REFERENCES Tickets(TicketID)
 );
-SELECT * from seats;
 
 
 SELECT * from users;
@@ -97,12 +96,14 @@ DELETE FROM tickets
 
 DELETE from showtimes
 
-DELETE FROM movies
+DELETE from users where UserID=8
 
-
+DELETE from movies where MovieID=9
 
 
 SELECT COUNT(*) FROM movies
+
+UPDATE movies SET PosterPath='Resources\infinitywar.jpg'
 
 UPDATE showtimes SET Status = 'Cancelled' WHERE ShowtimeID = 1
 UPDATE showtimes SET Status = 'Scheduled' WHERE ShowtimeID = 1

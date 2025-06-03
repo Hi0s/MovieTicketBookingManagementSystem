@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -357,7 +358,7 @@ namespace MovieTicketBookingManagementSystem
                         string posterPath = reader["PosterPath"]?.ToString();
                         string movieId = reader["MovieID"].ToString();
                         string imageUrl = (!string.IsNullOrEmpty(posterPath) && System.IO.File.Exists(posterPath))
-                            ? posterPath
+                            ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, posterPath)
                             : "";
 
                         Panel moviePanel = CreateMoviePanel(movieId, title, rating, releaseDate, imageUrl);

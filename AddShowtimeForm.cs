@@ -17,6 +17,7 @@ namespace MovieTicketBookingManagementSystem
     public partial class AddShowtimeForm : Form
     {
         CultureInfo chineseCulture = new CultureInfo("zh-CN");
+        CultureInfo englishCulture = new CultureInfo("en-US");
         Point lastPoint;
         public event EventHandler RequestClose;
 
@@ -83,7 +84,7 @@ namespace MovieTicketBookingManagementSystem
                         // Convert the timeString (e.g., "6/10/2024 10:00:00 AM") to DateTime
                         DateTime fullStartTime;
 
-                        if (!DateTime.TryParseExact(timeString, "M/d/yyyy hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out fullStartTime))
+                        if (!DateTime.TryParseExact(timeString, "yyyy/M/d hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out fullStartTime))
                         {
                             MessageBox.Show($"Invalid time format: {timeString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
@@ -170,8 +171,13 @@ namespace MovieTicketBookingManagementSystem
                 {
                     if (DateTime.TryParseExact(timeString, "hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out var parsedTime))
                     {
+                        
                         DateTime fullDateTime = new DateTime(day.Year, day.Month, day.Day, parsedTime.Hour, parsedTime.Minute, parsedTime.Second);
-                        availableTimes.Add(fullDateTime.ToString("M/d/yyyy hh:mm:ss tt"));
+                        if(fullDateTime < DateTime.Now)
+                        {
+                            continue; // Skip times in the past
+                        }
+                        availableTimes.Add(fullDateTime.ToString("yyyy/M/d hh:mm:ss tt"));
                     }
                 }
             }
@@ -180,10 +186,18 @@ namespace MovieTicketBookingManagementSystem
             if (addshowtime_theater_cb.SelectedValue != null)
             {
                 int selectedTheaterId = (int)addshowtime_theater_cb.SelectedValue;
-
-                availableTimes.RemoveAll(timeStr =>
-                    DateTime.TryParseExact(timeStr, "M/d/yyyy hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out DateTime parsedTime)
-                    && showtimes.Any(s => s.TheaterID == selectedTheaterId && s.StartTime == parsedTime));
+                foreach (var showtime in showtimes)
+                {
+                    if (showtime.TheaterID == selectedTheaterId)
+                    {
+                        string showtimeString = showtime.StartTime.ToString("yyyy/M/d hh:mm:ss tt");
+                        availableTimes.Remove(showtimeString);
+                    }
+                }
+            
+            //availableTimes.RemoveAll(timeStr =>
+            //    DateTime.TryParseExact(timeStr, "M/d/yyyy hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out DateTime parsedTime)
+            //    && showtimes.Any(s => s.TheaterID == selectedTheaterId && s.StartTime == parsedTime));
             }
 
 
@@ -219,6 +233,7 @@ namespace MovieTicketBookingManagementSystem
         }
         public void ClearForm()
         {
+            Add_Showtime_Load(new object(),EventArgs.Empty);
             addshowtime_movie_cb.SelectedIndex = -1;
             addshowtime_theater_cb.SelectedIndex = -1;
             addshowtime_dailytime_lb.ClearSelected();
