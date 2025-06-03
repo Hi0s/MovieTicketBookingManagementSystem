@@ -16,8 +16,8 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class AddShowtimeForm : Form
     {
-        CultureInfo chineseCulture = new CultureInfo("zh-CN");
-        CultureInfo englishCulture = new CultureInfo("en-US");
+        //CultureInfo chineseCulture = new CultureInfo("zh-CN");
+        //CultureInfo englishCulture = new CultureInfo("en-US");
         Point lastPoint;
         public event EventHandler RequestClose;
 
@@ -84,7 +84,11 @@ namespace MovieTicketBookingManagementSystem
                         // Convert the timeString (e.g., "6/10/2024 10:00:00 AM") to DateTime
                         DateTime fullStartTime;
 
-                        if (!DateTime.TryParseExact(timeString, "yyyy/M/d hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out fullStartTime))
+                        // Remove all local CultureInfo usage and references in AddShowtimeForm.cs
+                        // Replace 'chineseCulture' with null or CultureInfo.CurrentCulture in all DateTime.Parse/ParseExact/TryParseExact calls
+
+                        // Example replacement for the selected line:
+                        if (!DateTime.TryParseExact(timeString, "yyyy/M/d hh:mm:ss tt", CultureInfo.CurrentCulture, DateTimeStyles.None, out fullStartTime))
                         {
                             MessageBox.Show($"Invalid time format: {timeString}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             continue;
@@ -169,7 +173,7 @@ namespace MovieTicketBookingManagementSystem
             {
                 foreach (string timeString in dailyTimes)
                 {
-                    if (DateTime.TryParseExact(timeString, "hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out var parsedTime))
+                    if (DateTime.TryParseExact(timeString, "hh:mm:ss tt", CultureInfo.CurrentCulture, DateTimeStyles.None, out var parsedTime))
                     {
                         
                         DateTime fullDateTime = new DateTime(day.Year, day.Month, day.Day, parsedTime.Hour, parsedTime.Minute, parsedTime.Second);
