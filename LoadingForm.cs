@@ -18,7 +18,7 @@ namespace MovieTicketBookingManagementSystem
                 progressBar1.Value++;
 
             progressBar1.Refresh();
-            Thread.Sleep(10); // Sleep for 200 milliseconds to visualize progress
+            Thread.Sleep(200); // Sleep for 200 milliseconds to visualize progress
         }
     }
 }

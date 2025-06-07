@@ -28,39 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.login_login_lbl = new System.Windows.Forms.Label();
+            this.login_signup_lbl = new System.Windows.Forms.Label();
             this.login_username = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.login_password_lbl = new System.Windows.Forms.Label();
             this.login_password = new System.Windows.Forms.TextBox();
             this.login_showPassword = new System.Windows.Forms.CheckBox();
             this.login_btn = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.login_username_lbl = new System.Windows.Forms.Label();
             this.login_signupBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // login_login_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 76);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "LOGIN ACCOUNT";
+            this.login_login_lbl.AutoSize = true;
+            this.login_login_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_login_lbl.ForeColor = System.Drawing.Color.White;
+            this.login_login_lbl.Location = new System.Drawing.Point(32, 76);
+            this.login_login_lbl.Name = "login_login_lbl";
+            this.login_login_lbl.Size = new System.Drawing.Size(173, 22);
+            this.login_login_lbl.TabIndex = 0;
+            this.login_login_lbl.Text = "LOGIN ACCOUNT";
             // 
-            // label2
+            // login_signup_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(79, 571);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Create an account?";
+            this.login_signup_lbl.AutoSize = true;
+            this.login_signup_lbl.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_signup_lbl.ForeColor = System.Drawing.Color.White;
+            this.login_signup_lbl.Location = new System.Drawing.Point(79, 571);
+            this.login_signup_lbl.Name = "login_signup_lbl";
+            this.login_signup_lbl.Size = new System.Drawing.Size(136, 17);
+            this.login_signup_lbl.TabIndex = 0;
+            this.login_signup_lbl.Text = "Create an account?";
             // 
             // login_username
             // 
@@ -71,16 +71,16 @@
             this.login_username.Size = new System.Drawing.Size(224, 31);
             this.login_username.TabIndex = 1;
             // 
-            // label3
+            // login_password_lbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(33, 231);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Password";
+            this.login_password_lbl.AutoSize = true;
+            this.login_password_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_password_lbl.ForeColor = System.Drawing.Color.White;
+            this.login_password_lbl.Location = new System.Drawing.Point(33, 231);
+            this.login_password_lbl.Name = "login_password_lbl";
+            this.login_password_lbl.Size = new System.Drawing.Size(80, 17);
+            this.login_password_lbl.TabIndex = 0;
+            this.login_password_lbl.Text = "Password";
             // 
             // login_password
             // 
@@ -134,16 +134,16 @@
             this.close_btn.UseVisualStyleBackColor = false;
             this.close_btn.Click += new System.EventHandler(this.close_btn_Click);
             // 
-            // label4
+            // login_username_lbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(33, 147);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Username";
+            this.login_username_lbl.AutoSize = true;
+            this.login_username_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.login_username_lbl.ForeColor = System.Drawing.Color.White;
+            this.login_username_lbl.Location = new System.Drawing.Point(33, 147);
+            this.login_username_lbl.Name = "login_username_lbl";
+            this.login_username_lbl.Size = new System.Drawing.Size(83, 17);
+            this.login_username_lbl.TabIndex = 0;
+            this.login_username_lbl.Text = "Username";
             // 
             // login_signupBtn
             // 
@@ -171,11 +171,11 @@
             this.Controls.Add(this.login_btn);
             this.Controls.Add(this.login_showPassword);
             this.Controls.Add(this.login_password);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.login_username_lbl);
+            this.Controls.Add(this.login_password_lbl);
             this.Controls.Add(this.login_username);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.login_signup_lbl);
+            this.Controls.Add(this.login_login_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -189,15 +189,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label login_login_lbl;
+        private System.Windows.Forms.Label login_signup_lbl;
         private System.Windows.Forms.TextBox login_username;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label login_password_lbl;
         private System.Windows.Forms.TextBox login_password;
         private System.Windows.Forms.CheckBox login_showPassword;
         private System.Windows.Forms.Button login_btn;
         private System.Windows.Forms.Button close_btn;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label login_username_lbl;
         private System.Windows.Forms.Button login_signupBtn;
     }
 }

@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="MovieTicketBookingManagementSystem.AddMoviesForm" Collapsed="true">
+    <Position X="28.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACQAEACAISABAABAABGCQAACAQYRDAACAAAQIBAAQAo=</HashCode>
+      <FileName>AddMoviesForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.AddShowtimeForm" Collapsed="true">
+    <Position X="31" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QKwQEgBCACIUCTJgAhiAAEAGgAgEAAACCAEgAgAAgAA=</HashCode>
+      <FileName>AddShowtimeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.AdminDashboard">
+    <Position X="23" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>CjUAwxAAQCFSjgFzAIGTIgAPICKEpFQBRlAumCCgAAM=</HashCode>
+      <FileName>AdminDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.ChooseDateTimeForm">
+    <Position X="10.5" Y="16.25" Width="3.25" />
+    <NestedTypes>
+      <Class Name="MovieTicketBookingManagementSystem.ChooseDateTimeForm.ComboBoxItem" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ChooseDateTimeForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAkAAAgAACAgAAECAADEAMBCAIAAAUAAAEAAAAAAAAA=</HashCode>
+      <FileName>ChooseDateTimeForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.DetailMovie">
+    <Position X="6" Y="16.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAiCIAIACAAARFBAACAAgoCUAAAAQCEAAAAAQFDSAA=</HashCode>
+      <FileName>DetailMovie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.EditMovieForm" Collapsed="true">
+    <Position X="28.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IHSAACCIEyAAAoRACAaSABSSBIAAMAAAAAAqwQAQAAU=</HashCode>
+      <FileName>EditMovieForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.LoadingForm">
+    <Position X="8.5" Y="26" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAIACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoadingForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.LoginForm">
+    <Position X="16.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>MAQBAABAACCAQIAAggCAkAACAAQAAAIAAFAACAAAAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Program">
+    <Position X="47" Y="5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.RegisterForm">
+    <Position X="12.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>gAQgSAAAICmAAAPARAKByEgSAEQFAEYkAQAIAgQAACA=</HashCode>
+      <FileName>RegisterForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.SeatSelection">
+    <Position X="14.75" Y="16.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEJASYQSAEAAFBCEKAwEQzCAAQBIEQABkAAAAUCQA=</HashCode>
+      <FileName>SeatSelection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.userdashboard">
+    <Position X="0.5" Y="16.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>CAUQABIQACAAAAIBAACABABCIAYAYBQBAkCAAAAQABA=</HashCode>
+      <FileName>userdashboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.UserEditForm" Collapsed="true">
+    <Position X="28.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SEyAEQCiACgAIAFACAGACESyYAQgDBQAQAAAQUABAQA=</HashCode>
+      <FileName>UserEditForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Config.DatabaseConfig">
+    <Position X="44.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Config\DatabaseConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.AdminService">
+    <Position X="41" Y="1" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ACiAAAAAAQQgFAAIAAARAAAAARQAAAAAEgAAACCAEAA=</HashCode>
+      <FileName>Models\AdminService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Movies">
+    <Position X="0.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAqAEAAkCIAAAAACAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movies.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.PasswordHasher">
+    <Position X="44.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\PasswordHasher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Payments">
+    <Position X="5.5" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAEAAAAAAAAgAACAAAAAABAAAAAAAAAQAAA=</HashCode>
+      <FileName>Models\Payments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Seats">
+    <Position X="8.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAgAAAAAIAAAAQAIAAAAAAAAA=</HashCode>
+      <FileName>Models\Seats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.SessionManager">
+    <Position X="47" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEQAEAAgAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Models\SessionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Showtimes">
+    <Position X="2.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEBAAAAAAAAgAAAAAAMAAAAAEAAAIAAAAAAAA=</HashCode>
+      <FileName>Models\Showtimes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Theaters">
+    <Position X="2.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAARAAAAAAAEAAAAAQAAAAAAAAAAAIAAAAQAAA=</HashCode>
+      <FileName>Models\Theaters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Tickets">
+    <Position X="5.5" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAQAAAAAAAAAAAAgAEAAAAAAQAAAAAAEQAAA=</HashCode>
+      <FileName>Models\Tickets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Users">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAACIESAAAAwAAAAAAAACAAAAIAAAAAA=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.UserService">
+    <Position X="44.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Models\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Models.Validator">
+    <Position X="47" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAAAA=</HashCode>
+      <FileName>Models\Validator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAQACYCAAQAAhABEAAAAQAAAAAQgAAAAAQQAYA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovieTicketBookingManagementSystem.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

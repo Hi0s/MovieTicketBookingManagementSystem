@@ -46,7 +46,7 @@
             this.addmovie_btn = new System.Windows.Forms.Button();
             this.addmovie_posterpath_lbl = new System.Windows.Forms.Label();
             this.addmovie_return_btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.addmovie_price_lbl = new System.Windows.Forms.Label();
             this.addmovie_price_txt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -253,16 +253,16 @@
             this.addmovie_return_btn.UseVisualStyleBackColor = false;
             this.addmovie_return_btn.Click += new System.EventHandler(this.addmovie_return_btn_Click);
             // 
-            // label1
+            // addmovie_price_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(99, 461);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Price (per ticket):";
+            this.addmovie_price_lbl.AutoSize = true;
+            this.addmovie_price_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addmovie_price_lbl.ForeColor = System.Drawing.Color.Black;
+            this.addmovie_price_lbl.Location = new System.Drawing.Point(99, 461);
+            this.addmovie_price_lbl.Name = "addmovie_price_lbl";
+            this.addmovie_price_lbl.Size = new System.Drawing.Size(147, 18);
+            this.addmovie_price_lbl.TabIndex = 2;
+            this.addmovie_price_lbl.Text = "Price (per ticket):";
             // 
             // addmovie_price_txt
             // 
@@ -288,7 +288,7 @@
             this.Controls.Add(this.addmovie_rating_txt);
             this.Controls.Add(this.addmovie_posterpath_lbl);
             this.Controls.Add(this.addmovie_poster_lbl);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.addmovie_price_lbl);
             this.Controls.Add(this.addmovie_release_lbl);
             this.Controls.Add(this.addmovie_rating_lbl);
             this.Controls.Add(this.addmovie_duration_txt);
@@ -328,7 +328,7 @@
         private System.Windows.Forms.Button addmovie_btn;
         private System.Windows.Forms.Button addmovie_return_btn;
         private System.Windows.Forms.Label addmovie_posterpath_lbl;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label addmovie_price_lbl;
         private System.Windows.Forms.TextBox addmovie_price_txt;
     }
 }

@@ -150,12 +150,12 @@ namespace MovieTicketBookingManagementSystem
                 viewDetail.Click += (s, e) =>
                 {
                     // Hide panel1
-                    panel1.Visible = false;
+                    top_pnl.Visible = false;
 
                     // Remove any existing DetailMovie controls
-                    foreach (Control ctrl in manage_movies_pnl.Controls.OfType<DetailMovie>().ToList())
+                    foreach (Control ctrl in list_pnl.Controls.OfType<DetailMovie>().ToList())
                     {
-                        manage_movies_pnl.Controls.Remove(ctrl);
+                        list_pnl.Controls.Remove(ctrl);
                         ctrl.Dispose();
                     }
 
@@ -166,12 +166,12 @@ namespace MovieTicketBookingManagementSystem
                     detailForm.Dock = DockStyle.Fill;
                     detailForm.RequestClose += (sender2, args2) =>
                     {
-                        panel1.Visible = true;
-                        manage_movies_pnl.Controls.Remove(detailForm);
+                        top_pnl.Visible = true;
+                        list_pnl.Controls.Remove(detailForm);
                         detailForm.Dispose();
                     };
 
-                    manage_movies_pnl.Controls.Add(detailForm);
+                    list_pnl.Controls.Add(detailForm);
                     detailForm.BringToFront();
                     detailForm.Show();
                     viewDetail.Text = "View Detail";
@@ -307,11 +307,12 @@ namespace MovieTicketBookingManagementSystem
         private void listofmovie_Click(object sender, EventArgs e)
         {
             listofmovie_btn.BackColor = Color.FromArgb(46, 51, 73);
-            label1.Text = "List of Movies";
+            yourticket_btn.BackColor = Color.FromArgb(79, 144, 255);
+            list_lbl.Text = "List of Movies";
 
-            manage_movies_pnl.Controls.Clear();
-            manage_movies_pnl.Controls.Add(panel1);
-            panel1.Visible = true;
+            list_pnl.Controls.Clear();
+            list_pnl.Controls.Add(top_pnl);
+            top_pnl.Visible = true;
 
 
 
@@ -378,18 +379,19 @@ namespace MovieTicketBookingManagementSystem
             scrollPanel.Controls.Add(table);
             // Add the scrollPanel with key "scrollPanel" to manage_movies_pnl
             scrollPanel.Name = "scrollPanel";
-            manage_movies_pnl.Controls.Add(scrollPanel);
+            list_pnl.Controls.Add(scrollPanel);
         }
 
         private void yourticket_btn_Click(object sender, EventArgs e)
         {
             // Clear all form 
             yourticket_btn.BackColor = Color.FromArgb(46, 51, 73);
-            label1.Text = "List of Tickets";
+            listofmovie_btn.BackColor = Color.FromArgb(79, 144, 255);
+            list_lbl.Text = "List of Tickets";
             // Clear all controls in manage_movies_pnl except for the panel1
-            manage_movies_pnl.Controls.Clear();
-            manage_movies_pnl.Controls.Add(panel1);
-            panel1.Visible = true;
+            list_pnl.Controls.Clear();
+            list_pnl.Controls.Add(top_pnl);
+            top_pnl.Visible = true;
 
 
 
@@ -463,17 +465,7 @@ namespace MovieTicketBookingManagementSystem
             // Add DataGridView to the panel
             scrollPanel.Controls.Add(table);
             scrollPanel.Name = "scrollPanel";
-            manage_movies_pnl.Controls.Add(scrollPanel);
-        }
-
-        private void listofmovie_btn_Leave(object sender, EventArgs e)
-        {
-            listofmovie_btn.BackColor = Color.FromArgb(79, 144, 255);
-        }
-
-        private void yourticket_btn_Leave(object sender, EventArgs e)
-        {
-            yourticket_btn.BackColor = Color.FromArgb(79, 144, 255);
+            list_pnl.Controls.Add(scrollPanel);
         }
 
         private void admin_logout_btn_Click(object sender, EventArgs e)

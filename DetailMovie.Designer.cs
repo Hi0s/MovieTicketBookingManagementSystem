@@ -24,7 +24,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lpnlDetail = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlDescription = new System.Windows.Forms.Panel();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.btn_back_list = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblGenre = new System.Windows.Forms.Label();
@@ -38,17 +40,15 @@
             this.lblRated = new System.Windows.Forms.Label();
             this.lblRatedValue = new System.Windows.Forms.Label();
             this.lbDescription = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
             this.btn_buy_ticket = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.lpnlDetail.SuspendLayout();
+            this.pnlDescription.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,7 +72,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Panel2.Controls.Add(this.lpnlDetail);
             this.splitContainer1.Size = new System.Drawing.Size(573, 570);
             this.splitContainer1.SplitterDistance = 295;
             this.splitContainer1.TabIndex = 0;
@@ -88,41 +88,67 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tableLayoutPanel1
+            // lpnlDetail
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btn_back_list, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.lblTitle, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblGenre, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblReleaseValue, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblGenreValue, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblDuration, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblDurationValue, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblPrice, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblRelease, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblRated, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lblRatedValue, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.lbDescription, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btn_buy_ticket, 1, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.4304F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.200055F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.200055F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.200055F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.00911F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.96032F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(573, 271);
-            this.tableLayoutPanel1.TabIndex = 1;
+            this.lpnlDetail.ColumnCount = 4;
+            this.lpnlDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
+            this.lpnlDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+            this.lpnlDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.lpnlDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.lpnlDetail.Controls.Add(this.pnlDescription, 1, 4);
+            this.lpnlDetail.Controls.Add(this.btn_back_list, 0, 5);
+            this.lpnlDetail.Controls.Add(this.lblTitle, 0, 0);
+            this.lpnlDetail.Controls.Add(this.lblGenre, 0, 1);
+            this.lpnlDetail.Controls.Add(this.lblReleaseValue, 3, 2);
+            this.lpnlDetail.Controls.Add(this.lblGenreValue, 1, 1);
+            this.lpnlDetail.Controls.Add(this.lblDuration, 2, 1);
+            this.lpnlDetail.Controls.Add(this.lblDurationValue, 3, 1);
+            this.lpnlDetail.Controls.Add(this.label2, 0, 2);
+            this.lpnlDetail.Controls.Add(this.lblPrice, 1, 2);
+            this.lpnlDetail.Controls.Add(this.lblRelease, 2, 2);
+            this.lpnlDetail.Controls.Add(this.lblRated, 0, 3);
+            this.lpnlDetail.Controls.Add(this.lblRatedValue, 1, 3);
+            this.lpnlDetail.Controls.Add(this.lbDescription, 0, 4);
+            this.lpnlDetail.Controls.Add(this.btn_buy_ticket, 1, 5);
+            this.lpnlDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lpnlDetail.Location = new System.Drawing.Point(0, 0);
+            this.lpnlDetail.Name = "lpnlDetail";
+            this.lpnlDetail.RowCount = 6;
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.4304F));
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.200055F));
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.200055F));
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.200055F));
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.00911F));
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.96032F));
+            this.lpnlDetail.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.lpnlDetail.Size = new System.Drawing.Size(573, 271);
+            this.lpnlDetail.TabIndex = 1;
+            // 
+            // pnlDescription
+            // 
+            this.pnlDescription.AutoScroll = true;
+            this.lpnlDetail.SetColumnSpan(this.pnlDescription, 3);
+            this.pnlDescription.Controls.Add(this.lblDescription);
+            this.pnlDescription.Location = new System.Drawing.Point(116, 157);
+            this.pnlDescription.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
+            this.pnlDescription.Name = "pnlDescription";
+            this.pnlDescription.Size = new System.Drawing.Size(454, 42);
+            this.pnlDescription.TabIndex = 1;
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblDescription.Location = new System.Drawing.Point(6, 0);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblDescription.MaximumSize = new System.Drawing.Size(440, 0);
+            this.lblDescription.MinimumSize = new System.Drawing.Size(440, 0);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(440, 133);
+            this.lblDescription.TabIndex = 16;
+            this.lblDescription.Text = resources.GetString("lblDescription.Text");
+            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btn_back_list
             // 
@@ -132,7 +158,7 @@
             this.btn_back_list.BackColor = System.Drawing.Color.Transparent;
             this.btn_back_list.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_back_list.Location = new System.Drawing.Point(10, 212);
-            this.btn_back_list.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btn_back_list.Margin = new System.Windows.Forms.Padding(10);
             this.btn_back_list.Name = "btn_back_list";
             this.btn_back_list.Size = new System.Drawing.Size(91, 49);
             this.btn_back_list.TabIndex = 18;
@@ -143,7 +169,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.lblTitle, 4);
+            this.lpnlDetail.SetColumnSpan(this.lblTitle, 4);
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
@@ -276,48 +302,22 @@
             this.lbDescription.Text = "Description:";
             this.lbDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblDescription
-            // 
-            this.lblDescription.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblDescription.Location = new System.Drawing.Point(6, 0);
-            this.lblDescription.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblDescription.MaximumSize = new System.Drawing.Size(440, 0);
-            this.lblDescription.MinimumSize = new System.Drawing.Size(440, 0);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(440, 133);
-            this.lblDescription.TabIndex = 16;
-            this.lblDescription.Text = resources.GetString("lblDescription.Text");
-            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // btn_buy_ticket
             // 
             this.btn_buy_ticket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_buy_ticket.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.SetColumnSpan(this.btn_buy_ticket, 3);
+            this.lpnlDetail.SetColumnSpan(this.btn_buy_ticket, 3);
             this.btn_buy_ticket.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_buy_ticket.Location = new System.Drawing.Point(121, 212);
-            this.btn_buy_ticket.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.btn_buy_ticket.Margin = new System.Windows.Forms.Padding(10);
             this.btn_buy_ticket.Name = "btn_buy_ticket";
             this.btn_buy_ticket.Size = new System.Drawing.Size(442, 49);
             this.btn_buy_ticket.TabIndex = 17;
             this.btn_buy_ticket.Text = "Buy Ticket";
             this.btn_buy_ticket.UseVisualStyleBackColor = false;
             this.btn_buy_ticket.Click += new System.EventHandler(this.btn_buy_ticket_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.AutoScroll = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.panel2, 3);
-            this.panel2.Controls.Add(this.lblDescription);
-            this.panel2.Location = new System.Drawing.Point(116, 157);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5, 3, 3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(454, 42);
-            this.panel2.TabIndex = 1;
             // 
             // DetailMovie
             // 
@@ -335,10 +335,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.lpnlDetail.ResumeLayout(false);
+            this.lpnlDetail.PerformLayout();
+            this.pnlDescription.ResumeLayout(false);
+            this.pnlDescription.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -348,7 +348,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel lpnlDetail;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_back_list;
@@ -364,6 +364,6 @@
         private System.Windows.Forms.Label lblReleaseValue;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblDuration;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlDescription;
     }
 }

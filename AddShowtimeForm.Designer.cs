@@ -74,7 +74,7 @@
             this.addshowtime_btn.Margin = new System.Windows.Forms.Padding(0);
             this.addshowtime_btn.Name = "addshowtime_btn";
             this.addshowtime_btn.Size = new System.Drawing.Size(162, 47);
-            this.addshowtime_btn.TabIndex = 37;
+            this.addshowtime_btn.TabIndex = 6;
             this.addshowtime_btn.Text = "Add Showtime";
             this.addshowtime_btn.UseVisualStyleBackColor = false;
             this.addshowtime_btn.Click += new System.EventHandler(this.addshowtime_btn_Click);
@@ -109,7 +109,7 @@
             this.addshowtime_movie_cb.Location = new System.Drawing.Point(218, 142);
             this.addshowtime_movie_cb.Name = "addshowtime_movie_cb";
             this.addshowtime_movie_cb.Size = new System.Drawing.Size(253, 26);
-            this.addshowtime_movie_cb.TabIndex = 39;
+            this.addshowtime_movie_cb.TabIndex = 1;
             this.addshowtime_movie_cb.SelectedIndexChanged += new System.EventHandler(this.addshowtime_movie_cb_SelectedIndexChanged);
             // 
             // addshowtime_theater_lbl
@@ -131,7 +131,7 @@
             this.addshowtime_theater_cb.Location = new System.Drawing.Point(218, 193);
             this.addshowtime_theater_cb.Name = "addshowtime_theater_cb";
             this.addshowtime_theater_cb.Size = new System.Drawing.Size(253, 26);
-            this.addshowtime_theater_cb.TabIndex = 39;
+            this.addshowtime_theater_cb.TabIndex = 2;
             this.addshowtime_theater_cb.SelectedIndexChanged += new System.EventHandler(this.addshowtime_theater_cb_SelectedIndexChanged);
             // 
             // addshowtime_startdate_lbl
@@ -152,7 +152,7 @@
             this.addshowtime_startdate_datepicker.Name = "addshowtime_startdate_datepicker";
             this.addshowtime_startdate_datepicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addshowtime_startdate_datepicker.Size = new System.Drawing.Size(253, 26);
-            this.addshowtime_startdate_datepicker.TabIndex = 40;
+            this.addshowtime_startdate_datepicker.TabIndex = 3;
             this.addshowtime_startdate_datepicker.ValueChanged += new System.EventHandler(this.addshowtime_startdate_datepicker_ValueChanged);
             // 
             // addshowtime_enddate_lbl
@@ -173,7 +173,7 @@
             this.addshowtime_enddate_datepicker.Name = "addshowtime_enddate_datepicker";
             this.addshowtime_enddate_datepicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.addshowtime_enddate_datepicker.Size = new System.Drawing.Size(253, 26);
-            this.addshowtime_enddate_datepicker.TabIndex = 40;
+            this.addshowtime_enddate_datepicker.TabIndex = 4;
             this.addshowtime_enddate_datepicker.ValueChanged += new System.EventHandler(this.addshowtime_enddate_datepicker_ValueChanged);
             // 
             // addshowtime_dailytime_lbl
@@ -198,7 +198,7 @@
             this.addshowtime_dailytime_lb.Name = "addshowtime_dailytime_lb";
             this.addshowtime_dailytime_lb.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.addshowtime_dailytime_lb.Size = new System.Drawing.Size(184, 87);
-            this.addshowtime_dailytime_lb.TabIndex = 41;
+            this.addshowtime_dailytime_lb.TabIndex = 5;
             this.addshowtime_dailytime_lb.SelectedIndexChanged += new System.EventHandler(this.addshowtime_dailytime_lb_SelectedIndexChanged);
             // 
             // addshowtime_totalseats_lbl

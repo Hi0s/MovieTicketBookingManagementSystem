@@ -31,18 +31,18 @@
             this.menu_pnl = new System.Windows.Forms.Panel();
             this.admin_username_lbl = new System.Windows.Forms.Label();
             this.admin_logout_btn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.avatar_pb = new System.Windows.Forms.PictureBox();
             this.yourticket_btn = new System.Windows.Forms.Button();
             this.listofmovie_btn = new System.Windows.Forms.Button();
-            this.manage_movies_pnl = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.list_pnl = new System.Windows.Forms.Panel();
+            this.top_pnl = new System.Windows.Forms.Panel();
+            this.list_lbl = new System.Windows.Forms.Label();
+            this.main_panel = new System.Windows.Forms.Panel();
             this.menu_pnl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.manage_movies_pnl.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).BeginInit();
+            this.list_pnl.SuspendLayout();
+            this.top_pnl.SuspendLayout();
+            this.main_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu_pnl
@@ -50,7 +50,7 @@
             this.menu_pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
             this.menu_pnl.Controls.Add(this.admin_username_lbl);
             this.menu_pnl.Controls.Add(this.admin_logout_btn);
-            this.menu_pnl.Controls.Add(this.pictureBox1);
+            this.menu_pnl.Controls.Add(this.avatar_pb);
             this.menu_pnl.Controls.Add(this.yourticket_btn);
             this.menu_pnl.Controls.Add(this.listofmovie_btn);
             this.menu_pnl.Dock = System.Windows.Forms.DockStyle.Left;
@@ -88,14 +88,14 @@
             this.admin_logout_btn.UseVisualStyleBackColor = false;
             this.admin_logout_btn.Click += new System.EventHandler(this.admin_logout_btn_Click);
             // 
-            // pictureBox1
+            // avatar_pb
             // 
-            this.pictureBox1.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
-            this.pictureBox1.Location = new System.Drawing.Point(64, 21);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.avatar_pb.Image = global::MovieTicketBookingManagementSystem.Properties.Resources.circleUser;
+            this.avatar_pb.Location = new System.Drawing.Point(64, 21);
+            this.avatar_pb.Name = "avatar_pb";
+            this.avatar_pb.Size = new System.Drawing.Size(80, 80);
+            this.avatar_pb.TabIndex = 0;
+            this.avatar_pb.TabStop = false;
             // 
             // yourticket_btn
             // 
@@ -114,7 +114,6 @@
             this.yourticket_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.yourticket_btn.UseVisualStyleBackColor = true;
             this.yourticket_btn.Click += new System.EventHandler(this.yourticket_btn_Click);
-            this.yourticket_btn.Leave += new System.EventHandler(this.yourticket_btn_Leave);
             // 
             // listofmovie_btn
             // 
@@ -134,57 +133,56 @@
             this.listofmovie_btn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.listofmovie_btn.UseVisualStyleBackColor = false;
             this.listofmovie_btn.Click += new System.EventHandler(this.listofmovie_Click);
-            this.listofmovie_btn.Leave += new System.EventHandler(this.listofmovie_btn_Leave);
             // 
-            // manage_movies_pnl
+            // list_pnl
             // 
-            this.manage_movies_pnl.Controls.Add(this.panel1);
-            this.manage_movies_pnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.manage_movies_pnl.Location = new System.Drawing.Point(210, 0);
-            this.manage_movies_pnl.Margin = new System.Windows.Forms.Padding(0);
-            this.manage_movies_pnl.Name = "manage_movies_pnl";
-            this.manage_movies_pnl.Size = new System.Drawing.Size(573, 570);
-            this.manage_movies_pnl.TabIndex = 3;
+            this.list_pnl.Controls.Add(this.top_pnl);
+            this.list_pnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.list_pnl.Location = new System.Drawing.Point(210, 0);
+            this.list_pnl.Margin = new System.Windows.Forms.Padding(0);
+            this.list_pnl.Name = "list_pnl";
+            this.list_pnl.Size = new System.Drawing.Size(573, 570);
+            this.list_pnl.TabIndex = 3;
             // 
-            // panel1
+            // top_pnl
             // 
-            this.panel1.BackColor = System.Drawing.Color.Navy;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 36);
-            this.panel1.TabIndex = 0;
+            this.top_pnl.BackColor = System.Drawing.Color.Navy;
+            this.top_pnl.Controls.Add(this.list_lbl);
+            this.top_pnl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.top_pnl.Location = new System.Drawing.Point(0, 0);
+            this.top_pnl.Margin = new System.Windows.Forms.Padding(2);
+            this.top_pnl.Name = "top_pnl";
+            this.top_pnl.Size = new System.Drawing.Size(573, 36);
+            this.top_pnl.TabIndex = 0;
             // 
-            // label1
+            // list_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(18, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "List of Movie";
+            this.list_lbl.AutoSize = true;
+            this.list_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.list_lbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.list_lbl.Location = new System.Drawing.Point(18, 10);
+            this.list_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.list_lbl.Name = "list_lbl";
+            this.list_lbl.Size = new System.Drawing.Size(97, 20);
+            this.list_lbl.TabIndex = 0;
+            this.list_lbl.Text = "List of Movie";
             // 
-            // panel2
+            // main_panel
             // 
-            this.panel2.Controls.Add(this.manage_movies_pnl);
-            this.panel2.Controls.Add(this.menu_pnl);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(783, 570);
-            this.panel2.TabIndex = 4;
+            this.main_panel.Controls.Add(this.list_pnl);
+            this.main_panel.Controls.Add(this.menu_pnl);
+            this.main_panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.main_panel.Location = new System.Drawing.Point(0, 0);
+            this.main_panel.Name = "main_panel";
+            this.main_panel.Size = new System.Drawing.Size(783, 570);
+            this.main_panel.TabIndex = 4;
             // 
             // userdashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 570);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.main_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "userdashboard";
@@ -193,11 +191,11 @@
             this.Load += new System.EventHandler(this.userdashboard_Load);
             this.menu_pnl.ResumeLayout(false);
             this.menu_pnl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.manage_movies_pnl.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.avatar_pb)).EndInit();
+            this.list_pnl.ResumeLayout(false);
+            this.top_pnl.ResumeLayout(false);
+            this.top_pnl.PerformLayout();
+            this.main_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -206,13 +204,13 @@
 
         private System.Windows.Forms.Panel menu_pnl;
         private System.Windows.Forms.Label admin_username_lbl;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox avatar_pb;
         private System.Windows.Forms.Button admin_logout_btn;
         private System.Windows.Forms.Button yourticket_btn;
         private System.Windows.Forms.Button listofmovie_btn;
-        private System.Windows.Forms.Panel manage_movies_pnl;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel list_pnl;
+        private System.Windows.Forms.Panel top_pnl;
+        private System.Windows.Forms.Label list_lbl;
+        private System.Windows.Forms.Panel main_panel;
     }
 }

@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlScreen = new System.Windows.Forms.Panel();
+            this.lblScreen = new System.Windows.Forms.Label();
+            this.pnlDetails = new System.Windows.Forms.Panel();
             this.valTotal = new System.Windows.Forms.Label();
             this.valTicket = new System.Windows.Forms.Label();
             this.valTime = new System.Windows.Forms.Label();
             this.valDuration = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblAvailable = new System.Windows.Forms.Label();
+            this.lblSelected = new System.Windows.Forms.Label();
+            this.lblSold = new System.Windows.Forms.Label();
+            this.pnlSelected = new System.Windows.Forms.Panel();
+            this.pnlAvailable = new System.Windows.Forms.Panel();
+            this.pnlSold = new System.Windows.Forms.Panel();
             this.btn_buyTicket = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblNumberTickets = new System.Windows.Forms.Label();
@@ -50,169 +50,176 @@
             this.seatsTableLayoutPanel = new System.Windows.Forms.Panel();
             this.seatSelection_back_btn = new System.Windows.Forms.Button();
             this.panelSeat = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlScreen.SuspendLayout();
+            this.pnlDetails.SuspendLayout();
             this.seatsTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlScreen
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(193, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(222, 82);
-            this.panel1.TabIndex = 0;
+            this.pnlScreen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlScreen.Controls.Add(this.lblScreen);
+            this.pnlScreen.Location = new System.Drawing.Point(193, 1);
+            this.pnlScreen.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlScreen.Name = "pnlScreen";
+            this.pnlScreen.Size = new System.Drawing.Size(222, 76);
+            this.pnlScreen.TabIndex = 0;
             // 
-            // label1
+            // lblScreen
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(70, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 26);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Screen";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblScreen.AutoSize = true;
+            this.lblScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScreen.Location = new System.Drawing.Point(70, 23);
+            this.lblScreen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblScreen.Name = "lblScreen";
+            this.lblScreen.Size = new System.Drawing.Size(87, 26);
+            this.lblScreen.TabIndex = 0;
+            this.lblScreen.Text = "Screen";
+            this.lblScreen.Click += new System.EventHandler(this.label1_Click);
             // 
-            // panel2
+            // pnlDetails
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.valTotal);
-            this.panel2.Controls.Add(this.valTicket);
-            this.panel2.Controls.Add(this.valTime);
-            this.panel2.Controls.Add(this.valDuration);
-            this.panel2.Controls.Add(this.label23);
-            this.panel2.Controls.Add(this.label22);
-            this.panel2.Controls.Add(this.label21);
-            this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.btn_buyTicket);
-            this.panel2.Controls.Add(this.lblTotal);
-            this.panel2.Controls.Add(this.lblNumberTickets);
-            this.panel2.Controls.Add(this.lblTime);
-            this.panel2.Controls.Add(this.lblDuration);
-            this.panel2.Controls.Add(this.lblMovieName);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(569, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(232, 522);
-            this.panel2.TabIndex = 45;
+            this.pnlDetails.AutoSize = true;
+            this.pnlDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.pnlDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDetails.Controls.Add(this.valTotal);
+            this.pnlDetails.Controls.Add(this.valTicket);
+            this.pnlDetails.Controls.Add(this.valTime);
+            this.pnlDetails.Controls.Add(this.valDuration);
+            this.pnlDetails.Controls.Add(this.lblAvailable);
+            this.pnlDetails.Controls.Add(this.lblSelected);
+            this.pnlDetails.Controls.Add(this.lblSold);
+            this.pnlDetails.Controls.Add(this.pnlSelected);
+            this.pnlDetails.Controls.Add(this.pnlAvailable);
+            this.pnlDetails.Controls.Add(this.pnlSold);
+            this.pnlDetails.Controls.Add(this.btn_buyTicket);
+            this.pnlDetails.Controls.Add(this.lblTotal);
+            this.pnlDetails.Controls.Add(this.lblNumberTickets);
+            this.pnlDetails.Controls.Add(this.lblTime);
+            this.pnlDetails.Controls.Add(this.lblDuration);
+            this.pnlDetails.Controls.Add(this.lblMovieName);
+            this.pnlDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDetails.Location = new System.Drawing.Point(569, 0);
+            this.pnlDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDetails.Name = "pnlDetails";
+            this.pnlDetails.Size = new System.Drawing.Size(232, 482);
+            this.pnlDetails.TabIndex = 45;
             // 
             // valTotal
             // 
             this.valTotal.AutoSize = true;
+            this.valTotal.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valTotal.Location = new System.Drawing.Point(83, 224);
+            this.valTotal.Location = new System.Drawing.Point(83, 207);
             this.valTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.valTotal.Name = "valTotal";
-            this.valTotal.Size = new System.Drawing.Size(37, 13);
+            this.valTotal.Size = new System.Drawing.Size(42, 15);
             this.valTotal.TabIndex = 65;
             this.valTotal.Text = "50000";
             // 
             // valTicket
             // 
             this.valTicket.AutoSize = true;
+            this.valTicket.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valTicket.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valTicket.Location = new System.Drawing.Point(83, 181);
+            this.valTicket.Location = new System.Drawing.Point(83, 167);
             this.valTicket.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.valTicket.Name = "valTicket";
-            this.valTicket.Size = new System.Drawing.Size(13, 13);
+            this.valTicket.Size = new System.Drawing.Size(14, 15);
             this.valTicket.TabIndex = 64;
             this.valTicket.Text = "5";
             // 
             // valTime
             // 
             this.valTime.AutoSize = true;
+            this.valTime.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valTime.Location = new System.Drawing.Point(83, 138);
+            this.valTime.Location = new System.Drawing.Point(83, 127);
             this.valTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.valTime.Name = "valTime";
-            this.valTime.Size = new System.Drawing.Size(102, 13);
+            this.valTime.Size = new System.Drawing.Size(107, 15);
             this.valTime.TabIndex = 63;
             this.valTime.Text = "6/1/2025 10:00 AM";
             // 
             // valDuration
             // 
             this.valDuration.AutoSize = true;
+            this.valDuration.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valDuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.valDuration.Location = new System.Drawing.Point(83, 98);
+            this.valDuration.Location = new System.Drawing.Point(83, 90);
             this.valDuration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.valDuration.Name = "valDuration";
-            this.valDuration.Size = new System.Drawing.Size(64, 13);
+            this.valDuration.Size = new System.Drawing.Size(76, 15);
             this.valDuration.TabIndex = 62;
             this.valDuration.Text = "120 minutes";
             // 
-            // label23
+            // lblAvailable
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(57, 490);
-            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(50, 13);
-            this.label23.TabIndex = 61;
-            this.label23.Text = "Available";
+            this.lblAvailable.AutoSize = true;
+            this.lblAvailable.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvailable.Location = new System.Drawing.Point(54, 449);
+            this.lblAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAvailable.Name = "lblAvailable";
+            this.lblAvailable.Size = new System.Drawing.Size(56, 15);
+            this.lblAvailable.TabIndex = 61;
+            this.lblAvailable.Text = "Available";
             // 
-            // label22
+            // lblSelected
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(57, 460);
-            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(49, 13);
-            this.label22.TabIndex = 60;
-            this.label22.Text = "Selected";
+            this.lblSelected.AutoSize = true;
+            this.lblSelected.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelected.Location = new System.Drawing.Point(54, 422);
+            this.lblSelected.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSelected.Name = "lblSelected";
+            this.lblSelected.Size = new System.Drawing.Size(55, 15);
+            this.lblSelected.TabIndex = 60;
+            this.lblSelected.Text = "Selected";
             // 
-            // label21
+            // lblSold
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(57, 430);
-            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(28, 13);
-            this.label21.TabIndex = 59;
-            this.label21.Text = "Sold";
+            this.lblSold.AutoSize = true;
+            this.lblSold.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSold.Location = new System.Drawing.Point(54, 394);
+            this.lblSold.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSold.Name = "lblSold";
+            this.lblSold.Size = new System.Drawing.Size(32, 15);
+            this.lblSold.TabIndex = 59;
+            this.lblSold.Text = "Sold";
             // 
-            // panel4
+            // pnlSelected
             // 
-            this.panel4.BackColor = System.Drawing.Color.Lime;
-            this.panel4.Location = new System.Drawing.Point(28, 457);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(15, 16);
-            this.panel4.TabIndex = 58;
+            this.pnlSelected.BackColor = System.Drawing.Color.Lime;
+            this.pnlSelected.Location = new System.Drawing.Point(28, 422);
+            this.pnlSelected.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSelected.Name = "pnlSelected";
+            this.pnlSelected.Size = new System.Drawing.Size(15, 15);
+            this.pnlSelected.TabIndex = 58;
             // 
-            // panel5
+            // pnlAvailable
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(28, 487);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(15, 16);
-            this.panel5.TabIndex = 58;
+            this.pnlAvailable.BackColor = System.Drawing.Color.White;
+            this.pnlAvailable.Location = new System.Drawing.Point(28, 450);
+            this.pnlAvailable.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAvailable.Name = "pnlAvailable";
+            this.pnlAvailable.Size = new System.Drawing.Size(15, 15);
+            this.pnlAvailable.TabIndex = 58;
             // 
-            // panel3
+            // pnlSold
             // 
-            this.panel3.BackColor = System.Drawing.Color.Red;
-            this.panel3.Location = new System.Drawing.Point(28, 427);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(15, 16);
-            this.panel3.TabIndex = 57;
+            this.pnlSold.BackColor = System.Drawing.Color.Red;
+            this.pnlSold.Location = new System.Drawing.Point(28, 394);
+            this.pnlSold.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSold.Name = "pnlSold";
+            this.pnlSold.Size = new System.Drawing.Size(15, 15);
+            this.pnlSold.TabIndex = 57;
             // 
             // btn_buyTicket
             // 
             this.btn_buyTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buyTicket.Location = new System.Drawing.Point(52, 274);
+            this.btn_buyTicket.Location = new System.Drawing.Point(52, 253);
             this.btn_buyTicket.Margin = new System.Windows.Forms.Padding(2);
             this.btn_buyTicket.Name = "btn_buyTicket";
-            this.btn_buyTicket.Size = new System.Drawing.Size(117, 36);
+            this.btn_buyTicket.Size = new System.Drawing.Size(117, 33);
             this.btn_buyTicket.TabIndex = 56;
             this.btn_buyTicket.Text = "Book now";
             this.btn_buyTicket.UseVisualStyleBackColor = true;
@@ -221,44 +228,48 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTotal.Location = new System.Drawing.Point(26, 224);
+            this.lblTotal.Location = new System.Drawing.Point(26, 207);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(37, 13);
+            this.lblTotal.Size = new System.Drawing.Size(39, 15);
             this.lblTotal.TabIndex = 5;
             this.lblTotal.Text = "Total :";
             // 
             // lblNumberTickets
             // 
             this.lblNumberTickets.AutoSize = true;
+            this.lblNumberTickets.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumberTickets.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNumberTickets.Location = new System.Drawing.Point(26, 181);
+            this.lblNumberTickets.Location = new System.Drawing.Point(26, 167);
             this.lblNumberTickets.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumberTickets.Name = "lblNumberTickets";
-            this.lblNumberTickets.Size = new System.Drawing.Size(48, 13);
+            this.lblNumberTickets.Size = new System.Drawing.Size(52, 15);
             this.lblNumberTickets.TabIndex = 4;
             this.lblNumberTickets.Text = "Tickets :";
             // 
             // lblTime
             // 
             this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTime.Location = new System.Drawing.Point(26, 138);
+            this.lblTime.Location = new System.Drawing.Point(26, 127);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(36, 13);
+            this.lblTime.Size = new System.Drawing.Size(41, 15);
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "Time :";
             // 
             // lblDuration
             // 
             this.lblDuration.AutoSize = true;
+            this.lblDuration.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblDuration.Location = new System.Drawing.Point(26, 98);
+            this.lblDuration.Location = new System.Drawing.Point(26, 90);
             this.lblDuration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(53, 13);
+            this.lblDuration.Size = new System.Drawing.Size(60, 15);
             this.lblDuration.TabIndex = 2;
             this.lblDuration.Text = "Duration :";
             // 
@@ -268,7 +279,7 @@
             this.lblMovieName.AutoSize = true;
             this.lblMovieName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovieName.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblMovieName.Location = new System.Drawing.Point(47, 21);
+            this.lblMovieName.Location = new System.Drawing.Point(47, 19);
             this.lblMovieName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMovieName.Name = "lblMovieName";
             this.lblMovieName.Size = new System.Drawing.Size(141, 26);
@@ -284,7 +295,7 @@
             this.seatsTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.seatsTableLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.seatsTableLayoutPanel.Name = "seatsTableLayoutPanel";
-            this.seatsTableLayoutPanel.Size = new System.Drawing.Size(569, 522);
+            this.seatsTableLayoutPanel.Size = new System.Drawing.Size(569, 482);
             this.seatsTableLayoutPanel.TabIndex = 1;
             // 
             // seatSelection_back_btn
@@ -299,36 +310,36 @@
             this.seatSelection_back_btn.Location = new System.Drawing.Point(0, 0);
             this.seatSelection_back_btn.Margin = new System.Windows.Forms.Padding(0);
             this.seatSelection_back_btn.Name = "seatSelection_back_btn";
-            this.seatSelection_back_btn.Size = new System.Drawing.Size(41, 47);
+            this.seatSelection_back_btn.Size = new System.Drawing.Size(41, 43);
             this.seatSelection_back_btn.TabIndex = 39;
             this.seatSelection_back_btn.UseVisualStyleBackColor = false;
             this.seatSelection_back_btn.Click += new System.EventHandler(this.seatSelection_back_btn_Click);
             // 
             // panelSeat
             // 
-            this.panelSeat.Location = new System.Drawing.Point(50, 109);
+            this.panelSeat.Location = new System.Drawing.Point(50, 101);
             this.panelSeat.Name = "panelSeat";
-            this.panelSeat.Size = new System.Drawing.Size(503, 323);
+            this.panelSeat.Size = new System.Drawing.Size(503, 298);
             this.panelSeat.TabIndex = 40;
             // 
             // SeatSelection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(801, 522);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(801, 482);
+            this.Controls.Add(this.pnlDetails);
+            this.Controls.Add(this.pnlScreen);
             this.Controls.Add(this.seatsTableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SeatSelection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeatSelection";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlScreen.ResumeLayout(false);
+            this.pnlScreen.PerformLayout();
+            this.pnlDetails.ResumeLayout(false);
+            this.pnlDetails.PerformLayout();
             this.seatsTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,21 +348,21 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnlScreen;
+        private System.Windows.Forms.Label lblScreen;
+        private System.Windows.Forms.Panel pnlDetails;
+        private System.Windows.Forms.Panel pnlSelected;
+        private System.Windows.Forms.Panel pnlAvailable;
+        private System.Windows.Forms.Panel pnlSold;
         private System.Windows.Forms.Button btn_buyTicket;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblNumberTickets;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblDuration;
         private System.Windows.Forms.Label lblMovieName;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblAvailable;
+        private System.Windows.Forms.Label lblSelected;
+        private System.Windows.Forms.Label lblSold;
         private System.Windows.Forms.Panel seatsTableLayoutPanel;
         private System.Windows.Forms.Button seatSelection_back_btn;
         private System.Windows.Forms.Panel panelSeat;

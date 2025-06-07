@@ -46,13 +46,13 @@
             this.editmovie_title_btn = new System.Windows.Forms.Label();
             this.editmovie_lbl = new System.Windows.Forms.Label();
             this.editmovie_return_btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.editmovie_slmovie_lbl = new System.Windows.Forms.Label();
             this.editmovie_slmovie_cb = new System.Windows.Forms.ComboBox();
             this.editmovie_IsActive_lbl = new System.Windows.Forms.Label();
             this.editmovie_active_rd = new System.Windows.Forms.RadioButton();
             this.editmovie_inactive_rd = new System.Windows.Forms.RadioButton();
             this.editmovie_CreatedAt_lbl = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.editmove_price_lbl = new System.Windows.Forms.Label();
             this.editmovie_price_txt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -68,7 +68,7 @@
             this.editmovie_save_btn.Margin = new System.Windows.Forms.Padding(0);
             this.editmovie_save_btn.Name = "editmovie_save_btn";
             this.editmovie_save_btn.Size = new System.Drawing.Size(148, 53);
-            this.editmovie_save_btn.TabIndex = 37;
+            this.editmovie_save_btn.TabIndex = 12;
             this.editmovie_save_btn.Text = "Save";
             this.editmovie_save_btn.UseVisualStyleBackColor = false;
             this.editmovie_save_btn.Click += new System.EventHandler(this.editmovie_save_btn_Click);
@@ -85,7 +85,7 @@
             this.editmovie_poster_btn.Margin = new System.Windows.Forms.Padding(0);
             this.editmovie_poster_btn.Name = "editmovie_poster_btn";
             this.editmovie_poster_btn.Size = new System.Drawing.Size(96, 33);
-            this.editmovie_poster_btn.TabIndex = 36;
+            this.editmovie_poster_btn.TabIndex = 9;
             this.editmovie_poster_btn.Text = "Upload";
             this.editmovie_poster_btn.UseVisualStyleBackColor = false;
             this.editmovie_poster_btn.Click += new System.EventHandler(this.editmovie_poster_btn_Click);
@@ -96,7 +96,7 @@
             this.editmovie_release_datepicker.Location = new System.Drawing.Point(227, 474);
             this.editmovie_release_datepicker.Name = "editmovie_release_datepicker";
             this.editmovie_release_datepicker.Size = new System.Drawing.Size(218, 26);
-            this.editmovie_release_datepicker.TabIndex = 35;
+            this.editmovie_release_datepicker.TabIndex = 8;
             // 
             // editmovie_description_txt
             // 
@@ -105,7 +105,7 @@
             this.editmovie_description_txt.Multiline = true;
             this.editmovie_description_txt.Name = "editmovie_description_txt";
             this.editmovie_description_txt.Size = new System.Drawing.Size(277, 112);
-            this.editmovie_description_txt.TabIndex = 30;
+            this.editmovie_description_txt.TabIndex = 3;
             // 
             // editmovie_description_lbl
             // 
@@ -125,7 +125,7 @@
             this.editmovie_rating_txt.Multiline = true;
             this.editmovie_rating_txt.Name = "editmovie_rating_txt";
             this.editmovie_rating_txt.Size = new System.Drawing.Size(218, 27);
-            this.editmovie_rating_txt.TabIndex = 34;
+            this.editmovie_rating_txt.TabIndex = 6;
             // 
             // editmovie_posterpath_lbl
             // 
@@ -178,7 +178,7 @@
             this.editmovie_duration_txt.Multiline = true;
             this.editmovie_duration_txt.Name = "editmovie_duration_txt";
             this.editmovie_duration_txt.Size = new System.Drawing.Size(218, 27);
-            this.editmovie_duration_txt.TabIndex = 31;
+            this.editmovie_duration_txt.TabIndex = 5;
             // 
             // editmovie_duration_lbl
             // 
@@ -198,7 +198,7 @@
             this.editmovie_genre_txt.Multiline = true;
             this.editmovie_genre_txt.Name = "editmovie_genre_txt";
             this.editmovie_genre_txt.Size = new System.Drawing.Size(218, 27);
-            this.editmovie_genre_txt.TabIndex = 32;
+            this.editmovie_genre_txt.TabIndex = 4;
             // 
             // editmovie_genre_lbl
             // 
@@ -218,7 +218,7 @@
             this.editmovie_title_txt.Multiline = true;
             this.editmovie_title_txt.Name = "editmovie_title_txt";
             this.editmovie_title_txt.Size = new System.Drawing.Size(277, 27);
-            this.editmovie_title_txt.TabIndex = 33;
+            this.editmovie_title_txt.TabIndex = 2;
             // 
             // editmovie_title_btn
             // 
@@ -255,20 +255,20 @@
             this.editmovie_return_btn.Margin = new System.Windows.Forms.Padding(0);
             this.editmovie_return_btn.Name = "editmovie_return_btn";
             this.editmovie_return_btn.Size = new System.Drawing.Size(41, 43);
-            this.editmovie_return_btn.TabIndex = 38;
+            this.editmovie_return_btn.TabIndex = 13;
             this.editmovie_return_btn.UseVisualStyleBackColor = false;
             this.editmovie_return_btn.Click += new System.EventHandler(this.editmovie_return_btn_Click);
             // 
-            // label1
+            // editmovie_slmovie_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(87, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 18);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Selected Movie:";
+            this.editmovie_slmovie_lbl.AutoSize = true;
+            this.editmovie_slmovie_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editmovie_slmovie_lbl.ForeColor = System.Drawing.Color.Black;
+            this.editmovie_slmovie_lbl.Location = new System.Drawing.Point(87, 54);
+            this.editmovie_slmovie_lbl.Name = "editmovie_slmovie_lbl";
+            this.editmovie_slmovie_lbl.Size = new System.Drawing.Size(134, 18);
+            this.editmovie_slmovie_lbl.TabIndex = 26;
+            this.editmovie_slmovie_lbl.Text = "Selected Movie:";
             // 
             // editmovie_slmovie_cb
             // 
@@ -278,7 +278,7 @@
             this.editmovie_slmovie_cb.Location = new System.Drawing.Point(227, 54);
             this.editmovie_slmovie_cb.Name = "editmovie_slmovie_cb";
             this.editmovie_slmovie_cb.Size = new System.Drawing.Size(190, 26);
-            this.editmovie_slmovie_cb.TabIndex = 39;
+            this.editmovie_slmovie_cb.TabIndex = 1;
             this.editmovie_slmovie_cb.SelectedIndexChanged += new System.EventHandler(this.editmovie_ID_cb_SelectedIndexChanged);
             // 
             // editmovie_IsActive_lbl
@@ -299,7 +299,7 @@
             this.editmovie_active_rd.Location = new System.Drawing.Point(227, 574);
             this.editmovie_active_rd.Name = "editmovie_active_rd";
             this.editmovie_active_rd.Size = new System.Drawing.Size(82, 22);
-            this.editmovie_active_rd.TabIndex = 40;
+            this.editmovie_active_rd.TabIndex = 10;
             this.editmovie_active_rd.TabStop = true;
             this.editmovie_active_rd.Text = "Activate";
             this.editmovie_active_rd.UseVisualStyleBackColor = true;
@@ -312,7 +312,7 @@
             this.editmovie_inactive_rd.Location = new System.Drawing.Point(339, 574);
             this.editmovie_inactive_rd.Name = "editmovie_inactive_rd";
             this.editmovie_inactive_rd.Size = new System.Drawing.Size(101, 22);
-            this.editmovie_inactive_rd.TabIndex = 40;
+            this.editmovie_inactive_rd.TabIndex = 11;
             this.editmovie_inactive_rd.TabStop = true;
             this.editmovie_inactive_rd.Text = "Deactivate";
             this.editmovie_inactive_rd.UseVisualStyleBackColor = true;
@@ -329,16 +329,16 @@
             this.editmovie_CreatedAt_lbl.TabIndex = 21;
             this.editmovie_CreatedAt_lbl.Text = "Created At:";
             // 
-            // label2
+            // editmove_price_lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(87, 429);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 18);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Price:";
+            this.editmove_price_lbl.AutoSize = true;
+            this.editmove_price_lbl.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editmove_price_lbl.ForeColor = System.Drawing.Color.Black;
+            this.editmove_price_lbl.Location = new System.Drawing.Point(87, 429);
+            this.editmove_price_lbl.Name = "editmove_price_lbl";
+            this.editmove_price_lbl.Size = new System.Drawing.Size(55, 18);
+            this.editmove_price_lbl.TabIndex = 24;
+            this.editmove_price_lbl.Text = "Price:";
             // 
             // editmovie_price_txt
             // 
@@ -347,7 +347,7 @@
             this.editmovie_price_txt.Multiline = true;
             this.editmovie_price_txt.Name = "editmovie_price_txt";
             this.editmovie_price_txt.Size = new System.Drawing.Size(218, 27);
-            this.editmovie_price_txt.TabIndex = 34;
+            this.editmovie_price_txt.TabIndex = 7;
             // 
             // EditMovieForm
             // 
@@ -369,7 +369,7 @@
             this.Controls.Add(this.editmovie_CreatedAt_lbl);
             this.Controls.Add(this.editmovie_IsActive_lbl);
             this.Controls.Add(this.editmovie_poster_lbl);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.editmove_price_lbl);
             this.Controls.Add(this.editmovie_release_lbl);
             this.Controls.Add(this.editmovie_rating_lbl);
             this.Controls.Add(this.editmovie_duration_txt);
@@ -377,7 +377,7 @@
             this.Controls.Add(this.editmovie_genre_txt);
             this.Controls.Add(this.editmovie_genre_lbl);
             this.Controls.Add(this.editmovie_title_txt);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.editmovie_slmovie_lbl);
             this.Controls.Add(this.editmovie_title_btn);
             this.Controls.Add(this.editmovie_lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -411,13 +411,13 @@
         private System.Windows.Forms.TextBox editmovie_title_txt;
         private System.Windows.Forms.Label editmovie_title_btn;
         private System.Windows.Forms.Label editmovie_lbl;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label editmovie_slmovie_lbl;
         private System.Windows.Forms.ComboBox editmovie_slmovie_cb;
         private System.Windows.Forms.Label editmovie_IsActive_lbl;
         private System.Windows.Forms.RadioButton editmovie_active_rd;
         private System.Windows.Forms.RadioButton editmovie_inactive_rd;
         private System.Windows.Forms.Label editmovie_CreatedAt_lbl;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label editmove_price_lbl;
         private System.Windows.Forms.TextBox editmovie_price_txt;
     }
 }

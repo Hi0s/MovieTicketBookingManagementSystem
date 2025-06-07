@@ -19,7 +19,7 @@ namespace MovieTicketBookingManagementSystem.Models
             UpdatePremieredShowtimes();
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = @"SELECT movies.MovieID, showtimes.showtimeID ,movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
+                string query = @"SELECT movies.MovieID, showtimes.ShowtimeID,showtimes.TheaterID ,movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
                 showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath
                 FROM showtimes 
                 INNER JOIN movies ON showtimes.MovieID = movies.MovieID
@@ -46,7 +46,7 @@ namespace MovieTicketBookingManagementSystem.Models
             UpdatePremieredShowtimes();
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = @"SELECT movies.MovieID, showtimes.showtimeID ,movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
+                string query = @"SELECT movies.MovieID, showtimes.ShowtimeID,showtimes.TheaterID ,movies.Title,showtimes.StartTime, showtimes.TotalSeats, 
                 showtimes.AvailableSeats,showtimes.Status as 'Premiere Status',movies.PosterPath
                 FROM showtimes 
                 INNER JOIN movies ON showtimes.MovieID = movies.MovieID
