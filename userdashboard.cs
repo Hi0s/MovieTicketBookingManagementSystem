@@ -80,6 +80,7 @@ namespace MovieTicketBookingManagementSystem
             Label tag = new Label
             {
                 Text = $"{name}",
+                MaximumSize=new Size(150,0), //Set maximum width to prevent overflow
                 AutoSize = true,
                 BackColor = Color.FromArgb(220, 60, 40),
                 ForeColor = Color.White,
@@ -87,6 +88,7 @@ namespace MovieTicketBookingManagementSystem
                 Padding = new Padding(6, 2, 6, 2),
                 Location = new Point(8, 8),
                 Parent = card
+                
             };
             card.Controls.Add(tag);
             tag.BringToFront();

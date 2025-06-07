@@ -16,16 +16,12 @@ namespace MovieTicketBookingManagementSystem
         [STAThread]
         static void Main()
         {
-            CultureInfo culture = new CultureInfo("zh-CN"); 
+            CultureInfo culture = new CultureInfo("zh-CN");  
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
-            //Application.Run(new DetailMovie());
-            //Application.Run(new AddShowtimeForm());
-            // Application.Run(new userdashboard());
-            // Application.Run(new SeatSelection());
         }
     }
 }

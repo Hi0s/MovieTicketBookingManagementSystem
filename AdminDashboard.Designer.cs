@@ -817,10 +817,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 741);
+            this.Controls.Add(this.admin_dashboard_pnl);
             this.Controls.Add(this.manage_movies_pnl);
             this.Controls.Add(this.manage_users_pnl);
             this.Controls.Add(this.manage_tickets_pnl);
-            this.Controls.Add(this.admin_dashboard_pnl);
             this.Controls.Add(this.menu_pnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminDashboard";

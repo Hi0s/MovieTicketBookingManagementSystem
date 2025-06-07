@@ -195,7 +195,7 @@
             this.addmovie_poster_btn.TabIndex = 16;
             this.addmovie_poster_btn.Text = "Upload";
             this.addmovie_poster_btn.UseVisualStyleBackColor = false;
-            this.addmovie_poster_btn.Click += new System.EventHandler(this.admin_addmovies_btn_Click);
+            this.addmovie_poster_btn.Click += new System.EventHandler(this.admin_addposter_btn_Click);
             // 
             // addmovie_poster_lbl
             // 

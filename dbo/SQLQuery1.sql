@@ -101,6 +101,10 @@ DELETE from users where UserID=8
 DELETE from movies where MovieID=9
 
 
+DBCC CHECKIDENT ('movies', RESEED, 8)
+
+DBCC CHECKIDENT ('users', RESEED, 3)
+
 SELECT COUNT(*) FROM movies
 
 UPDATE movies SET PosterPath='Resources\infinitywar.jpg'
@@ -146,11 +150,12 @@ DBCC CHECKIDENT ('users', RESEED, 0); --reset ID count
 
 DBCC CHECKIDENT ('movies', RESEED, 0)
 
-DBCC CHECKIDENT ('theaters', RESEED, 0)
+DBCC CHECKIDENT ('theaters', RESEED, 3)
 
 DBCC CHECKIDENT ('tickets', RESEED, 0)
 
 DBCC CHECKIDENT ('showtimes',RESEED, 0)
+
 
 INSERT INTO Users (Username, Password,Role) VALUES ('admin', '12345678','admin') -- create admin account
 

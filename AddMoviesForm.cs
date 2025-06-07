@@ -99,23 +99,6 @@ namespace MovieTicketBookingManagementSystem
             }
         }
 
-        private void admin_addmovies_btn_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Load the selected image into the PictureBox
-                poster_path = openFileDialog.FileName;
-                addmovie_posterpath_lbl.Text = $"{Path.GetFileName(poster_path)}";
-
-                poster_path=@"Resources\" + Path.GetFileName(poster_path);
-            }
-            else
-            {
-                MessageBox.Show("Please select a poster image", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void addmovie_return_btn_Click(object sender, EventArgs e)
         {
@@ -135,5 +118,26 @@ namespace MovieTicketBookingManagementSystem
         {
             lastPoint = new Point(e.X, e.Y);
         }
+
+        private void admin_addposter_btn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Load the selected image into the PictureBox
+                poster_path = openFileDialog.FileName;
+                addmovie_posterpath_lbl.Text = $"{Path.GetFileName(poster_path)}";
+
+                poster_path = @"Resources\" + Path.GetFileName(poster_path);
+            }
+            else
+            {
+                MessageBox.Show("Please select a poster image", "Error Message",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
+
+
 }

@@ -68,7 +68,8 @@ namespace MovieTicketBookingManagementSystem.Models
         {
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = @"SELECT UserID, Username, Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,Role,CreatedAt,IsActive FROM users";
+                string query = @"SELECT UserID, Username, Firstname,Lastname,Gender,Birthdate,Email,
+Phone,Address,Role,CreatedAt,IsActive FROM users";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     connect.Open();
@@ -88,7 +89,8 @@ namespace MovieTicketBookingManagementSystem.Models
             user.UserID = userID;
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = @"SELECT UserID, Username, Firstname,Lastname,Gender,Birthdate,Email,Phone,Address,Role,CreatedAt,IsActive FROM users WHERE UserID=@userID";
+                string query = @"SELECT UserID, Username, Firstname,Lastname,Gender,Birthdate,Email,
+Phone,Address,Role,CreatedAt,IsActive FROM users WHERE UserID=@userID";
                 
                 connect.Open();
                 using (SqlCommand cmd = new SqlCommand(query, connect))
@@ -403,8 +405,10 @@ namespace MovieTicketBookingManagementSystem.Models
         {
             using (SqlConnection connect = new SqlConnection(conn))
             {
-                string query = @"INSERT INTO movies(Title, Genre, Duration, Description,  Rating, Pricing, PosterPath, ReleaseDate, CreatedAt)
-                                 VALUES(@Title, @Genre, @Duration, @Description, @Rating,@Pricing, @PosterPath, @ReleaseDate, @CreatedAt)";
+                string query = @"INSERT INTO movies(Title, Genre, Duration, Description,  
+                                Rating, Pricing, PosterPath, ReleaseDate, CreatedAt)
+                                 VALUES(@Title, @Genre, @Duration, @Description, @Rating,
+                                @Pricing, @PosterPath, @ReleaseDate, @CreatedAt)";
                 using (SqlCommand cmd = new SqlCommand(query, connect))
                 {
                     cmd.Parameters.AddWithValue("@Title", movie.Title);
