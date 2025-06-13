@@ -254,7 +254,8 @@ namespace MovieTicketBookingManagementSystem
                         conn.Open();
                         foreach (var seat in selectedSeats.Values)
                         {
-                            string insertQuery = "INSERT INTO tickets (UserID, ShowtimeID, SeatCode, Price, BookingTime) VALUES (@userID, @showTimeId, @seatCode, @pricing, @time)";
+                            string insertQuery = @"INSERT INTO tickets (UserID, ShowtimeID, SeatCode, Price, BookingTime) 
+                                            VALUES (@userID, @showTimeId, @seatCode, @pricing, @time)";
                             using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                             {
                                 cmd.Parameters.AddWithValue("@userID", SessionManager.UserID);

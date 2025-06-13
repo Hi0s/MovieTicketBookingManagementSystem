@@ -95,11 +95,11 @@ namespace MovieTicketBookingManagementSystem
                 // Load the selected image into the PictureBox
                 selectedMovie.PosterImagePath = openFileDialog.FileName;
                 editmovie_posterpath_lbl.Text = $"{Path.GetFileName(selectedMovie.PosterImagePath)}";
-                selectedMovie.PosterImagePath = @"Resources\" + Path.GetFileName(editmovie_posterpath_lbl.Text.Trim());
             }
             else
             {
-                MessageBox.Show("Please select a poster image", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a poster image", "Error Message",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

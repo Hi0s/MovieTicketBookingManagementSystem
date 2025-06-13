@@ -16,8 +16,6 @@ namespace MovieTicketBookingManagementSystem
 {
     public partial class AddShowtimeForm : Form
     {
-        //CultureInfo chineseCulture = new CultureInfo("zh-CN");
-        //CultureInfo englishCulture = new CultureInfo("en-US");
         Point lastPoint;
         public event EventHandler RequestClose;
 
@@ -66,8 +64,6 @@ namespace MovieTicketBookingManagementSystem
 
         private void addshowtime_btn_Click(object sender, EventArgs e)
         {
-            // Use Chinese culture info
-            //var chineseCulture = new CultureInfo("zh-CN");
             if (addshowtime_movie_cb.SelectedValue == null || addshowtime_theater_cb.SelectedValue == null || addshowtime_dailytime_lb.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please select a movie, theater, and showtime.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,9 +79,6 @@ namespace MovieTicketBookingManagementSystem
                     {
                         // Convert the timeString (e.g., "6/10/2024 10:00:00 AM") to DateTime
                         DateTime fullStartTime;
-
-                        // Remove all local CultureInfo usage and references in AddShowtimeForm.cs
-                        // Replace 'chineseCulture' with null or CultureInfo.CurrentCulture in all DateTime.Parse/ParseExact/TryParseExact calls
 
                         // Example replacement for the selected line:
                         if (!DateTime.TryParseExact(timeString, "yyyy/M/d hh:mm:ss tt", CultureInfo.CurrentCulture, DateTimeStyles.None, out fullStartTime))
@@ -198,10 +191,6 @@ namespace MovieTicketBookingManagementSystem
                         availableTimes.Remove(showtimeString);
                     }
                 }
-            
-            //availableTimes.RemoveAll(timeStr =>
-            //    DateTime.TryParseExact(timeStr, "M/d/yyyy hh:mm:ss tt", chineseCulture, DateTimeStyles.None, out DateTime parsedTime)
-            //    && showtimes.Any(s => s.TheaterID == selectedTheaterId && s.StartTime == parsedTime));
             }
 
 

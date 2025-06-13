@@ -36,12 +36,12 @@ namespace MovieTicketBookingManagementSystem
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            listofmovie_Click(new object(), new EventArgs());
-            this.ActiveControl = listofmovie_btn;
         }
 
         private void userdashboard_Load(object sender, EventArgs e)
         {
+            listofmovie_Click(new object(), new EventArgs());
+            this.ActiveControl = listofmovie_btn;
             admin_username_lbl.Text = SessionManager.Username;
             admin_username_lbl.Location = new Point(menu_pnl.Width/2-admin_username_lbl.Width/2, 124);
         }
@@ -361,7 +361,7 @@ namespace MovieTicketBookingManagementSystem
                         string posterPath = reader["PosterPath"]?.ToString();
                         string movieId = reader["MovieID"].ToString();
                         string imageUrl = (!string.IsNullOrEmpty(posterPath) && System.IO.File.Exists(posterPath))
-                            ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, posterPath)
+                            ? posterPath
                             : "";
 
                         Panel moviePanel = CreateMoviePanel(movieId, title, rating, releaseDate, imageUrl);

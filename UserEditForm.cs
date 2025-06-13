@@ -80,12 +80,14 @@ namespace MovieTicketBookingManagementSystem
             user.UserID = int.Parse(edituser_userid_txt.Text.Trim());
             user.Firstname = edituser_firstname_txt.Text.Trim();
             user.Lastname = edituser_lastname_txt.Text.Trim();
-            user.Gender=edituser_female_rb.Checked? "female" : edituser_male_rb.Checked? "male" : throw new InvalidOperationException("Please select a gender.");
+            user.Gender=edituser_female_rb.Checked? "female" : edituser_male_rb.Checked? "male" :
+                throw new InvalidOperationException("Please select a gender.");
             user.Email = edituser_email_txt.Text.Trim();
             user.Birthdate= edituser_birthdate_datepicker.Value;
             user.Phone = edituser_phone_txt.Text.Trim();
             user.Address = edituser_address_txt.Text.Trim();
-            user.Role=edituser_admin_rb.Checked? "admin" : edituser_user_rb.Checked? "user" : throw new InvalidOperationException("Please select a user role.");
+            user.Role=edituser_admin_rb.Checked? "admin" : edituser_user_rb.Checked? "user" :
+                throw new InvalidOperationException("Please select a user role.");
             user.IsActive = edituser_active_rb.Checked ? true :
                 edituser_inactive_rb.Checked ? false : throw new InvalidOperationException("Please select an active status.");
             AdminService.UpdateUser(user);
